@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 2282811740
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 56fb5cf350e9e39e3cc3315c3251977f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/Role/RoleInfo/img_silder_bg.png
+- Assets/Res/Art/Texture/UI/Role/RoleInfo/img_rolehead_splitline.png
+- Assets/Res/Art/Texture/UI/Role/RoleInfo/img_skill_add.png
+- Assets/Res/Art/Texture/UI/Role/RoleInfo/img_loge_Lycoris.png
+- Assets/Res/Art/Texture/UI/Role/RoleInfo/img_roleinfo_roleimage_bg.png
+- Assets/Res/Art/Texture/UI/Role/RoleInfo/img_star_empty.png
+- Assets/Res/Art/Texture/UI/Role/RoleInfo/img_silder_fill.png
+- Assets/Res/Art/Texture/UI/Role/RoleInfo/img_skill_bg.png
+- Assets/Res/Art/Texture/UI/Role/RoleInfo/img_skill_lock.png
+- Assets/Res/Art/Texture/UI/Role/RoleInfo/btn_detail.png
+- Assets/Res/Art/Texture/UI/Role/RoleInfo/img_star_full.png
+Dependencies: []

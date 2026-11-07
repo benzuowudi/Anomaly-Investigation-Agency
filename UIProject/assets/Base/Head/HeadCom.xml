@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="119,119">
+  <displayList>
+    <image id="n1_qvtg" name="n1" src="qvtgv" fileName="Head/ui_bg_headBg.png" xy="0,0"/>
+    <loader id="n0_qvtg" name="load_head" xy="24,11" size="70,96" url="ui://5wifhyqaqvtgu" autoSize="true"/>
+    <image id="n2_qvtg" name="img_point" src="qvtgt" fileName="Head/ui_icon_greenPoint.png" xy="78,82"/>
+  </displayList>
+</component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="226,60" extention="Button">
+  <controller name="button" pages="2,up,3,down" selected="0"/>
+  <displayList>
+    <image id="n3_l061" name="icon" src="l0618" fileName="Texture/ui_btn_roleSelect.png" xy="0,11">
+      <gearDisplay controller="button" pages="3"/>
+    </image>
+    <text id="n4_l061" name="txt_title_1" xy="56,0" size="88,56" fontSize="42" color="#e1dde9" ubb="true" text="详情"/>
+    <text id="n5_l061" name="txt_title_2" xy="148,11" size="78,49" font="ui://5wifhyqavccf4" fontSize="36" color="#e1dde9" text="DETAIL"/>
+  </displayList>
+  <Button mode="Radio"/>
+</component>

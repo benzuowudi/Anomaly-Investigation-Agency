@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 3615682363
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ec332bd7747d8a4de5b76e95654d17dc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/MainStory/img_star_light.png
+- Assets/Res/Art/Texture/UI/MainStory/bg_mainstory_grouplist.png
+- Assets/Res/Art/Texture/UI/MainStory/btn_group_element.png
+- Assets/Res/Art/Texture/UI/MainStory/btn_level_finish.png
+- Assets/Res/Art/Texture/UI/MainStory/btn_level_unfinish.png
+- Assets/Res/Art/Texture/UI/MainStory/img_star_dark.png
+- Assets/Res/Art/Texture/UI/MainStory/img_chaptershow.png
+- Assets/Res/Art/Texture/UI/MainStory/img_chapter_unfinish.png
+- Assets/Res/Art/Texture/UI/MainStory/img_chapter_finish.png
+- Assets/Res/Art/Texture/UI/MainStory/bg_mainstory_groupdesc.png
+- Assets/Res/Art/Texture/UI/MainStory/btn_mainstory_backmenu.png
+- Assets/Res/Art/Texture/UI/MainStory/btn_mainstory_inchapter.png
+- Assets/Res/Art/Texture/UI/MainStory/bg_mainstory_levellist.png
+- Assets/Res/Art/Texture/UI/MainStory/img_group_play.png
+Dependencies: []

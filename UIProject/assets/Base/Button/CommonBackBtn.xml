@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="159,56" extention="Button">
+  <controller name="button" pages="2,up,3,down" selected="0"/>
+  <displayList>
+    <loader id="n0_l061" name="icon" xy="0,6" size="55,40" url="ui://5wifhyqal0611o"/>
+    <text id="n1_l061" name="title" xy="71,0" size="88,56" fontSize="42" color="#e1dde9" text="返回"/>
+  </displayList>
+  <Button/>
+</component>

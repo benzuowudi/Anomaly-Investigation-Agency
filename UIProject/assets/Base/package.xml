@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="5wifhyqa">
+  <resources>
+    <component id="mvrg0" name="BackGroundVIew.xml" path="/BackGroundVIew/" exported="true"/>
+    <component id="n9402" name="ForeGroundView.xml" path="/ForeGroundView/" exported="true"/>
+    <image id="n9403" name="img_Gird.png" path="/ForeGroundView/"/>
+    <font id="vccf4" name="AGENCYR.TTF" path="/Font/" renderMode="" samplePointSize="16"/>
+    <font id="vccf5" name="AGENCYB.TTF" path="/Font/" renderMode="" samplePointSize="16"/>
+    <font id="vccf6" name="FZYTK.TTF" path="/Font/" renderMode="" samplePointSize="16"/>
+    <component id="vccf8" name="CommonBtn.xml" path="/Button/" exported="true"/>
+    <component id="qvtg9" name="CommonBtn1.xml" path="/Button/" exported="true"/>
+    <image id="qvtg1n" name="ui_bg_mainBg.png" path="/BackGroundVIew/"/>
+    <image id="qvtgv" name="ui_bg_headBg.png" path="/Head/"/>
+    <image id="qvtgt" name="ui_icon_greenPoint.png" path="/Head/"/>
+    <image id="qvtgu" name="ui_icon_head.png" path="/Head/"/>
+    <component id="qvtga" name="HeadCom.xml" path="/Head/" exported="true"/>
+    <image id="vccf3" name="ui_bg_common_1.png" path="/Texture/" exported="true" scale="9grid" scale9grid="31,24,62,48"/>
+    <component id="qvtgb" name="CommonBtn2.xml" path="/Button/" exported="true"/>
+    <image id="l0611o" name="ui_btn_back.png" path="/Texture/" exported="true"/>
+    <image id="vccf1" name="ui_bg_common_2.png" path="/Texture/" exported="true"/>
+    <component id="l0617" name="CommonBackBtn.xml" path="/Button/" exported="true"/>
+    <image id="l0611q" name="ui_bg_line.png" path="/Texture/" exported="true" scale="9grid" scale9grid="139,1,278,2"/>
+    <component id="l0611r" name="CommonItemCom.xml" path="/Component/" exported="true"/>
+    <image id="l0611s" name="ui_bg_plus.png" path="/Texture/" exported="true"/>
+    <image id="l0611t" name="ui_bg_item.png" path="/Texture/" exported="true" scale="9grid" scale9grid="20,20,40,40"/>
+    <image id="nye21u" name="ui_bg_pos3.png" path="/Texture/" exported="true"/>
+    <image id="nye21v" name="ui_bg_pos1.png" path="/Texture/" exported="true"/>
+    <image id="nye21w" name="ui_bg_pos2.png" path="/Texture/" exported="true"/>
+    <component id="nye21x" name="CommonPosCom.xml" path="/Component/" exported="true"/>
+    <image id="nye21y" name="ui_bg_box.png" path="/Texture/" scale="9grid" scale9grid="13,13,26,26"/>
+    <component id="nye21z" name="CommonSkillIconCom.xml" path="/Component/" exported="true"/>
+    <component id="nye2f" name="RoleCardCom.xml" path="/Component/" exported="true"/>
+    <image id="nye2g" name="ui_bg_card.png" path="/Texture/" exported="true"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

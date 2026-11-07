@@ -1,0 +1,51 @@
+[
+  {
+    "ID": 1,
+    "name": 1,
+    "type": 0,
+    "order": 0,
+    "res": "background"
+  },
+  {
+    "ID": 2,
+    "name": 2,
+    "type": 0,
+    "order": 100,
+    "res": "foreground"
+  },
+  {
+    "ID": 3,
+    "name": 3,
+    "type": 0,
+    "order": 10,
+    "res": "Commandroom"
+  },
+  {
+    "ID": 4,
+    "name": 4,
+    "type": 0,
+    "order": 10,
+    "res": "rolebase,roleback"
+  },
+  {
+    "ID": 5,
+    "name": 5,
+    "type": 0,
+    "order": 11,
+    "res": "roleInfo"
+  },
+  {
+    "ID": 6,
+    "name": 6,
+    "type": 0,
+    "order": 11,
+    "res": ""
+  },
+  {
+    "ID": 7,
+    "name": 7,
+    "type": 0,
+    "order": 11,
+    "res": "roledestiny"
+  }
+]

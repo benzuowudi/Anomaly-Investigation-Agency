@@ -1,0 +1,191 @@
+ManifestFileVersion: 0
+CRC: 1428071874
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: enemytype.ui
+      Dependencies: {}
+    Info_1:
+      Name: shop.ui
+      Dependencies: {}
+    Info_2:
+      Name: fight.ui
+      Dependencies: {}
+    Info_3:
+      Name: commandroom.ui
+      Dependencies: {}
+    Info_4:
+      Name: mainstory.ui
+      Dependencies: {}
+    Info_5:
+      Name: battle.ui
+      Dependencies: {}
+    Info_6:
+      Name: lottery.ui
+      Dependencies: {}
+    Info_7:
+      Name: universal.ui
+      Dependencies: {}
+    Info_8:
+      Name: fightprocess.ui
+      Dependencies: {}
+    Info_9:
+      Name: maptile_wall_fbx.unity3d
+      Dependencies: {}
+    Info_10:
+      Name: leftbutton.ui
+      Dependencies: {}
+    Info_11:
+      Name: item.ui
+      Dependencies: {}
+    Info_12:
+      Name: maptile_tower.unity3d
+      Dependencies:
+        Dependency_0: maptile_tower_fbx.unity3d
+    Info_13:
+      Name: inventory.ui
+      Dependencies: {}
+    Info_14:
+      Name: dark.material
+      Dependencies: {}
+    Info_15:
+      Name: mapstatus.ui
+      Dependencies: {}
+    Info_16:
+      Name: maptile_normal_fbx.unity3d
+      Dependencies: {}
+    Info_17:
+      Name: coinshow.ui
+      Dependencies: {}
+    Info_18:
+      Name: icon.ui
+      Dependencies: {}
+    Info_19:
+      Name: maptile_low.unity3d
+      Dependencies:
+        Dependency_0: maptile_low_fbx.unity3d
+    Info_20:
+      Name: foreground.unity3d
+      Dependencies:
+        Dependency_0: foreground.ui
+    Info_21:
+      Name: card.ui
+      Dependencies: {}
+    Info_22:
+      Name: foreground.ui
+      Dependencies: {}
+    Info_23:
+      Name: enemyhead.ui
+      Dependencies: {}
+    Info_24:
+      Name: role_cursor.unity3d
+      Dependencies:
+        Dependency_0: profession.ui
+        Dependency_1: role_cursor_fbx.unity3d
+    Info_25:
+      Name: maptile_high_fbx.unity3d
+      Dependencies: {}
+    Info_26:
+      Name: profession.ui
+      Dependencies: {}
+    Info_27:
+      Name: background.unity3d
+      Dependencies:
+        Dependency_0: background.ui
+    Info_28:
+      Name: maptile_wall.unity3d
+      Dependencies:
+        Dependency_0: maptile_wall_fbx.unity3d
+    Info_29:
+      Name: battle_orderring.ui
+      Dependencies: {}
+    Info_30:
+      Name: image.ui
+      Dependencies: {}
+    Info_31:
+      Name: light.material
+      Dependencies: {}
+    Info_32:
+      Name: battleoperate.unity3d
+      Dependencies: {}
+    Info_33:
+      Name: maptile_tower_fbx.unity3d
+      Dependencies: {}
+    Info_34:
+      Name: background.ui
+      Dependencies: {}
+    Info_35:
+      Name: maptile_normal.unity3d
+      Dependencies:
+        Dependency_0: maptile_normal_fbx.unity3d
+    Info_36:
+      Name: maptile_low_fbx.unity3d
+      Dependencies: {}
+    Info_37:
+      Name: maptile_high.unity3d
+      Dependencies:
+        Dependency_0: maptile_high_fbx.unity3d
+    Info_38:
+      Name: commandroom.unity3d
+      Dependencies:
+        Dependency_0: commandroom.ui
+        Dependency_1: icon.ui
+    Info_39:
+      Name: role_cursor_fbx.unity3d
+      Dependencies: {}
+    Info_40:
+      Name: dontdestroy.unity3d
+      Dependencies: {}
+    Info_41:
+      Name: roleback.ui
+      Dependencies: {}
+    Info_42:
+      Name: rolebase.ui
+      Dependencies: {}
+    Info_43:
+      Name: roleinfo.ui
+      Dependencies: {}
+    Info_44:
+      Name: rolehead.ui
+      Dependencies: {}
+    Info_45:
+      Name: rolebase.unity3d
+      Dependencies:
+        Dependency_0: roleback.ui
+        Dependency_1: rolebase.ui
+        Dependency_2: roleinfo.ui
+    Info_46:
+      Name: roleinfo.unity3d
+      Dependencies:
+        Dependency_0: universal.ui
+        Dependency_1: roleinfo.ui
+    Info_47:
+      Name: roleattribe_dark.unity3d
+      Dependencies:
+        Dependency_0: universal.ui
+    Info_48:
+      Name: roleattribe_light.unity3d
+      Dependencies:
+        Dependency_0: universal.ui
+    Info_49:
+      Name: rolehead.unity3d
+      Dependencies:
+        Dependency_0: rolehead.ui
+    Info_50:
+      Name: rolegrow.unity3d
+      Dependencies:
+        Dependency_0: universal.ui
+    Info_51:
+      Name: item.unity3d
+      Dependencies:
+        Dependency_0: universal.ui
+        Dependency_1: item.ui
+    Info_52:
+      Name: roledestiny.unity3d
+      Dependencies:
+        Dependency_0: mainstory.ui
+        Dependency_1: universal.ui
+        Dependency_2: roledestiny.ui
+    Info_53:
+      Name: roledestiny.ui
+      Dependencies: {}

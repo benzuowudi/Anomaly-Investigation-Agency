@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 1843557808
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f517fd202e57e59491585665618c7982
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/Battle/img_dead.png
+- Assets/Res/Art/Texture/UI/Battle/img_track.png
+- Assets/Res/Art/Texture/UI/Battle/bg_ATCell_big.png
+- Assets/Res/Art/Texture/UI/Battle/img_DEFup.png
+- Assets/Res/Art/Texture/UI/Battle/btn_pause.png
+- Assets/Res/Art/Texture/UI/Battle/Battle.png
+- Assets/Res/Art/Texture/UI/Battle/btn_option.png
+- Assets/Res/Art/Texture/UI/Battle/bg_ATCell_small.png
+- Assets/Res/Art/Texture/UI/Battle/img_ATKup.png
+- Assets/Res/Art/Texture/UI/Battle/img_doubleAction.png
+- Assets/Res/Art/Texture/UI/Battle/btn_hideUI.png
+Dependencies: []

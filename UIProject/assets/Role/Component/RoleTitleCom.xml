@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="748,62">
+  <displayList>
+    <text id="n16_l061" name="txt_titleC" xy="0,0" size="179,62" fontSize="46" color="#636168" letterSpacing="-3" text="主动技能">
+      <relation target="" sidePair="middle-middle,left-left"/>
+    </text>
+    <text id="n17_l061" name="txt_titleE" xy="190,2" size="147,49" font="ui://5wifhyqavccf4" fontSize="36" color="#636168" text="ACTIVE SKILL">
+      <relation target="" sidePair="top-top"/>
+      <relation target="n16_l061" sidePair="left-right"/>
+    </text>
+    <image id="n18_l061" name="n18" src="l0611q" fileName="Texture/ui_bg_line.png" pkg="5wifhyqa" xy="192,47">
+      <relation target="" sidePair="rightext-right"/>
+      <relation target="n16_l061" sidePair="leftext-right"/>
+    </image>
+  </displayList>
+  <customProperty target="txt_titleC" propertyId="0"/>
+  <customProperty target="txt_titleE" propertyId="0"/>
+</component>

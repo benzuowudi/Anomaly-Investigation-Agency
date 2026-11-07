@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 4235141573
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c8e2842c9b343dcd752a89850c88cfba
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/item/icon_tape_7473_lightblue.png
+- Assets/Res/Art/Texture/item/icon_TrainingMaterial_1_dark.png
+- Assets/Res/Art/Texture/item/icon_TrainingMaterial_2_dark.png
+- Assets/Res/Art/Texture/item/icon_TrainingMaterial_5_light.png
+- Assets/Res/Art/Texture/item/icon_tape_7473_white.png
+- Assets/Res/Art/Texture/item/icon_TrainingMaterial_4_light.png
+- Assets/Res/Art/Texture/item/icon_TrainingMaterial_4_dark.png
+- Assets/Res/Art/Texture/item/icon_TrainingMaterial_3_dark.png
+- Assets/Res/Art/Texture/item/icon_TrainingMaterial_5_dark.png
+- Assets/Res/Art/Texture/item/icon_TrainingMaterial_1_light.png
+- Assets/Res/Art/Texture/item/icon_TrainingMaterial_3_light.png
+- Assets/Res/Art/Texture/item/icon_TrainingMaterial_2_light.png
+- Assets/Res/Art/Texture/item/icon_wangyuanjing.png
+- Assets/Res/Art/Texture/item/icon_tape_241237-lightblue.png
+Dependencies: []

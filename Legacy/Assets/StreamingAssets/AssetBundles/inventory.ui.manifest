@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 1931280116
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e9fe79562c12d3e84d4b22ba88bb87c6
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/Inventory/bg_Inventory_list.png
+- Assets/Res/Art/Texture/UI/Inventory/bg_Inventory_show.png
+- Assets/Res/Art/Texture/UI/Inventory/bg_Inventory_des.png
+- Assets/Res/Art/Texture/UI/Inventory/bg_Inventory_type.png
+- Assets/Res/Art/Texture/UI/Inventory/btn_Inventory_Details.png
+Dependencies: []

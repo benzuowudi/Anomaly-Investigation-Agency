@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="zxx62erc">
+  <resources>
+    <component id="vccf0" name="CommandBaseView.xml" path="/View/" exported="true"/>
+    <image id="vccf2" name="CommandBaseView.png" path="/Texture/"/>
+    <image id="vccf5" name="ui_bg_divider.png" path="/Texture/"/>
+    <component id="vccf6" name="CommandPlayerCom.xml" path="/Component/"/>
+    <image id="vccf7" name="ui_red.png" path="/Texture/"/>
+    <image id="vccf8" name="ui_bg_specialist.png" path="/Texture/"/>
+    <image id="vccf9" name="ui_icon_hotel.png" path="/Texture/"/>
+    <component id="vccfa" name="CommandRoleCom.xml" path="/Component/"/>
+    <image id="qvtgb" name="ui_icon_gift.png" path="/Texture/"/>
+    <image id="qvtgc" name="ui_bg_TA.png" path="/Texture/"/>
+    <component id="qvtgd" name="CommandTACom.xml" path="/Component/"/>
+    <image id="qvtge" name="ui_bg_box.png" path="/Texture/"/>
+    <component id="qvtgf" name="CommandInventoryCom.xml" path="/Component/"/>
+    <component id="qvtgg" name="CommandArmoryCom.xml" path="/Component/"/>
+    <image id="qvtgh" name="ui_icon_book.png" path="/Texture/"/>
+    <image id="qvtgi" name="ui_btn_add.png" path="/Texture/"/>
+    <component id="qvtgj" name="CommandAddBtn.xml" path="/Component/"/>
+    <image id="qvtgk" name="ui_bg_arrow.png" path="/Texture/"/>
+    <image id="qvtgl" name="ui_bg_fight.png" path="/Texture/"/>
+    <component id="qvtgm" name="CommandActionCom.xml" path="/Component/"/>
+    <image id="qvtgn" name="ui_bg_role.png" path="/Texture/"/>
+    <image id="qvtgo" name="ui_btn_cup.png" path="/Texture/"/>
+    <image id="qvtgp" name="ui_btn_mail.png" path="/Texture/"/>
+    <image id="qvtgq" name="ui_btn_player.png" path="/Texture/"/>
+    <image id="qvtgr" name="ui_btn_task.png" path="/Texture/"/>
+    <component id="qvtgs" name="CommandCurrencyCOm.xml" path="/Component/"/>
+    <image id="qvtgw" name="ui_bg_shop.png" path="/Texture/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

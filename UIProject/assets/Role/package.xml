@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="5m40pj94">
+  <resources>
+    <image id="gndh0" name="img_hutao_card.png" path="/Texture/" exported="true"/>
+    <image id="gndh1" name="img_longnai_card.png" path="/Texture/" exported="true"/>
+    <image id="gndh2" name="img_qianshu_card.png" path="/Texture/" exported="true"/>
+    <image id="gndh3" name="img_ruixi_card.png" path="/Texture/" exported="true"/>
+    <component id="n9404" name="RoleBaseView.xml" path="/View/" exported="true"/>
+    <image id="l0618" name="ui_btn_roleSelect.png" path="/Texture/"/>
+    <component id="l0619" name="RoleTabBtn.xml" path="/Component/"/>
+    <component id="l061a" name="RoleTitleCom.xml" path="/Component/"/>
+    <component id="l061b" name="RoleAttrCom.xml" path="/Component/"/>
+    <component id="l061c" name="RoleInfoCom.xml" path="/Component/"/>
+    <component id="l061d" name="RoleSkillCom.xml" path="/Component/"/>
+    <component id="nye2e" name="RoleListView.xml" path="/View/" exported="true"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

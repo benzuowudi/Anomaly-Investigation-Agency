@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 738399298
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b6eef58623d1fef2a3f19bce44d605de
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/Role/Destiny/btn_RoleDestiny_NodeAdd.png
+- Assets/Res/Art/Texture/Role/Destiny/img_RoleDestiny_NameBG.png
+- Assets/Res/Art/Texture/Role/Destiny/btn_RoleDestiny_EchoTypeBg.png
+- Assets/Res/Art/Texture/Role/Destiny/img_RoleDestiny_bg.png
+- Assets/Res/Art/Texture/Role/Destiny/img_RoleDestiny_ValueBG.png
+- Assets/Res/Art/Texture/Role/Destiny/btn_RoleDestiny_NodeBG.png
+- Assets/Res/Art/Texture/Role/Destiny/img_RoleDestiny_EchoImage.png
+- Assets/Res/Art/Texture/Role/Destiny/btn_RoleDestiny_EchoBg.png
+Dependencies: []

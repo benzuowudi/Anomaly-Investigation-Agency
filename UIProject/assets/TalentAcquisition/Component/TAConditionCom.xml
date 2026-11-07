@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="704,285">
+  <displayList>
+    <text id="n9_nye2" name="txt_title" xy="6,0" size="176,49" fontSize="36" color="#636168" letterSpacing="-2" text="合同说明："/>
+    <image id="n10_nye2" name="n10" src="nye23" fileName="Texture/ui_bg_TA2.png" xy="0,46" size="704,239">
+      <relation target="n15_nye2" sidePair="bottomext-bottom"/>
+    </image>
+    <list id="n15_nye2" name="list_select" xy="13,61" size="678,208" layout="flow_hz" selectionMode="multipleSingleClick" overflow="hidden" lineGap="14" colGap="30" defaultItem="ui://tc35a63gnye2f" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+  <relation target="n15_nye2" sidePair="bottomext-bottom"/>
+</component>

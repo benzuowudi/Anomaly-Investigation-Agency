@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3266599481
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6a85591aadd9311305bdb310a1f8cf6b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/Role/RoleBase/btn_bookmark_unselect.png
+- Assets/Res/Art/Texture/UI/Role/RoleBase/btn_bookmark_select.png
+- Assets/Res/Art/Texture/UI/Role/RoleBase/img_bookmark.png
+Dependencies: []

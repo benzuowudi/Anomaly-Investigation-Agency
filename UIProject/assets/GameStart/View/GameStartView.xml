@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <image id="n0_qvtg" name="n0" src="qvtg1" fileName="Texture/ui_bg_logo.png" xy="558,105">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </image>
+    <image id="n1_qvtg" name="n1" src="vccf3" fileName="Texture/ui_bg_btn.png" pkg="5wifhyqa" xy="512,166" size="896,249"/>
+    <text id="n2_qvtg" name="txt_title" xy="538,216" size="844,154" fontSize="120" color="#636168" text="异常调查事务所"/>
+    <component id="n3_qvtg" name="btn_continue" src="qvtgb" fileName="Button/CommonBtn2.xml" pkg="5wifhyqa" xy="721,576" size="477,97" group="n7_qvtg"/>
+    <component id="n4_qvtg" name="btn_newGame" src="qvtgb" fileName="Button/CommonBtn2.xml" pkg="5wifhyqa" xy="721,685" size="477,97" group="n7_qvtg"/>
+    <component id="n5_qvtg" name="btn_option" src="qvtgb" fileName="Button/CommonBtn2.xml" pkg="5wifhyqa" xy="721,794" size="477,97" group="n7_qvtg"/>
+    <component id="n6_qvtg" name="btn_exit" src="qvtgb" fileName="Button/CommonBtn2.xml" pkg="5wifhyqa" xy="721,903" size="477,97" group="n7_qvtg"/>
+    <group id="n7_qvtg" name="n7" xy="721,576" size="477,424" advanced="true" layout="vt" lineGap="12"/>
+  </displayList>
+</component>

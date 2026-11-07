@@ -1,0 +1,62 @@
+[
+  {
+    "ID": 1000,
+    "exclusive": 10001,
+    "name": "初始时装",
+    "image_body": "1",
+    "image_card": "1",
+    "image_head": "1",
+    "image_half": "1",
+    "modle": "Role_Cursor"
+  },
+  {
+    "ID": 1001,
+    "exclusive": 10001,
+    "name": "进阶时装",
+    "image_body": "1",
+    "image_card": "1",
+    "image_head": "1",
+    "image_half": "1",
+    "modle": "Role_Cursor"
+  },
+  {
+    "ID": 1002,
+    "exclusive": 10001,
+    "name": "终极时装",
+    "image_body": "1",
+    "image_card": "1",
+    "image_head": "1",
+    "image_half": "1",
+    "modle": "Role_Cursor"
+  },
+  {
+    "ID": 2000,
+    "exclusive": 10002,
+    "name": "初始时装",
+    "image_body": "1",
+    "image_card": "1",
+    "image_head": "1",
+    "image_half": "1",
+    "modle": "Role_Cursor"
+  },
+  {
+    "ID": 2001,
+    "exclusive": 10002,
+    "name": "进阶时装",
+    "image_body": "1",
+    "image_card": "1",
+    "image_head": "1",
+    "image_half": "1",
+    "modle": "Role_Cursor"
+  },
+  {
+    "ID": 2002,
+    "exclusive": 10002,
+    "name": "终极时装",
+    "image_body": "1",
+    "image_card": "1",
+    "image_head": "1",
+    "image_half": "1",
+    "modle": "Role_Cursor"
+  }
+]

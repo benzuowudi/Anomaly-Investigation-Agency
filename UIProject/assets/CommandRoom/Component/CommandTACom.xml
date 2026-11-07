@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="414,399">
+  <displayList>
+    <image id="n16_qvtg" name="n16" src="vccf3" fileName="Texture/ui_bg_btn.png" xy="0,0" size="414,399" pkg="5wifhyqa"/>
+    <image id="n23_qvtg" name="n23" src="qvtgc" fileName="Texture/ui_bg_TA.png" xy="70,9"/>
+    <image id="n22_qvtg" name="n22" src="qvtgb" fileName="Texture/ui_icon_gift.png" xy="17,58"/>
+    <text id="n17_qvtg" name="txt_titleC" xy="1,99" size="58,290" font="ui://5wifhyqavccf6" fontSize="68" color="#636168" align="center" leading="-19" autoSize="none" text="人才招募"/>
+    <text id="n18_qvtg" name="txt_titleE" xy="72,298" size="154,94" font="ui://5wifhyqavccf4" fontSize="38" color="#636168" leading="-5" text="TALENT&#xA;ACQUISITION"/>
+    <text id="n20_qvtg" name="txt_back" xy="290,307" size="108,36" group="n24_qvtg" font="ui://5wifhyqavccf6" fontSize="26" color="#636168" align="right" text="猎头到位"/>
+    <text id="n21_qvtg" name="txt_backTime" xy="286,335" size="111,52" group="n24_qvtg" font="ui://5wifhyqavccf4" fontSize="38" color="#636168" align="right" text="23:59:58"/>
+    <image id="n19_qvtg" name="n19" src="vccf5" fileName="Texture/ui_bg_divider.png" xy="241,309" size="4,69" group="n24_qvtg"/>
+    <group id="n24_qvtg" name="part_back" xy="241,307" size="157,80" advanced="true"/>
+  </displayList>
+</component>

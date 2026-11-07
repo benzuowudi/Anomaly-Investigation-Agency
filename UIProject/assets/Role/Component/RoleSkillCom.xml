@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="748,219">
+  <displayList>
+    <component id="n16_l061" name="n16" src="l061a" fileName="Component/RoleTitleCom.xml" xy="0,0"/>
+    <loader id="n36_l061" name="load_icon" xy="6,96" size="110,110" url="ui://zgdu5cgql0611t" autoSize="true"/>
+    <text id="n37_l061" name="load_name" xy="110,67" size="142,49" fontSize="36" color="#636168" letterSpacing="-2" text="老练猎手"/>
+    <text id="n39_l061" name="load_desc" xy="113,119" size="614,100" fontSize="27" color="#636168" leading="-2" letterSpacing="-2" autoSize="height" text="将自身受到的【恐惧】【混乱】效果持续时间变为0.1s，并在收到【恐惧】【混乱】效果的同时获得持续5s的【沉着】效果。"/>
+  </displayList>
+</component>

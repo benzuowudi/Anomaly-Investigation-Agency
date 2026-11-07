@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 41153898
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ec55cbf67e2ada0d5c1e38ea5b99ed3e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 694107448c92c064b6aeaf4832fe0e82
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: ecf3a50c5ac637b4a82c2e9f3924fc33, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/OperateBase/BattleOperate/BattleOperate.prefab
+Dependencies: []

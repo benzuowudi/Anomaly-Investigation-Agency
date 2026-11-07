@@ -1,0 +1,22 @@
+{
+    "name": "HotUpdate",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3acca4464b013cb40bd080e46ca93a98",
+        "GUID:ba78037fcd984a24184137a457e27294",
+        "GUID:4e60f3cf547dc3c4d9d092033198f80f",
+        "GUID:10f969401ca61cf478ec7ce32d25ccc1",
+        "Unity.Addressables",
+        "Unity.ResourceManager",
+        "UniTask"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

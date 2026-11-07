@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 1771094421
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 04710ca7d3c84b4d9c20d4d954649676
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5e762ccb57c4caaabbb5a4199ac82c23
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Material/light.mat
+Dependencies: []

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="136,62">
+  <displayList>
+    <loader id="n56_qvtg" name="n56" xy="94,17" size="42,29" url="ui://zgdu5cgqqvtg1m" autoSize="true"/>
+    <text id="n57_qvtg" name="n57" xy="0,0" size="75,62" font="ui://5wifhyqavccf4" fontSize="46" color="#e1dde9" align="right" letterSpacing="-3" text="2,430"/>
+  </displayList>
+</component>

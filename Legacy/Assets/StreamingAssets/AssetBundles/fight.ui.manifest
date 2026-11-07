@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 1162765195
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 837cc230a99b588905f3d814764a6c17
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/Fight/btn_main.png
+- Assets/Res/Art/Texture/UI/Fight/btn_activity.png
+- Assets/Res/Art/Texture/UI/Fight/btn_pvp.png
+- Assets/Res/Art/Texture/UI/Fight/btn_boss.png
+- Assets/Res/Art/Texture/UI/Fight/btn_roleTrial.png
+- Assets/Res/Art/Texture/UI/Fight/btn_character.png
+- Assets/Res/Art/Texture/UI/Fight/btn_fight.png
+- Assets/Res/Art/Texture/UI/Fight/btn_stronghold.png
+- Assets/Res/Art/Texture/UI/Fight/btn_custom.png
+Dependencies: []

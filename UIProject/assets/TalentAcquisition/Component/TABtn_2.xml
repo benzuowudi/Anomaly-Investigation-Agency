@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="704,71" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <image id="n0_nye2" name="n0" src="nye25" fileName="Texture/ui_btn_TA2.png" xy="0,0" size="704,71">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n3_nye2" name="title" xy="67,8" size="174,59" fontSize="44" color="#636168" leading="0" letterSpacing="-2" text="发送合同"/>
+    <text id="n6_qktp" name="desc" xy="421,8" size="174,59" fontSize="44" color="#636168" leading="0" letterSpacing="-2" text="发送合同"/>
+    <loader id="n5_nye2" name="icon" xy="619,15" size="40,45" url="ui://tc35a63gnye27"/>
+  </displayList>
+  <Button/>
+</component>

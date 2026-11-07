@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080" designImageLayer="1">
+  <displayList>
+    <loader id="n7_vccf" name="n7" xy="1048,31" size="836,1030" url="ui://5wifhyqavccf1" autoSize="true"/>
+    <loader id="n47_qvtg" name="load_role" xy="182,108" size="697,982" url="ui://zxx62ercqvtgn" autoSize="true"/>
+    <component id="n9_vccf" name="com_player" src="vccf6" fileName="Component/CommandPlayerCom.xml" xy="46,904"/>
+    <component id="n15_vccf" name="com_role" src="vccfa" fileName="Component/CommandRoleCom.xml" xy="1074,120"/>
+    <component id="n16_qvtg" name="com_TA" src="qvtgd" fileName="Component/CommonTACom.xml" xy="1074,362"/>
+    <component id="n24_qvtg" name="com_inventory" src="qvtgf" fileName="Component/CommonInventoryCom.xml" xy="1512,363"/>
+    <component id="n30_qvtg" name="com_armory" src="qvtgg" fileName="Component/CommonArmoryCom.xml" xy="1512,518"/>
+    <component id="n34_qvtg" name="com_action" src="qvtgm" fileName="Component/CommonActionCom.xml" xy="1074,782"/>
+    <component id="n52_qvtg" name="btn_task" src="qvtg9" fileName="Button/CommonBtn1.xml" pkg="5wifhyqa" xy="1088,59" size="36,42">
+      <Button icon="ui://zxx62ercqvtgr"/>
+    </component>
+    <component id="n53_qvtg" name="btn_achievement" src="qvtg9" fileName="Button/CommonBtn1.xml" pkg="5wifhyqa" xy="1165,55" size="56,46">
+      <Button icon="ui://zxx62ercqvtgo"/>
+    </component>
+    <component id="n54_qvtg" name="btn_mail" src="qvtg9" fileName="Button/CommonBtn1.xml" pkg="5wifhyqa" xy="1260,61" size="49,35">
+      <Button icon="ui://zxx62ercqvtgp"/>
+    </component>
+    <component id="n55_qvtg" name="btn_player" src="qvtg9" fileName="Button/CommonBtn1.xml" pkg="5wifhyqa" xy="1352,59" size="55,39">
+      <Button icon="ui://zxx62ercqvtgq"/>
+    </component>
+    <component id="n56_qvtg" name="com_currency" src="qvtgs" fileName="Component/CommonCurrencyCOm.xml" xy="1723,41"/>
+  </displayList>
+</component>

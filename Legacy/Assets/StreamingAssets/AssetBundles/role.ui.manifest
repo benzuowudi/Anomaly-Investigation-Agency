@@ -1,0 +1,43 @@
+ManifestFileVersion: 0
+CRC: 3329466219
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 937d5493547c53b6071547c81f31f6f6
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/Role/btn_bookmark_unselect.png
+- Assets/Res/Art/Texture/UI/Role/btn_bookmark_select.png
+- Assets/Res/Art/Texture/UI/Role/btn_home.png
+- Assets/Res/Art/Texture/UI/Role/img_silder_bg.png
+- Assets/Res/Art/Texture/UI/Role/img_rolehead_splitline.png
+- Assets/Res/Art/Texture/UI/Role/img_skill_add.png
+- Assets/Res/Art/Texture/UI/Role/img_loge_Lycoris.png
+- Assets/Res/Art/Texture/UI/Role/img_bookmark.png
+- Assets/Res/Art/Texture/UI/Role/img_enery.png
+- Assets/Res/Art/Texture/UI/Role/img_roleinfo_roleimage_bg.png
+- Assets/Res/Art/Texture/UI/Role/img_star_empty.png
+- Assets/Res/Art/Texture/UI/Role/img_back_splitline.png
+- Assets/Res/Art/Texture/UI/Role/img_def.png
+- Assets/Res/Art/Texture/UI/Role/btn_back.png
+- Assets/Res/Art/Texture/UI/Role/img_spd.png
+- Assets/Res/Art/Texture/UI/Role/img_silder_fill.png
+- Assets/Res/Art/Texture/UI/Role/img_rolehead_fg.png
+- Assets/Res/Art/Texture/UI/Role/img_skill_bg.png
+- Assets/Res/Art/Texture/UI/Role/img_crt.png
+- Assets/Res/Art/Texture/UI/Role/img_skill_lock.png
+- Assets/Res/Art/Texture/UI/Role/img_atk.png
+- Assets/Res/Art/Texture/UI/Role/img_rolehead_bg.png
+- Assets/Res/Art/Texture/UI/Role/img_hp.png
+- Assets/Res/Art/Texture/UI/Role/btn_detail.png
+- Assets/Res/Art/Texture/UI/Role/img_star_full.png
+Dependencies: []

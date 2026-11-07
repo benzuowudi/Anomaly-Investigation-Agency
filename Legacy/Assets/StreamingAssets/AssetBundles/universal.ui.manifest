@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 2288020372
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4c8cd947099794543206620a80b7470d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/Universal/img_lightblue_bg_8.png
+- Assets/Res/Art/Texture/UI/Universal/img_lightblue_bg_15.png
+- Assets/Res/Art/Texture/UI/Universal/img_enery.png
+- Assets/Res/Art/Texture/UI/Universal/logo.png
+- Assets/Res/Art/Texture/UI/Universal/img_white_bg_15.png
+- Assets/Res/Art/Texture/UI/Universal/img_def.png
+- Assets/Res/Art/Texture/UI/Universal/img_spd.png
+- Assets/Res/Art/Texture/UI/Universal/img_crt.png
+- Assets/Res/Art/Texture/UI/Universal/img_white_bg_8.png
+- Assets/Res/Art/Texture/UI/Universal/img_atk.png
+- Assets/Res/Art/Texture/UI/Universal/img_hp.png
+Dependencies: []

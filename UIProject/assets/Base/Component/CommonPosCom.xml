@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="104,33">
+  <displayList>
+    <loader id="n0_nye2" name="load_bg" xy="0,0" size="104,33" url="ui://5wifhyqanye21v"/>
+    <text id="n1_nye2" name="txt_title" xy="0,-1" size="104,35" fontSize="25" color="#ededed" text="资深专员"/>
+  </displayList>
+</component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="344,241">
+  <displayList>
+    <image id="n30_qvtg" name="n30" src="vccf3" fileName="Texture/ui_bg_btn.png" xy="0,0" size="344,241" pkg="5wifhyqa"/>
+    <image id="n34_qvtg" name="n34" src="qvtgw" fileName="Texture/ui_bg_shop.png" xy="287,10"/>
+    <text id="n31_qvtg" name="txt_titleE" xy="13,122" size="102,52" font="ui://5wifhyqavccf4" fontSize="38" color="#636168" align="right" text="ARMORY"/>
+    <text id="n32_qvtg" name="txt_titleC" xy="2,166" size="148,64" fontSize="48" color="#636168" align="right" text="军械库"/>
+    <text id="n33_qvtg" name="txt_title_num" xy="216,178" size="115,60" font="ui://5wifhyqavccf4" fontSize="45" color="#636168" align="right" text="115/240"/>
+  </displayList>
+</component>

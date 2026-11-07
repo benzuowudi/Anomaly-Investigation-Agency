@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="tc35a63g">
+  <resources>
+    <image id="nye20" name="ui_bg_TA1.png" path="/Texture/"/>
+    <component id="nye21" name="TalentAcquisitionView.xml" path="/View/" exported="true"/>
+    <image id="nye23" name="ui_bg_TA2.png" path="/Texture/"/>
+    <image id="nye24" name="ui_btn_TA1.png" path="/Texture/"/>
+    <image id="nye25" name="ui_btn_TA2.png" path="/Texture/"/>
+    <component id="nye26" name="TABtn_1.xml" path="/Component/"/>
+    <image id="nye27" name="ui_bg_contract.png" path="/Texture/"/>
+    <component id="nye28" name="TACom.xml" path="/Component/"/>
+    <component id="nye29" name="TADescCom.xml" path="/Component/" exported="true"/>
+    <component id="nye2a" name="TAConditionCom.xml" path="/Component/" exported="true"/>
+    <image id="nye2b" name="ui_btn_condition.png" path="/Texture/" scale="9grid" scale9grid="81,17,162,34"/>
+    <image id="nye2c" name="ui_btn_TASelectBg.png" path="/Texture/"/>
+    <image id="nye2d" name="ui_btn_TASelect.png" path="/Texture/"/>
+    <component id="nye2f" name="TASelectBtn.xml" path="/Component/" exported="true"/>
+    <component id="qktpg" name="TABtn_2.xml" path="/Component/"/>
+    <component id="qktph" name="TalentAcquisitionResultView.xml" path="/View/" exported="true"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

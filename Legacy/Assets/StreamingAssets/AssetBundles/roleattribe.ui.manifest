@@ -1,0 +1,46 @@
+ManifestFileVersion: 0
+CRC: 3777402081
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 644175fc5c8f8ee77da1d37302385e68
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_dod_dark.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_hp_drak.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_tdr_dark.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_magicDEF_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_hp_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_hitr_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_ctr_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_ctd_dark.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_tdr_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_physicalATK_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_ctd_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_ap_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_spd_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_physicalDEF_dark.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_physicalATK_dark.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_hitr_dark.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_ap_dark.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_ste_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_dod_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_physicalDEF_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_rom_dark.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_magicDEF_dark.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_ctr_dark.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_spd_dark.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_rom_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_ste_dark.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_magicATK_light.png
+- Assets/Res/Art/Texture/UI/Universal/RoleAttribe/img_magicATK_dark.png
+Dependencies: []

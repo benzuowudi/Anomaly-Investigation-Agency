@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 918383178
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 618cbcdc6c56bad5de5e7a20168fb9ce
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/EnemyType/img_type_priest.png
+- Assets/Res/Art/Texture/EnemyType/img_type_fighter.png
+- Assets/Res/Art/Texture/EnemyType/img_type_magician.png
+Dependencies: []

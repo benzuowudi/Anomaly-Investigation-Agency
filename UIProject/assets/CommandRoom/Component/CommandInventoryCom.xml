@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="345,125">
+  <displayList>
+    <image id="n24_qvtg" name="n24" src="vccf3" fileName="Texture/ui_bg_btn.png" xy="0,0" size="345,125" pkg="5wifhyqa"/>
+    <image id="n25_qvtg" name="n25" src="qvtge" fileName="Texture/ui_bg_box.png" xy="7,9"/>
+    <text id="n26_qvtg" name="txt_num" xy="6,67" size="90,52" font="ui://5wifhyqavccf4" fontSize="38" color="#636168" align="right" text="15/450"/>
+    <text id="n27_qvtg" name="txt_titleC" xy="215,0" size="124,79" fontSize="60" color="#636168" align="right" text="仓库"/>
+    <text id="n28_qvtg" name="txt_titleE" xy="200,68" size="134,52" font="ui://5wifhyqavccf4" fontSize="38" color="#636168" align="right" text="INVENTORY"/>
+  </displayList>
+</component>

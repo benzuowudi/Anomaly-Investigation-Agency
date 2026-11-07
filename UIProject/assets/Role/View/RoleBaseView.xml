@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080" designImageLayer="1">
+  <displayList>
+    <component id="n2_l061" name="btn_back" src="l0617" fileName="Button/CommonBackBtn.xml" pkg="5wifhyqa" xy="80,15"/>
+    <list id="n6_l061" name="list_tab" xy="59,158" size="271,517" lineGap="3" defaultItem="ui://5m40pj94l0619" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n9_l061" name="com_info" src="l061c" fileName="Component/RoleInfoCom.xml" xy="408,110"/>
+  </displayList>
+</component>

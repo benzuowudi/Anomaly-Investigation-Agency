@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="704,285">
+  <displayList>
+    <text id="n9_nye2" name="txt_title" xy="6,0" size="176,49" fontSize="36" color="#636168" letterSpacing="-2" text="合同说明："/>
+    <image id="n10_nye2" name="n10" src="nye23" fileName="Texture/ui_bg_TA2.png" xy="0,46" size="704,239">
+      <relation target="n11_nye2" sidePair="bottomext-bottom"/>
+    </image>
+    <text id="n11_nye2" name="txt_desc" xy="21,60" size="660,209" fontSize="28" color="#636168" leading="0" letterSpacing="-2" autoSize="height" text="1,花费200欧元购置一张【人才吸纳合同】；&#xA;2，消费一张【人才吸纳合同】可进行一次人才吸纳；&#xA;3，每一次人才吸纳会展示三名候选人，可以从三名候选人中选择一名入职；&#xA;4，一次性消费10张【人才吸纳合同】可同时获得30名候选人；"/>
+  </displayList>
+  <relation target="n11_nye2" sidePair="bottomext-bottom"/>
+</component>

@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 4132414962
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ec4eb5e4bb47dbcda0084292b0ed391c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/CoinShow/icon_coin.png
+- Assets/Res/Art/Texture/UI/CoinShow/icon_doller.png
+- Assets/Res/Art/Texture/UI/CoinShow/btn_add.png
+Dependencies: []

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="783,249">
+  <displayList>
+    <image id="n34_qvtg" name="n34" src="vccf3" fileName="Texture/ui_bg_btn.png" pkg="5wifhyqa" xy="0,0" size="783,249"/>
+    <image id="n35_qvtg" name="n35" src="qvtgh" fileName="Texture/ui_icon_book.png" xy="21,19"/>
+    <image id="n40_qvtg" name="n40" src="qvtgl" fileName="Texture/ui_bg_fight.png" xy="707,12"/>
+    <image id="n41_qvtg" name="n41" src="qvtgk" fileName="Texture/ui_bg_arrow.png" xy="659,144"/>
+    <text id="n36_qvtg" name="txt_bookNum" xy="79,7" size="130,79" font="ui://5wifhyqavccf4" fontSize="60" color="#636168" align="right" text="15/150"/>
+    <text id="n37_qvtg" name="txt_bookTitle" xy="217,6" size="70,45" fontSize="33" color="#636168" align="right" text="线索"/>
+    <text id="n38_qvtg" name="txt_bookTime" xy="219,41" size="64,45" font="ui://5wifhyqavccf4" fontSize="33" color="#636168" align="right" text="05:28"/>
+    <text id="n42_qvtg" name="txt_chapter" xy="554,9" size="142,49" font="ui://5wifhyqavccf4" fontSize="36" color="#636168" align="right" text="Chapter 1-01"/>
+    <text id="n43_qvtg" name="txt_titleE" xy="21,94" size="85,49" font="ui://5wifhyqavccf4" fontSize="36" color="#636168" align="right" text="ACTION"/>
+    <text id="n44_qvtg" name="txt_titleC" xy="5,132" size="316,102" fontSize="78" color="#636168" align="right" text="开始行动"/>
+    <component id="n39_qvtg" name="btn_bookAdd" src="qvtgj" fileName="Component/CommonAddBtn.xml" xy="298,23"/>
+    <image id="n45_qvtg" name="n45" src="vccf7" fileName="Texture/ui_red.png" xy="113,99" size="132,34" group="n47_qvtg"/>
+    <text id="n46_qvtg" name="txt_red" xy="112,97" size="132,39" group="n47_qvtg" fontSize="28" color="#e1dde9" align="right" letterSpacing="-3" text="奖励未领取"/>
+    <group id="n47_qvtg" name="part_red" xy="112,97" size="133,39" advanced="true"/>
+  </displayList>
+</component>

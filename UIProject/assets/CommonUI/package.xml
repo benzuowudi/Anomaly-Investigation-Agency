@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="zgdu5cgq">
+  <resources>
+    <image id="qvtg1m" name="ui_icon_Euro.png" path="/Texture/" exported="true"/>
+    <image id="l0611o" name="ui_icon_spd.png" path="/Texture/" exported="true"/>
+    <image id="l0611p" name="ui_icon_atk.png" path="/Texture/" exported="true"/>
+    <image id="l0611q" name="ui_icon_hp.png" path="/Texture/" exported="true"/>
+    <image id="l0611r" name="ui_icon_per.png" path="/Texture/" exported="true"/>
+    <image id="l0611s" name="ui_icon_san.png" path="/Texture/" exported="true"/>
+    <image id="l0611t" name="Potion-Icon-Small.png" path="/Texture/" exported="true"/>
+    <image id="nye21u" name="ui_icon_glod.png" path="/Texture/" exported="true"/>
+    <image id="nye21v" name="ui_icon_euro_dark.png" path="/Texture/" exported="true"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

@@ -1,0 +1,46 @@
+[
+  {
+    "ID": 10001,
+    "name_cn": "叶凌",
+    "name_en": "YeLing",
+    "STR": 1,
+    "END": 1,
+    "PER": 1,
+    "FORE": 1,
+    "AGI": 1,
+    "INTE": 1
+  },
+  {
+    "ID": 10002,
+    "name_cn": "渺渺",
+    "name_en": "Miao",
+    "STR": 1,
+    "END": 1,
+    "PER": 1,
+    "FORE": 1,
+    "AGI": 1,
+    "INTE": 1
+  },
+  {
+    "ID": 10003,
+    "name_cn": "触冰",
+    "name_en": "TIce",
+    "STR": 1,
+    "END": 1,
+    "PER": 1,
+    "FORE": 1,
+    "AGI": 1,
+    "INTE": 1
+  },
+  {
+    "ID": 10004,
+    "name_cn": "阿尔贝特·玛德琳娜",
+    "name_en": "Albert Madeleine",
+    "STR": 1,
+    "END": 1,
+    "PER": 1,
+    "FORE": 1,
+    "AGI": 1,
+    "INTE": 1
+  }
+]

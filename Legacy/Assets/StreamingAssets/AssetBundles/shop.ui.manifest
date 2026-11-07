@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 2710467450
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ffdf4977afdd271f57a4a8b5141064eb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/Shop/bg_des.png
+- Assets/Res/Art/Texture/UI/Shop/btn_des_buy.png
+- Assets/Res/Art/Texture/UI/Shop/img_shop_title_1.png
+- Assets/Res/Art/Texture/UI/Shop/btn_Buidle_unselect.png
+- Assets/Res/Art/Texture/UI/Shop/bg_shop_title_2.png
+- Assets/Res/Art/Texture/UI/Shop/bg_list.png
+- Assets/Res/Art/Texture/UI/Shop/btn_switch.png
+- Assets/Res/Art/Texture/UI/Shop/bg_show.png
+- Assets/Res/Art/Texture/UI/Shop/dp_list.png
+- Assets/Res/Art/Texture/UI/Shop/btn_commodity_unselect.png
+- Assets/Res/Art/Texture/UI/Shop/btn_Buidle_select.png
+- Assets/Res/Art/Texture/UI/Shop/btn_commodity_select.png
+Dependencies: []

@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 537213664
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0a9c1f9c1720b112d9428b9677792ace
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b69f92c9d7c4f3dbd13bb4da12942ba0
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Model/MapTile/MapTile_wall.prefab
+Dependencies:
+- F:/MyProject/UnityProject_xx/Assets/StreamingAssets/AssetBundles/maptile_wall_fbx.unity3d

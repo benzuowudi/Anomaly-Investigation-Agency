@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="781,218">
+  <displayList>
+    <loader id="n15_vccf" name="n15" xy="0,0" size="781,218" url="ui://5wifhyqavccf3" fill="scaleFree"/>
+    <image id="n21_vccf" name="n21" src="vccf8" fileName="Texture/ui_bg_specialist.png" xy="8,5"/>
+    <image id="n22_vccf" name="n22" src="vccf5" fileName="Texture/ui_bg_divider.png" xy="512,18" size="4,179"/>
+    <image id="n23_vccf" name="n23" src="vccf9" fileName="Texture/ui_icon_hotel.png" xy="533,19"/>
+    <text id="n18_vccf" name="txt_roleTitleE" xy="34,61" size="135,46" font="ui://5wifhyqavccf5" fontSize="34" color="#636168" text="SPECIALIST"/>
+    <text id="n19_vccf" name="txt_roleTitleC" xy="10,98" size="156,99" font="ui://5wifhyqavccf6" fontSize="76" color="#636168" text="专员"/>
+    <text id="n20_vccf" name="txt_roleNum" xy="171,150" size="80,46" font="ui://5wifhyqavccf5" fontSize="34" color="#636168" text="23/24"/>
+    <text id="n24_vccf" name="txt_roomNum" xy="718,97" size="50,46" font="ui://5wifhyqavccf5" fontSize="34" color="#636168" text="4/5"/>
+    <text id="n25_vccf" name="txt_roomTitleE" xy="542,159" size="130,44" font="ui://5wifhyqavccf5" fontSize="32" color="#636168" text="DORMITORY"/>
+    <text id="n26_vccf" name="txt_roolTitleC" xy="667,134" size="108,69" font="ui://5wifhyqavccf6" fontSize="52" color="#636168" text="宿舍"/>
+    <component id="n27_vccf" name="btn_role" src="vccf8" fileName="Button/CommonBtn.xml" pkg="5wifhyqa" xy="0,0" size="507,218"/>
+    <component id="n28_vccf" name="btn_room" src="vccf8" fileName="Button/CommonBtn.xml" pkg="5wifhyqa" xy="524,0" size="257,218"/>
+    <image id="n16_vccf" name="n16" src="vccf7" fileName="Texture/ui_red.png" xy="31,21" group="n29_qvtg"/>
+    <text id="n17_vccf" name="txt_new" xy="50,15" size="47,44" group="n29_qvtg" font="ui://5wifhyqavccf6" fontSize="32" color="#e1dde9" text="新!"/>
+    <group id="n29_qvtg" name="part_red" xy="31,15" size="88,44" advanced="true"/>
+  </displayList>
+</component>

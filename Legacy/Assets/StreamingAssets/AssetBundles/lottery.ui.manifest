@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 1569563409
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8ad29d798063ae67822ee6eccec4c393
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/Lottery/btn_jilu_arrow.png
+- Assets/Res/Art/Texture/UI/Lottery/img_caipiao_doller.png
+- Assets/Res/Art/Texture/UI/Lottery/bg_cailiao_show.png
+- Assets/Res/Art/Texture/UI/Lottery/img_caipiao_kanban.png
+- Assets/Res/Art/Texture/UI/Lottery/bg_reward.png
+- Assets/Res/Art/Texture/UI/Lottery/img_caipiao_show.png
+- Assets/Res/Art/Texture/UI/Lottery/img_reward_off.png
+- Assets/Res/Art/Texture/UI/Lottery/btn_buy_once.png
+- Assets/Res/Art/Texture/UI/Lottery/bg_jilu.png
+- Assets/Res/Art/Texture/UI/Lottery/btn_jilu_des.png
+- Assets/Res/Art/Texture/UI/Lottery/bg_zhongjian.png
+- Assets/Res/Art/Texture/UI/Lottery/btn_jiesuan_close.png
+- Assets/Res/Art/Texture/UI/Lottery/bg_caipiao_type.png
+- Assets/Res/Art/Texture/UI/Lottery/img_jilu_numbg.png
+- Assets/Res/Art/Texture/UI/Lottery/btn_caipiao_des.png
+- Assets/Res/Art/Texture/UI/Lottery/btn_buy_ten.png
+Dependencies: []

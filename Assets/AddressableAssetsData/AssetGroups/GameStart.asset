@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: GameStart
+  m_EditorClassIdentifier: 
+  m_GroupName: GameStart
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 11ce11ef604b007419ee196b39d2824e
+  m_SerializeEntries:
+  - m_GUID: 6bcc2e5b336eece4caa2f9ca7e4bae9b
+    m_Address: GameStart_atlas0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameStart
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d5822dadd65f904f885a76be53245ff
+    m_Address: GameStart_fui
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameStart
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d05d4dc4acc13244da9a16a07d2acbc0
+    m_Address: GameStartView
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameStart
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f03275243783f84459f17ea14ec4b776, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3cafe7b8fc8532f44ae5995a8fd18ccc, type: 2}
+    - {fileID: 11400000, guid: b078846d95c39ef4daea818290717460, type: 2}

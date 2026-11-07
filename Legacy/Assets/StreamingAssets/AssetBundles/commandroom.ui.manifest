@@ -1,0 +1,42 @@
+ManifestFileVersion: 0
+CRC: 433526046
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1ce2cf244748a4f7714dcc63f7a78045
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_guide.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_routineaction.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_share.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_mail.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_cup.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_opition.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_emergencies.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_dormitory.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_news.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_playbook.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_plus.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_Exit.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_reward.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_lottery.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_profile.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_hide.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_store.png
+- Assets/Res/Art/Texture/UI/CommandRoom/img_coin.png
+- Assets/Res/Art/Texture/UI/CommandRoom/img_RoleInfo.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_inventory.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_attack.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_friend.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_show.png
+- Assets/Res/Art/Texture/UI/CommandRoom/btn_activity.png
+Dependencies: []

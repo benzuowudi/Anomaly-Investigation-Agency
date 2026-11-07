@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080" designImageLayer="1">
+  <controller name="state" pages="0,once,1,ten" selected="0"/>
+  <controller name="state2" pages="0,,1," selected="0">
+    <remark page="0" value="人才吸纳"/>
+    <remark page="1" value="定向猎头"/>
+  </controller>
+  <displayList>
+    <component id="n0_nye2" name="btn_back" src="l0617" fileName="Button/CommonBackBtn.xml" pkg="5wifhyqa" xy="80,15"/>
+    <image id="n1_nye2" name="n1" src="vccf1" fileName="Texture/ui_bg_common_2.png" pkg="5wifhyqa" xy="40,151" size="1859,864"/>
+    <component id="n37_qktp" name="com_card_1" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="86,170" group="n47_qktp"/>
+    <component id="n38_qktp" name="com_card_2" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="261,170" group="n47_qktp"/>
+    <component id="n39_qktp" name="com_card_3" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="436,170" group="n47_qktp"/>
+    <component id="n40_qktp" name="com_card_4" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="611,170" group="n47_qktp"/>
+    <component id="n41_qktp" name="com_card_5" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="786,170" group="n47_qktp"/>
+    <component id="n42_qktp" name="com_card_6" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="961,170" group="n47_qktp"/>
+    <component id="n43_qktp" name="com_card_7" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1136,170" group="n47_qktp"/>
+    <component id="n44_qktp" name="com_card_8" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1311,170" group="n47_qktp"/>
+    <component id="n45_qktp" name="com_card_9" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1486,170" group="n47_qktp"/>
+    <component id="n46_qktp" name="com_card_10" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1661,170" group="n47_qktp"/>
+    <group id="n47_qktp" name="n47" xy="86,170" size="1784,323" advanced="true" layout="hz" colGap="-34" excludeInvisibles="true">
+      <gearDisplay controller="state" pages="1"/>
+      <gearDisplay2 controller="state2" pages="0" condition="0"/>
+    </group>
+    <component id="n48_qktp" name="com_card_11" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="54,378" group="n58_qktp"/>
+    <component id="n49_qktp" name="com_card_12" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="229,378" group="n58_qktp"/>
+    <component id="n50_qktp" name="com_card_13" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="404,378" group="n58_qktp"/>
+    <component id="n51_qktp" name="com_card_14" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="579,378" group="n58_qktp"/>
+    <component id="n52_qktp" name="com_card_15" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="754,378" group="n58_qktp"/>
+    <component id="n53_qktp" name="com_card_16" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="929,378" group="n58_qktp"/>
+    <component id="n54_qktp" name="com_card_17" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1104,378" group="n58_qktp"/>
+    <component id="n55_qktp" name="com_card_18" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1279,378" group="n58_qktp"/>
+    <component id="n56_qktp" name="com_card_19" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1454,378" group="n58_qktp"/>
+    <component id="n57_qktp" name="com_card_20" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1629,378" group="n58_qktp"/>
+    <group id="n58_qktp" name="n58" xy="54,378" size="1784,323" advanced="true" layout="hz" colGap="-34" excludeInvisibles="true">
+      <gearDisplay controller="state" pages="1"/>
+      <gearDisplay2 controller="state2" pages="0" condition="0"/>
+    </group>
+    <component id="n59_qktp" name="com_card_21" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="83,654" group="n69_qktp"/>
+    <component id="n60_qktp" name="com_card_22" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="258,654" group="n69_qktp"/>
+    <component id="n61_qktp" name="com_card_23" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="433,654" group="n69_qktp"/>
+    <component id="n62_qktp" name="com_card_24" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="608,654" group="n69_qktp"/>
+    <component id="n63_qktp" name="com_card_25" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="783,654" group="n69_qktp"/>
+    <component id="n64_qktp" name="com_card_26" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="958,654" group="n69_qktp"/>
+    <component id="n65_qktp" name="com_card_27" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1133,654" group="n69_qktp"/>
+    <component id="n66_qktp" name="com_card_28" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1308,654" group="n69_qktp"/>
+    <component id="n67_qktp" name="com_card_29" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1483,654" group="n69_qktp"/>
+    <component id="n68_qktp" name="com_card_30" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1658,654" group="n69_qktp"/>
+    <group id="n69_qktp" name="n69" xy="83,654" size="1784,323" advanced="true" layout="hz" colGap="-34" excludeInvisibles="true">
+      <gearDisplay controller="state" pages="1"/>
+      <gearDisplay2 controller="state2" pages="0" condition="0"/>
+    </group>
+    <component id="n71_qktp" name="com_card_once_2" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="554,378">
+      <gearDisplay controller="state" pages="0"/>
+      <gearDisplay2 controller="state2" pages="0" condition="0"/>
+    </component>
+    <component id="n70_qktp" name="com_card_once_1" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="855,378">
+      <gearDisplay controller="state" pages="0"/>
+    </component>
+    <component id="n72_qktp" name="com_card_once_3" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="1156,378">
+      <gearDisplay controller="state" pages="0"/>
+      <gearDisplay2 controller="state2" pages="0" condition="0"/>
+    </component>
+  </displayList>
+</component>

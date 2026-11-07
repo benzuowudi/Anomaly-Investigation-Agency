@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="696,146">
+  <displayList>
+    <loader id="n9_vccf" name="n9" xy="0,0" size="696,146" url="ui://5wifhyqavccf3" fill="scaleFree"/>
+    <image id="n12_vccf" name="n12" src="vccf5" fileName="Texture/ui_bg_divider.png" xy="474,12"/>
+    <text id="n10_vccf" name="txt_name" xy="143,36" size="276,46" font="ui://5wifhyqavccf6" fontSize="34" color="#636168" text="传奇调查员易大般"/>
+    <text id="n11_vccf" name="txt_uid" xy="149,78" size="104,39" font="ui://5wifhyqavccf4" fontSize="28" color="#636168" text="#173026AC"/>
+    <text id="n13_vccf" name="txt_lv" xy="532,21" size="148,99" font="ui://5wifhyqavccf5" fontSize="76" color="#636168" text="LV.78"/>
+    <component id="n14_qvtg" name="com_head" src="qvtga" fileName="Head/HeadCom.xml" pkg="5wifhyqa" xy="13,11"/>
+  </displayList>
+</component>
