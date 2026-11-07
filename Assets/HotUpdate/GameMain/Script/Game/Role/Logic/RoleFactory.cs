@@ -15,6 +15,8 @@ namespace GameMain.Script.Role
     /// 特例：属性ID 6（天赋）的 min~max 是 talent 表的 ID 区间，
     /// 生成时从 talent 表里挑一个落在该区间的天赋，而不是掷出一个无意义的数字。
     ///
+    /// 技能：生成时从 skill 表随机分配一个主动技能；被动技能留给后续培养流程。
+    ///
     /// 生成只依赖传入的 cfg.Tables，不读写权威数据，方便在编辑器里直接预览。
     /// </summary>
     public static class RoleFactory
@@ -63,7 +65,9 @@ namespace GameMain.Script.Role
 
             kRole.m_TalentId = kRole.GetAttr(RoleAttrId.Talent);
             kRole.m_Behaviors = RoleBehaviorRule.Build(kRole.m_Attributes);
-            // 新人入职默认初级专员（职称评分 0），装备/勋章/技能/适应性由后续培养流程填
+            // 每个新角色随机一个主动技能（skill 表），被动技能后续培养再解锁
+            kRole.m_ActiveSkillId = PickActiveSkill(_tables, _random);
+            // 新人入职默认初级专员（职称评分 0），装备/勋章/适应性由后续培养流程填
             kRole.m_TitleScore = 0;
             return kRole;
         }
@@ -182,6 +186,41 @@ namespace GameMain.Script.Role
             }
 
             return kCandidates[kCandidates.Count - 1].ID;
+        }
+
+        /// <summary>
+        /// 从 skill 表里等概率随机一个主动技能ID，表未加载/为空时返回 0。
+        /// 目前 skill 表里的记录都是主动技能，范围由策划改表控制。
+        /// </summary>
+        public static int PickActiveSkill(cfg.Tables _tables, System.Random _random)
+        {
+            if (_tables == null || _tables.skill == null)
+            {
+                return 0;
+            }
+
+            List<cfg.GameData_Skill.SkillData> kAll = _tables.skill.DataList;
+            if (kAll == null || kAll.Count == 0)
+            {
+                return 0;
+            }
+
+            List<cfg.GameData_Skill.SkillData> kCandidates =
+                new List<cfg.GameData_Skill.SkillData>();
+            for (int i = 0; i < kAll.Count; i++)
+            {
+                if (kAll[i] != null)
+                {
+                    kCandidates.Add(kAll[i]);
+                }
+            }
+
+            if (kCandidates.Count == 0)
+            {
+                return 0;
+            }
+
+            return kCandidates[NextInt(_random, 0, kCandidates.Count)].ID;
         }
 
         private static int NextInt(System.Random _random, int _minInclusive, int _maxExclusive)

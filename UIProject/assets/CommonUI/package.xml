@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="zgdu5cgq">
   <resources>
-    <image id="qvtg1m" name="ui_icon_Euro.png" path="/Texture/" exported="true"/>
-    <image id="l0611o" name="ui_icon_spd.png" path="/Texture/" exported="true"/>
-    <image id="l0611p" name="ui_icon_atk.png" path="/Texture/" exported="true"/>
-    <image id="l0611q" name="ui_icon_hp.png" path="/Texture/" exported="true"/>
-    <image id="l0611r" name="ui_icon_per.png" path="/Texture/" exported="true"/>
-    <image id="l0611s" name="ui_icon_san.png" path="/Texture/" exported="true"/>
-    <image id="l0611t" name="Potion-Icon-Small.png" path="/Texture/" exported="true"/>
-    <image id="nye21u" name="ui_icon_glod.png" path="/Texture/" exported="true"/>
-    <image id="nye21v" name="ui_icon_euro_dark.png" path="/Texture/" exported="true"/>
+    <image id="qvtg1m" name="ui_icon_Euro.png" path="/Texture/item/" exported="true"/>
+    <image id="l0611o" name="ui_icon_spd.png" path="/Texture/Attr/" exported="true"/>
+    <image id="l0611p" name="ui_icon_atk.png" path="/Texture/Attr/" exported="true"/>
+    <image id="l0611q" name="ui_icon_hp.png" path="/Texture/Attr/" exported="true"/>
+    <image id="l0611r" name="ui_icon_per.png" path="/Texture/Attr/" exported="true"/>
+    <image id="l0611s" name="ui_icon_san.png" path="/Texture/Attr/" exported="true"/>
+    <image id="l0611t" name="ui_skill_30001.png" path="/Texture/skill/" exported="true"/>
+    <image id="nye21u" name="ui_icon_glod.png" path="/Texture/item/" exported="true"/>
+    <image id="nye21v" name="ui_icon_euro_dark.png" path="/Texture/item/" exported="true"/>
+    <image id="gfwq5z" name="ui_skill_30005.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq60" name="ui_skill_30002.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq61" name="ui_skill_30003.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq62" name="ui_skill_30004.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq63" name="ui_skill_30006.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq64" name="ui_skill_30007.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq65" name="ui_skill_30008.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq66" name="ui_skill_30009.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq67" name="ui_skill_30010.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq68" name="ui_skill_30011.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq69" name="ui_skill_30012.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq6a" name="ui_skill_30013.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq6b" name="ui_skill_30014.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq6c" name="ui_skill_30015.png" path="/Texture/skill/" exported="true"/>
+    <image id="gfwq6d" name="ui_talent_20001.png" path="/Texture/talent/" exported="true"/>
+    <image id="gfwq6e" name="ui_talent_20002.png" path="/Texture/talent/" exported="true"/>
+    <image id="gfwq6f" name="ui_talent_20003.png" path="/Texture/talent/" exported="true"/>
+    <image id="gfwq6g" name="ui_talent_20004.png" path="/Texture/talent/" exported="true"/>
+    <image id="gfwq6h" name="ui_talent_20005.png" path="/Texture/talent/" exported="true"/>
+    <image id="gfwq6i" name="ui_talent_20006.png" path="/Texture/talent/" exported="true"/>
+    <image id="gfwq6j" name="ui_talent_20007.png" path="/Texture/talent/" exported="true"/>
+    <image id="gfwq6k" name="ui_talent_20008.png" path="/Texture/talent/" exported="true"/>
+    <image id="gfwq6l" name="ui_talent_20009.png" path="/Texture/talent/" exported="true"/>
+    <image id="gfwq6m" name="ui_talent_20010.png" path="/Texture/talent/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

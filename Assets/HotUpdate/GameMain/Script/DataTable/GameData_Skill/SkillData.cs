@@ -20,20 +20,20 @@ public sealed partial class SkillData :  Bright.Config.BeanBase
     {
         { if(!_json["ID"].IsNumber) { throw new SerializationException(); }  ID = _json["ID"]; }
         { if(!_json["icon"].IsString) { throw new SerializationException(); }  Icon = _json["icon"]; }
-        { if(!_json["name_cn"].IsString) { throw new SerializationException(); }  NameCn = _json["name_cn"]; }
-        { if(!_json["name_en"].IsString) { throw new SerializationException(); }  NameEn = _json["name_en"]; }
-        { if(!_json["singleFlag"].IsNumber) { throw new SerializationException(); }  SingleFlag = _json["singleFlag"]; }
+        { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
+        { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
+        { if(!_json["cd"].IsNumber) { throw new SerializationException(); }  Cd = _json["cd"]; }
         { var __json0 = _json["effect"]; if(!__json0.IsArray) { throw new SerializationException(); } Effect = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  Effect.Add(__v0); }   }
         PostInit();
     }
 
-    public SkillData(int ID, string icon, string name_cn, string name_en, int singleFlag, System.Collections.Generic.List<int> effect ) 
+    public SkillData(int ID, string icon, string name, string desc, int cd, System.Collections.Generic.List<int> effect ) 
     {
         this.ID = ID;
         this.Icon = icon;
-        this.NameCn = name_cn;
-        this.NameEn = name_en;
-        this.SingleFlag = singleFlag;
+        this.Name = name;
+        this.Desc = desc;
+        this.Cd = cd;
         this.Effect = effect;
         PostInit();
     }
@@ -52,17 +52,17 @@ public sealed partial class SkillData :  Bright.Config.BeanBase
     /// </summary>
     public string Icon { get; private set; }
     /// <summary>
-    /// 技能中文名
+    /// 技能名
     /// </summary>
-    public string NameCn { get; private set; }
+    public string Name { get; private set; }
     /// <summary>
-    /// 技能英文名
+    /// 技能描述
     /// </summary>
-    public string NameEn { get; private set; }
+    public string Desc { get; private set; }
     /// <summary>
-    /// 技能专属标识
+    /// 主动技能冷却时间(秒)
     /// </summary>
-    public int SingleFlag { get; private set; }
+    public int Cd { get; private set; }
     /// <summary>
     /// 技能效果
     /// </summary>
@@ -85,9 +85,9 @@ public sealed partial class SkillData :  Bright.Config.BeanBase
         return "{ "
         + "ID:" + ID + ","
         + "Icon:" + Icon + ","
-        + "NameCn:" + NameCn + ","
-        + "NameEn:" + NameEn + ","
-        + "SingleFlag:" + SingleFlag + ","
+        + "Name:" + Name + ","
+        + "Desc:" + Desc + ","
+        + "Cd:" + Cd + ","
         + "Effect:" + Bright.Common.StringUtil.CollectionToString(Effect) + ","
         + "}";
     }

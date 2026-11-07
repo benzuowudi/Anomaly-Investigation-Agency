@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <component id="n1_gfwq" name="com_bg" src="gfwq2f" fileName="BackGroundVIew/CommonBgCom.xml" pkg="5wifhyqa" xy="45,40"/>
+  </displayList>
+</component>

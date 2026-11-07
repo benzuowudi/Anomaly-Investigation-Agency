@@ -20,20 +20,18 @@ public sealed partial class MedalData :  Bright.Config.BeanBase
     {
         { if(!_json["ID"].IsNumber) { throw new SerializationException(); }  ID = _json["ID"]; }
         { if(!_json["icon"].IsString) { throw new SerializationException(); }  Icon = _json["icon"]; }
-        { if(!_json["name_cn"].IsString) { throw new SerializationException(); }  NameCn = _json["name_cn"]; }
-        { if(!_json["name_en"].IsString) { throw new SerializationException(); }  NameEn = _json["name_en"]; }
+        { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["type"].IsNumber) { throw new SerializationException(); }  Type = _json["type"]; }
         { var __json0 = _json["effect"]; if(!__json0.IsArray) { throw new SerializationException(); } Effect = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  Effect.Add(__v0); }   }
         { if(!_json["medal_set"].IsNumber) { throw new SerializationException(); }  MedalSet = _json["medal_set"]; }
         PostInit();
     }
 
-    public MedalData(int ID, string icon, string name_cn, string name_en, int type, System.Collections.Generic.List<int> effect, int medal_set ) 
+    public MedalData(int ID, string icon, string name, int type, System.Collections.Generic.List<int> effect, int medal_set ) 
     {
         this.ID = ID;
         this.Icon = icon;
-        this.NameCn = name_cn;
-        this.NameEn = name_en;
+        this.Name = name;
         this.Type = type;
         this.Effect = effect;
         this.MedalSet = medal_set;
@@ -56,11 +54,7 @@ public sealed partial class MedalData :  Bright.Config.BeanBase
     /// <summary>
     /// 勋章中文名
     /// </summary>
-    public string NameCn { get; private set; }
-    /// <summary>
-    /// 勋章英文名
-    /// </summary>
-    public string NameEn { get; private set; }
+    public string Name { get; private set; }
     /// <summary>
     /// 勋章类型
     /// </summary>
@@ -91,8 +85,7 @@ public sealed partial class MedalData :  Bright.Config.BeanBase
         return "{ "
         + "ID:" + ID + ","
         + "Icon:" + Icon + ","
-        + "NameCn:" + NameCn + ","
-        + "NameEn:" + NameEn + ","
+        + "Name:" + Name + ","
         + "Type:" + Type + ","
         + "Effect:" + Bright.Common.StringUtil.CollectionToString(Effect) + ","
         + "MedalSet:" + MedalSet + ","

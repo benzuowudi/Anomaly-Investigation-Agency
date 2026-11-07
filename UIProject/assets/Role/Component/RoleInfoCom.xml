@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1494,926">
+<component size="1497,717">
   <displayList>
-    <image id="n9_l061" name="n9" src="vccf1" fileName="Texture/ui_bg_common_2.png" pkg="5wifhyqa" xy="0,39" size="1494,864"/>
-    <text id="n7_l061" name="txt_title_1" xy="1211,0" size="124,79" fontSize="60" color="#e1dde9" text="详情"/>
-    <text id="n8_l061" name="txt_title_2" xy="1341,18" size="103,64" font="ui://5wifhyqavccf4" fontSize="48" color="#e1dde9" text="DETAIL"/>
-    <text id="n10_l061" name="txt_NO" xy="39,27" size="245,114" font="ui://5wifhyqavccf4" fontSize="88" color="#e1dde9" text="NO.0082"/>
-    <text id="n11_l061" name="txt_position" xy="39,118" size="66,72" font="ui://5wifhyqavccf4" fontSize="54" color="#e1dde9" text="2nd"/>
-    <text id="n12_l061" name="txt_nameC" xy="34,334" size="98,526" fontSize="100" color="#e1dde9" leading="-25" autoSize="none" shadowColor="#787878" shadowOffset="7,6" text="井之上泷奈"/>
-    <text id="n13_l061" name="txt_nameE" xy="120,854" size="233,72" rotation="-90" font="ui://5wifhyqavccf4" fontSize="54" color="#e1dde9" leading="-25" text="INOUE TAKINA"/>
-    <image id="n14_l061" name="n14" src="vccf3" fileName="Texture/ui_bg_common_1.png" pkg="5wifhyqa" xy="243,143" size="798,713"/>
-    <image id="n15_l061" name="n15" src="vccf3" fileName="Texture/ui_bg_common_1.png" pkg="5wifhyqa" xy="1068,144" size="399,713"/>
-    <component id="n21_l061" name="com_title_attr" src="l061a" fileName="Component/RoleTitleCom.xml" xy="1084,157" size="342,62"/>
-    <component id="n22_l061" name="com_title_equip" src="l061a" fileName="Component/RoleTitleCom.xml" xy="1084,487" size="342,62">
+    <text id="n10_l061" name="txt_NO" xy="9,4" size="245,114" font="ui://5wifhyqavccf4" fontSize="88" color="#e1dde9" text="NO.0082"/>
+    <text id="n11_l061" name="txt_position" xy="9,95" size="66,72" font="ui://5wifhyqavccf4" fontSize="54" color="#e1dde9" text="2nd"/>
+    <text id="n12_l061" name="txt_nameC" xy="0,192" pivot="0,1" size="107,525" fontSize="100" color="#e1dde9" vAlign="bottom" leading="-25" autoSize="height" shadowColor="#787878" shadowOffset="7,6" text="井之上泷奈"/>
+    <text id="n13_l061" name="txt_nameE" xy="170,645" pivot="0,1" size="233,72" rotation="-90" font="ui://5wifhyqavccf4" fontSize="54" color="#e1dde9" vAlign="middle" leading="-25" text="INOUE TAKINA"/>
+    <image id="n14_l061" name="n14" src="vccf3" fileName="Texture/ui_bg_common_1.png" pkg="5wifhyqa" xy="273,0" size="798,713"/>
+    <image id="n15_l061" name="n15" src="vccf3" fileName="Texture/ui_bg_common_1.png" pkg="5wifhyqa" xy="1098,1" size="399,713"/>
+    <component id="n21_l061" name="com_title_attr" src="l061a" fileName="Component/RoleTitleCom.xml" xy="1114,14" size="342,62"/>
+    <component id="n22_l061" name="com_title_equip" src="l061a" fileName="Component/RoleTitleCom.xml" xy="1114,344" size="342,62">
       <property target="txt_titleC" propertyId="0" value="装备"/>
     </component>
-    <component id="n23_l061" name="com_title_medal" src="l061a" fileName="Component/RoleTitleCom.xml" xy="1084,674" size="342,62">
+    <component id="n23_l061" name="com_title_medal" src="l061a" fileName="Component/RoleTitleCom.xml" xy="1114,531" size="342,62">
       <property target="txt_titleC" propertyId="0" value="装备"/>
     </component>
-    <list id="n28_l061" name="list_attr" xy="1107,227" size="309,248" overflow="scroll" defaultItem="ui://5m40pj94l061b" autoClearItems="true">
+    <list id="n28_l061" name="list_attr" xy="1137,84" size="309,248" overflow="scroll" defaultItem="ui://5m40pj94l061b" autoClearItems="true">
       <item/>
       <item/>
       <item/>
       <item/>
       <item/>
     </list>
-    <component id="n29_l061" name="com_equip" src="l0611r" fileName="Component/CommonItemCom.xml" pkg="5wifhyqa" xy="1101,573"/>
-    <component id="n30_l061" name="com_medal_1" src="l0611r" fileName="Component/CommonItemCom.xml" pkg="5wifhyqa" xy="1101,747"/>
-    <component id="n31_l061" name="com_medal_2" src="l0611r" fileName="Component/CommonItemCom.xml" pkg="5wifhyqa" xy="1220,747"/>
-    <component id="n32_l061" name="com_medal_3" src="l0611r" fileName="Component/CommonItemCom.xml" pkg="5wifhyqa" xy="1338,747"/>
-    <text id="n33_l061" name="txt_equipName" xy="1200,574" size="148,49" fontSize="36" color="#636168" text="优质匕首"/>
-    <text id="n34_l061" name="txt_equipType" xy="1200,614" size="58,38" fontSize="27" color="#636168" text="刀具"/>
-    <list id="n42_l061" name="list_skill" xy="267,383" size="756,450" overflow="scroll" defaultItem="ui://5m40pj94l061d" autoClearItems="true">
+    <component id="n29_l061" name="com_equip" src="l0611r" fileName="Component/CommonItemCom.xml" pkg="5wifhyqa" xy="1131,430"/>
+    <component id="n30_l061" name="com_medal_1" src="l0611r" fileName="Component/CommonItemCom.xml" pkg="5wifhyqa" xy="1131,604"/>
+    <component id="n31_l061" name="com_medal_2" src="l0611r" fileName="Component/CommonItemCom.xml" pkg="5wifhyqa" xy="1250,604"/>
+    <component id="n32_l061" name="com_medal_3" src="l0611r" fileName="Component/CommonItemCom.xml" pkg="5wifhyqa" xy="1368,604"/>
+    <text id="n33_l061" name="txt_equipName" xy="1230,431" size="148,49" fontSize="36" color="#636168" text="优质匕首"/>
+    <text id="n34_l061" name="txt_equipType" xy="1230,471" size="58,38" fontSize="27" color="#636168" text="刀具"/>
+    <list id="n42_l061" name="list_skill" xy="297,26" size="756,664" overflow="scroll" defaultItem="ui://5m40pj94l061d" autoClearItems="true">
       <item/>
       <item/>
     </list>

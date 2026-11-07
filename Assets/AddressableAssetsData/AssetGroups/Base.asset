@@ -29,17 +29,16 @@ MonoBehaviour:
     m_SerializedLabels:
     - Base
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e7fbce4f31a8489c80ce6d0c7986bceb
-    m_Address: Base_atlas0_2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Base
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8326edd64aaec7f41b665e14972cdb87
     m_Address: Base_fui
     m_ReadOnly: 0
     m_SerializedLabels:
     - Base
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94969ed8d44ae5140b3ea7572f3fe912
+    m_Address: DontDestroy
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 990f49e18a57b024ebbf9796f8cca50b
     m_Address: CommonUI_fui
@@ -48,11 +47,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d873d786b188c194aa034c2b4c3fc836
     m_Address: CommonUI_atlas0
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 94969ed8d44ae5140b3ea7572f3fe912
-    m_Address: DontDestroy
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

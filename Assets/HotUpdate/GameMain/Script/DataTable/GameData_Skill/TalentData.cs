@@ -20,20 +20,18 @@ public sealed partial class TalentData :  Bright.Config.BeanBase
     {
         { if(!_json["ID"].IsNumber) { throw new SerializationException(); }  ID = _json["ID"]; }
         { if(!_json["icon"].IsString) { throw new SerializationException(); }  Icon = _json["icon"]; }
-        { if(!_json["name_cn"].IsString) { throw new SerializationException(); }  NameCn = _json["name_cn"]; }
-        { if(!_json["name_en"].IsString) { throw new SerializationException(); }  NameEn = _json["name_en"]; }
+        { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["END"].IsNumber) { throw new SerializationException(); }  END = _json["END"]; }
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
         { if(!_json["probability"].IsNumber) { throw new SerializationException(); }  Probability = _json["probability"]; }
         PostInit();
     }
 
-    public TalentData(int ID, string icon, string name_cn, string name_en, int END, string desc, int probability ) 
+    public TalentData(int ID, string icon, string name, int END, string desc, int probability ) 
     {
         this.ID = ID;
         this.Icon = icon;
-        this.NameCn = name_cn;
-        this.NameEn = name_en;
+        this.Name = name;
         this.END = END;
         this.Desc = desc;
         this.Probability = probability;
@@ -56,11 +54,7 @@ public sealed partial class TalentData :  Bright.Config.BeanBase
     /// <summary>
     /// 天赋中文名
     /// </summary>
-    public string NameCn { get; private set; }
-    /// <summary>
-    /// 天赋英文名
-    /// </summary>
-    public string NameEn { get; private set; }
+    public string Name { get; private set; }
     /// <summary>
     /// 天赋品质
     /// </summary>
@@ -91,8 +85,7 @@ public sealed partial class TalentData :  Bright.Config.BeanBase
         return "{ "
         + "ID:" + ID + ","
         + "Icon:" + Icon + ","
-        + "NameCn:" + NameCn + ","
-        + "NameEn:" + NameEn + ","
+        + "Name:" + Name + ","
         + "END:" + END + ","
         + "Desc:" + Desc + ","
         + "Probability:" + Probability + ","

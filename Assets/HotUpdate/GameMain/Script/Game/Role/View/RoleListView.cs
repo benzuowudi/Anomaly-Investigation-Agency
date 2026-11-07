@@ -17,28 +17,28 @@ namespace GameMain.Script.UI
     /// </summary>
     public class RoleListView : UIWindow
     {
-        private GButton btn_back;
+        private CommonBgCom com_bg;
         private GList list_role;
 
         private bool m_Subscribed;
 
         protected internal override void Init(object o)
         {
-            btn_back = ui.GetChild("btn_back").asButton;
+            com_bg = ui.GetChild("com_bg") as CommonBgCom;
             list_role = ui.GetChild("list_role").asList;
+            
+            com_bg.Init("角色列表", "ROLE LIST", OnClickBack);
 
             base.Init(o);
         }
 
         protected internal override void AddEvent()
         {
-            btn_back.onClick.Add(OnClickBack);
             list_role.onClickItem.Add(OnClickItem);
         }
 
         protected internal override void RemoveEvent()
         {
-            btn_back.onClick.Remove(OnClickBack);
             list_role.onClickItem.Remove(OnClickItem);
         }
 

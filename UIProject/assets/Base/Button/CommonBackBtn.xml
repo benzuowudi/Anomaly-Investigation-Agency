@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="159,56" extention="Button">
+<component size="196,56" extention="Button">
   <controller name="button" pages="2,up,3,down" selected="0"/>
   <displayList>
-    <loader id="n0_l061" name="icon" xy="0,6" size="55,40" url="ui://5wifhyqal0611o"/>
-    <text id="n1_l061" name="title" xy="71,0" size="88,56" fontSize="42" color="#e1dde9" text="返回"/>
+    <loader id="n0_l061" name="icon" xy="19,14" size="33,28" url="ui://5wifhyqal0611o" autoSize="true"/>
+    <text id="n1_l061" name="title" xy="69,3" size="74,49" fontSize="36" color="#e1dde9" leading="0" letterSpacing="-2" text="返回"/>
+    <text id="n2_gfwq" name="n2" xy="146,16" size="50,39" font="ui://5wifhyqavccf4" fontSize="28" color="#e1dde9" text="BACK"/>
   </displayList>
   <Button/>
 </component>

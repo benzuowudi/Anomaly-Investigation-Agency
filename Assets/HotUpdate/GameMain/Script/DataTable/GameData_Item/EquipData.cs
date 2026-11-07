@@ -20,8 +20,7 @@ public sealed partial class EquipData :  Bright.Config.BeanBase
     {
         { if(!_json["ID"].IsNumber) { throw new SerializationException(); }  ID = _json["ID"]; }
         { if(!_json["icon"].IsString) { throw new SerializationException(); }  Icon = _json["icon"]; }
-        { if(!_json["name_cn"].IsString) { throw new SerializationException(); }  NameCn = _json["name_cn"]; }
-        { if(!_json["name_en"].IsString) { throw new SerializationException(); }  NameEn = _json["name_en"]; }
+        { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["type_1"].IsNumber) { throw new SerializationException(); }  Type1 = _json["type_1"]; }
         { if(!_json["type_2"].IsNumber) { throw new SerializationException(); }  Type2 = _json["type_2"]; }
         { if(!_json["specialFlag"].IsNumber) { throw new SerializationException(); }  SpecialFlag = _json["specialFlag"]; }
@@ -35,12 +34,11 @@ public sealed partial class EquipData :  Bright.Config.BeanBase
         PostInit();
     }
 
-    public EquipData(int ID, string icon, string name_cn, string name_en, int type_1, int type_2, int specialFlag, int equip_set, int quality, int weight, int ATK, int DEF, System.Collections.Generic.List<int> effect, int ammu ) 
+    public EquipData(int ID, string icon, string name, int type_1, int type_2, int specialFlag, int equip_set, int quality, int weight, int ATK, int DEF, System.Collections.Generic.List<int> effect, int ammu ) 
     {
         this.ID = ID;
         this.Icon = icon;
-        this.NameCn = name_cn;
-        this.NameEn = name_en;
+        this.Name = name;
         this.Type1 = type_1;
         this.Type2 = type_2;
         this.SpecialFlag = specialFlag;
@@ -70,11 +68,7 @@ public sealed partial class EquipData :  Bright.Config.BeanBase
     /// <summary>
     /// 装备中文名
     /// </summary>
-    public string NameCn { get; private set; }
-    /// <summary>
-    /// 装备英文名
-    /// </summary>
-    public string NameEn { get; private set; }
+    public string Name { get; private set; }
     /// <summary>
     /// 装备一类类型
     /// </summary>
@@ -133,8 +127,7 @@ public sealed partial class EquipData :  Bright.Config.BeanBase
         return "{ "
         + "ID:" + ID + ","
         + "Icon:" + Icon + ","
-        + "NameCn:" + NameCn + ","
-        + "NameEn:" + NameEn + ","
+        + "Name:" + Name + ","
         + "Type1:" + Type1 + ","
         + "Type2:" + Type2 + ","
         + "SpecialFlag:" + SpecialFlag + ","

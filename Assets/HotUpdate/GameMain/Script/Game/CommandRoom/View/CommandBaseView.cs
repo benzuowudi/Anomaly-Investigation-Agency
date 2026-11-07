@@ -1,6 +1,7 @@
 using FairyGUI;
 using Framework.Script.UI;
 using GameMain.Script.Role;
+using GameMain.Script.TalentAcquisition;
 using GameMain.Script.Warehouse;
 
 namespace GameMain.Script.UI
@@ -19,7 +20,7 @@ namespace GameMain.Script.UI
     ///   com_currency   右上货币
     ///   btn_task / btn_achievement / btn_mail / btn_player 顶部功能按钮
     ///
-    /// 目前只有角色、仓库有权威数据，其余卡片保留 FGUI 里的展示值；
+    /// 目前角色、仓库、货币都有权威数据，其余卡片保留 FGUI 里的展示值；
     /// 对应系统接入后只需要补各自组件的 SetCom。
     /// </summary>
     public class CommandBaseView : UIWindow
@@ -112,6 +113,9 @@ namespace GameMain.Script.UI
 
             com_inventory.SetCom(WarehouseSystem.GetUsedSlots(), WarehouseSystem.GetMaxSlots());
 
+            // 右上角货币：欧元暂时存在人才招募数据里（等经济系统接入后再换数据源）
+            com_currency.SetCom(TalentAcquisitionSystem.GetEuro());
+
             com_player.SetCom();
             com_TA.SetCom();
             com_armory.SetCom();
@@ -129,6 +133,7 @@ namespace GameMain.Script.UI
             Game.Event.Subscribe(RoleEventDefine.OnRolesChanged, OnRolesChanged);
             Game.Event.Subscribe(RoleEventDefine.OnMainRoleChanged, OnMainRoleChanged);
             Game.Event.Subscribe(WarehouseEventDefine.OnWarehouseChanged, OnWarehouseChanged);
+            Game.Event.Subscribe(TalentAcquisitionEventDefine.OnCurrencyChanged, OnCurrencyChanged);
             m_Subscribed = true;
         }
 
@@ -143,6 +148,7 @@ namespace GameMain.Script.UI
             Game.Event.UnSubscribe(RoleEventDefine.OnRolesChanged, OnRolesChanged);
             Game.Event.UnSubscribe(RoleEventDefine.OnMainRoleChanged, OnMainRoleChanged);
             Game.Event.UnSubscribe(WarehouseEventDefine.OnWarehouseChanged, OnWarehouseChanged);
+            Game.Event.UnSubscribe(TalentAcquisitionEventDefine.OnCurrencyChanged, OnCurrencyChanged);
             m_Subscribed = false;
         }
 
@@ -164,6 +170,12 @@ namespace GameMain.Script.UI
         private void OnWarehouseChanged(object _o)
         {
             Refresh();
+        }
+
+        private void OnCurrencyChanged(object _o)
+        {
+            CurrencyChangedMsg kMsg = _o as CurrencyChangedMsg;
+            com_currency.SetCom(kMsg != null ? kMsg.m_Euro : TalentAcquisitionSystem.GetEuro());
         }
 
         private void OnClickTA()

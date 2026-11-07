@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1830,1000" initName="com_bg">
+  <displayList>
+    <image id="n1_gfwq" name="n1" src="gfwq2b" fileName="BackGroundVIew/ui_bg_box.png" xy="16,134">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <component id="n3_gfwq" name="btn_back" src="l0617" fileName="Button/CommonBackBtn.xml" xy="0,0">
+      <relation target="" sidePair="left-left,top-top"/>
+    </component>
+    <text id="n5_gfwq" name="txt_title_chinese" xy="1476,5" pivot="1,0" size="354,92" fontSize="70" color="#868589" align="right" text="这个是标题">
+      <relation target="" sidePair="right-right,top-top"/>
+    </text>
+    <text id="n6_gfwq" name="txt_title_english" xy="1633,87" pivot="1,0" size="184,39" font="ui://5wifhyqavccf4" fontSize="28" color="#868589" align="right" text="This&apos;s is English Title">
+      <relation target="" sidePair="right-right,top-top"/>
+    </text>
+  </displayList>
+</component>

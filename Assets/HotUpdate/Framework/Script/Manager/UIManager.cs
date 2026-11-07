@@ -46,6 +46,9 @@ namespace Framework.Script.Manager
             // FairyGUI 全局默认字体：FGUI 工程 settings/Common.json 里设置的默认字体是 FZYTK，
             // 编辑器导出时"默认字体"不会写进包（文本字段不带 font 属性），只能在运行时补上。
             // 字体文件放在 Assets/Resources/Fonts 下，FairyGUI 的 FontManager 会按名字自动 Resources.Load。
+            // 注意：Resources/Fonts/FZYTK.TTF 已经用 fontTools 合并过——
+            //   汉字和中文标点取自方正姚体，ASCII 字母/数字/半角标点和通用标点（引号、省略号、破折号、间隔号）取自 Agency FB，
+            //   所以一个 GTextField 里就能自动中英混排；不要再给动态文本单独设 AGENCYR/AGENCYB。
             UIConfig.defaultFont = "FZYTK";
 
             // 触发 FairyGUI Stage / StageCamera 创建（UIPanel 渲染依赖它），并让相机跨场景常驻

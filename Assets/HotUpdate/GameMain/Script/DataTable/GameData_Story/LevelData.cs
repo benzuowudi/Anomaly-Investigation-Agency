@@ -19,8 +19,7 @@ public sealed partial class LevelData :  Bright.Config.BeanBase
     public LevelData(JSONNode _json) 
     {
         { if(!_json["ID"].IsNumber) { throw new SerializationException(); }  ID = _json["ID"]; }
-        { if(!_json["name_cn"].IsString) { throw new SerializationException(); }  NameCn = _json["name_cn"]; }
-        { if(!_json["name_en"].IsString) { throw new SerializationException(); }  NameEn = _json["name_en"]; }
+        { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
         { if(!_json["deta"].IsString) { throw new SerializationException(); }  Deta = _json["deta"]; }
         { if(!_json["stroy"].IsNumber) { throw new SerializationException(); }  Stroy = _json["stroy"]; }
@@ -32,11 +31,10 @@ public sealed partial class LevelData :  Bright.Config.BeanBase
         PostInit();
     }
 
-    public LevelData(int ID, string name_cn, string name_en, string desc, string deta, int stroy, string mapimage, int mapID, System.Collections.Generic.List<GameBean.ChapterTargetData> target, System.Collections.Generic.List<GameBean.ChapterEnemyData> enemy, System.Collections.Generic.List<GameType.WeatherType> weather ) 
+    public LevelData(int ID, string name, string desc, string deta, int stroy, string mapimage, int mapID, System.Collections.Generic.List<GameBean.ChapterTargetData> target, System.Collections.Generic.List<GameBean.ChapterEnemyData> enemy, System.Collections.Generic.List<GameType.WeatherType> weather ) 
     {
         this.ID = ID;
-        this.NameCn = name_cn;
-        this.NameEn = name_en;
+        this.Name = name;
         this.Desc = desc;
         this.Deta = deta;
         this.Stroy = stroy;
@@ -60,11 +58,7 @@ public sealed partial class LevelData :  Bright.Config.BeanBase
     /// <summary>
     /// 关卡中文名
     /// </summary>
-    public string NameCn { get; private set; }
-    /// <summary>
-    /// 关卡英文名
-    /// </summary>
-    public string NameEn { get; private set; }
+    public string Name { get; private set; }
     /// <summary>
     /// 关卡说明
     /// </summary>
@@ -112,8 +106,7 @@ public sealed partial class LevelData :  Bright.Config.BeanBase
     {
         return "{ "
         + "ID:" + ID + ","
-        + "NameCn:" + NameCn + ","
-        + "NameEn:" + NameEn + ","
+        + "Name:" + Name + ","
         + "Desc:" + Desc + ","
         + "Deta:" + Deta + ","
         + "Stroy:" + Stroy + ","

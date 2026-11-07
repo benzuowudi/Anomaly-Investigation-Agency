@@ -28,6 +28,7 @@
     <image id="qvtgr" name="ui_btn_task.png" path="/Texture/"/>
     <component id="qvtgs" name="CommandCurrencyCOm.xml" path="/Component/"/>
     <image id="qvtgw" name="ui_bg_shop.png" path="/Texture/"/>
+    <image id="kihu1c" name="ui_bg_commandRoom.png" path="/Texture/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

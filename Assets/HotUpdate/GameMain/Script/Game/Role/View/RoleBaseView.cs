@@ -10,17 +10,17 @@ namespace GameMain.Script.UI
     /// 角色主界面（FairyGUI 包 Role / RoleBaseView）。
     ///
     /// 结构：
-    ///   btn_back   返回指挥室
+    ///   com_bg     通用背景框（Base/CommonBgCom），标题和返回按钮都在里面，返回事件由本界面传进去
     ///   list_tab   左侧页签（RoleTabBtn），按“详情/培养/战技/武器/勋章/装备/时装/道具”初始化
-    ///   com_info   详情页（RoleInfoCom），数据来自 RoleSystem.GetRoleData(主角色)
+    ///   load_com   内容区 GLoader，按页签加载对应组件（详情 = Role/RoleInfoCom）
     ///
-    /// 页签内容区约定：详情页固定是 com_info，其它页签的组件命名为
-    /// com_grow / com_skill / com_weapon / com_medal / com_equip / com_fashion / com_item。
-    /// 组件还没做时显示占位提示，后续在 FGUI 里补上同名组件即可自动接管，不需要改这里。
+    /// 页签切换不重建界面，只把 load_com.url 换成对应组件 URL；
+    /// 页签组件还没做的，c_PageComUrls 留空，显示占位文字。
+    /// 新增页签组件时只要补 c_PageComUrls 里的 URL、再在 RefreshPageCom 里补一次数据填充。
     /// </summary>
     public class RoleBaseView : UIWindow
     {
-        /// <summary>页签索引，必须与 c_TabTitleCn / c_PageComNames 的顺序一致</summary>
+        /// <summary>页签索引，必须与 c_TabTitleCn / c_PageComUrls / c_PageStateNames 的顺序一致</summary>
         private enum RolePage
         {
             Detail = 0,
@@ -43,10 +43,17 @@ namespace GameMain.Script.UI
             "DETAIL", "NOURISH", "SKILL", "WEAPON", "MEDAL", "EQUIP", "FASHION", "ITEM",
         };
 
-        /// <summary>页签对应的内容组件名（详情页就是 com_info）</summary>
-        private static readonly string[] c_PageComNames =
+        /// <summary>页签对应的内容组件 URL，还没做的页签留空（显示占位）</summary>
+        private static readonly string[] c_PageComUrls =
         {
-            "com_info", "com_grow", "com_skill", "com_weapon", "com_medal", "com_equip", "com_fashion", "com_item",
+            "ui://Role/RoleInfoCom",    // 详情
+            string.Empty,               // 培养
+            string.Empty,               // 战技
+            string.Empty,               // 武器
+            string.Empty,               // 勋章
+            string.Empty,               // 装备
+            string.Empty,               // 时装
+            string.Empty,               // 道具
         };
 
         /// <summary>页签对应的 RoleSystemData 界面状态名（沿用原 Role 模块的命名）</summary>
@@ -56,9 +63,9 @@ namespace GameMain.Script.UI
             "RoleMedalView", "RoleEquipView", "RoleFashionView", "RoleItemView",
         };
 
-        private GButton btn_back;
+        private CommonBgCom com_bg;
         private GList list_tab;
-        private RoleInfoCom com_info;
+        private GLoader load_com;
         private GTextField txt_placeholder;
 
         private RolePage m_CurrentPage = RolePage.Detail;
@@ -68,15 +75,16 @@ namespace GameMain.Script.UI
 
         protected internal override void Init(object o)
         {
-            btn_back = ui.GetChild("btn_back").asButton;
+            com_bg = ui.GetChild("com_bg") as CommonBgCom;
             list_tab = ui.GetChild("list_tab").asList;
-            com_info = ui.GetChild("com_info") as RoleInfoCom;
+            load_com = ui.GetChild("load_com").asLoader;
 
             CreatePlaceholder();
 
             // 节点绑定完成后再触发 AddEvent
             base.Init(o);
             InitTabs();
+            com_bg.Init("角色详情", "ROLE INFO", OnClickBack);
         }
 
         protected internal override void Enter(object o)
@@ -146,49 +154,59 @@ namespace GameMain.Script.UI
             ShowPage((RolePage)kIndex);
         }
 
+        /// <summary>切页签：把 load_com 换成对应组件，再按需填数据或显示占位</summary>
         private void ShowPage(RolePage _page)
         {
             m_CurrentPage = _page;
 
-            for (int i = 0; i < c_PageComNames.Length; i++)
+            if (!m_HasRole)
             {
-                GComponent kCom = GetPageCom(i);
-                if (kCom != null)
-                {
-                    kCom.visible = i == (int)_page;
-                }
-            }
-
-            GComponent kCurrent = GetPageCom((int)_page);
-            if (_page == RolePage.Detail && !m_HasRole)
-            {
+                HidePageCom();
                 ShowPlaceholder("暂无角色");
             }
-            else if (kCurrent != null)
+            else if (string.IsNullOrEmpty(c_PageComUrls[(int)_page]))
             {
-                HidePlaceholder();
-            }
-            else if (_page == RolePage.Detail)
-            {
-                ShowPlaceholder("详情界面缺失");
+                HidePageCom();
+                ShowPlaceholder("「" + c_TabTitleCn[(int)_page] + "」界面制作中");
             }
             else
             {
-                ShowPlaceholder("「" + c_TabTitleCn[(int)_page] + "」界面制作中");
+                ShowPageCom(c_PageComUrls[(int)_page]);
+                HidePlaceholder();
+                RefreshPageCom();
             }
 
             RoleSystemData kData = Game.Data.GetGameData<RoleSystemData>();
             kData.SetCurrentType(c_PageStateNames[(int)_page]);
         }
 
-        private GComponent GetPageCom(int _index)
+        private void ShowPageCom(string _url)
         {
-            if (_index == (int)RolePage.Detail)
-            {
-                return com_info;
-            }
+            // url 没变时 GLoader 内部会直接返回，不会重建组件
+            load_com.url = _url;
+            load_com.visible = true;
+        }
 
-            return ui.GetChild(c_PageComNames[_index]) as GComponent;
+        private void HidePageCom()
+        {
+            load_com.url = null;
+            load_com.visible = false;
+        }
+
+        /// <summary>把当前角色数据塞进 load_com 里正在显示的组件；新增页签在这里补分支</summary>
+        private void RefreshPageCom()
+        {
+            switch (m_CurrentPage)
+            {
+                case RolePage.Detail:
+                    RoleInfoCom kInfo = load_com.component as RoleInfoCom;
+                    if (kInfo != null)
+                    {
+                        kInfo.SetCom(RoleSystem.GetRoleData(m_RoleId));
+                    }
+
+                    break;
+            }
         }
 
         #endregion
@@ -202,6 +220,7 @@ namespace GameMain.Script.UI
             {
                 kRole = RoleSystem.GetMainRole();
             }
+
             if (kRole == null)
             {
                 List<RoleRecord> kAll = RoleSystem.GetAllRoles();
@@ -215,23 +234,13 @@ namespace GameMain.Script.UI
             {
                 m_RoleId = 0;
                 m_HasRole = false;
-                com_info.Clear();
-                if (m_CurrentPage == RolePage.Detail)
-                {
-                    ShowPlaceholder("暂无角色");
-                }
+                ShowPage(m_CurrentPage);
                 return;
             }
 
             m_HasRole = true;
             m_RoleId = kRole.m_Id;
-            RoleSnapshot kSnapshot = RoleSystem.GetRoleData(m_RoleId);
-            com_info.SetCom(kSnapshot);
-
-            if (m_CurrentPage == RolePage.Detail)
-            {
-                ShowPage(RolePage.Detail);
-            }
+            ShowPage(m_CurrentPage);
         }
 
         private static int ResolveRoleId(object _o)
@@ -308,11 +317,15 @@ namespace GameMain.Script.UI
 
         private void CreatePlaceholder()
         {
+            const float c_Width = 1000f;
+            const float c_Height = 200f;
+
             txt_placeholder = new GTextField();
             txt_placeholder.name = "txt_role_placeholder";
             txt_placeholder.touchable = false;
-            txt_placeholder.SetSize(1000f, 200f);
-            txt_placeholder.SetXY(420f, 400f);
+            txt_placeholder.SetSize(c_Width, c_Height);
+            txt_placeholder.SetXY(load_com.x + (load_com.width - c_Width) * 0.5f,
+                load_com.y + (load_com.height - c_Height) * 0.5f);
 
             TextFormat kFormat = new TextFormat();
             kFormat.size = 48;
@@ -348,13 +361,11 @@ namespace GameMain.Script.UI
 
         protected internal override void AddEvent()
         {
-            btn_back.onClick.Add(OnClickBack);
             list_tab.onClickItem.Add(OnClickTab);
         }
 
         protected internal override void RemoveEvent()
         {
-            btn_back.onClick.Remove(OnClickBack);
             list_tab.onClickItem.Remove(OnClickTab);
         }
 

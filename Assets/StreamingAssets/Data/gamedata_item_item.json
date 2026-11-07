@@ -2,8 +2,7 @@
   {
     "ID": 1001,
     "icon": "",
-    "name_cn": "欧元",
-    "name_en": "Euro",
+    "name": "欧元",
     "type_show": 2,
     "type_group": 100,
     "specialFlag": 0,
@@ -18,8 +17,7 @@
   {
     "ID": 1002,
     "icon": "",
-    "name_cn": "10克金条",
-    "name_en": "Glod10",
+    "name": "10克金条",
     "type_show": 2,
     "type_group": 100,
     "specialFlag": 0,
@@ -34,8 +32,7 @@
   {
     "ID": 1003,
     "icon": "",
-    "name_cn": "50克金条",
-    "name_en": "Glod50",
+    "name": "50克金条",
     "type_show": 2,
     "type_group": 100,
     "specialFlag": 0,

@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using FairyGUI;
 using Framework.Script.Data;
+using GameMain.Script.TalentAcquisition;
 using GameMain.Script.UI;
 using SimpleJSON;
 using UnityEngine;
@@ -64,6 +65,7 @@ namespace GameMain.Script.Data
             }
             m_Euro -= _amount;
             Save();
+            NotifyCurrencyChanged();
             return true;
         }
 
@@ -75,6 +77,7 @@ namespace GameMain.Script.Data
             }
             m_Gold -= _amount;
             Save();
+            NotifyCurrencyChanged();
             return true;
         }
 
@@ -86,6 +89,7 @@ namespace GameMain.Script.Data
             }
             m_Euro += _amount;
             Save();
+            NotifyCurrencyChanged();
         }
 
         public void AddGold(int _amount)
@@ -96,6 +100,7 @@ namespace GameMain.Script.Data
             }
             m_Gold += _amount;
             Save();
+            NotifyCurrencyChanged();
         }
 
         public void SetCurrency(int _euro, int _gold)
@@ -103,11 +108,21 @@ namespace GameMain.Script.Data
             m_Euro = Math.Max(0, _euro);
             m_Gold = Math.Max(0, _gold);
             Save();
+            NotifyCurrencyChanged();
         }
 
         public void ResetCurrency()
         {
             SetCurrency(c_DefaultEuro, c_DefaultGold);
+        }
+
+        /// <summary>
+        /// 广播货币变化，指挥室等界面订阅后刷新数值。
+        /// </summary>
+        private void NotifyCurrencyChanged()
+        {
+            Game.Event.SendMessage(TalentAcquisitionEventDefine.OnCurrencyChanged,
+                new CurrencyChangedMsg(m_Euro, m_Gold));
         }
 
         #endregion

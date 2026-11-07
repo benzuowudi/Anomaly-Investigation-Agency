@@ -20,19 +20,17 @@ public sealed partial class EquipSetData :  Bright.Config.BeanBase
     {
         { if(!_json["ID"].IsNumber) { throw new SerializationException(); }  ID = _json["ID"]; }
         { if(!_json["icon"].IsString) { throw new SerializationException(); }  Icon = _json["icon"]; }
-        { if(!_json["name_cn"].IsString) { throw new SerializationException(); }  NameCn = _json["name_cn"]; }
-        { if(!_json["name_en"].IsString) { throw new SerializationException(); }  NameEn = _json["name_en"]; }
+        { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["type_1"].IsNumber) { throw new SerializationException(); }  Type1 = _json["type_1"]; }
         { if(!_json["type_2"].IsNumber) { throw new SerializationException(); }  Type2 = _json["type_2"]; }
         PostInit();
     }
 
-    public EquipSetData(int ID, string icon, string name_cn, string name_en, int type_1, int type_2 ) 
+    public EquipSetData(int ID, string icon, string name, int type_1, int type_2 ) 
     {
         this.ID = ID;
         this.Icon = icon;
-        this.NameCn = name_cn;
-        this.NameEn = name_en;
+        this.Name = name;
         this.Type1 = type_1;
         this.Type2 = type_2;
         PostInit();
@@ -54,11 +52,7 @@ public sealed partial class EquipSetData :  Bright.Config.BeanBase
     /// <summary>
     /// 装备套装中文名
     /// </summary>
-    public string NameCn { get; private set; }
-    /// <summary>
-    /// 装备套装英文名
-    /// </summary>
-    public string NameEn { get; private set; }
+    public string Name { get; private set; }
     /// <summary>
     /// 装备套装效果-两件套
     /// </summary>
@@ -85,8 +79,7 @@ public sealed partial class EquipSetData :  Bright.Config.BeanBase
         return "{ "
         + "ID:" + ID + ","
         + "Icon:" + Icon + ","
-        + "NameCn:" + NameCn + ","
-        + "NameEn:" + NameEn + ","
+        + "Name:" + Name + ","
         + "Type1:" + Type1 + ","
         + "Type2:" + Type2 + ","
         + "}";

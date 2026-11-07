@@ -2,8 +2,7 @@
   {
     "ID": 10001,
     "icon": "",
-    "name_cn": "体力充沛",
-    "name_en": "",
+    "name": "体力充沛",
     "isBuff": true,
     "stacks": 3,
     "desc": "战斗中，最大负重提升，每一层增加10%"
@@ -11,8 +10,7 @@
   {
     "ID": 10002,
     "icon": "",
-    "name_cn": "理智",
-    "name_en": "",
+    "name": "理智",
     "isBuff": true,
     "stacks": 5,
     "desc": "战斗中，枪械操作能力提升，每一层命中+3%"
@@ -20,8 +18,7 @@
   {
     "ID": 10003,
     "icon": "",
-    "name_cn": "沉着",
-    "name_en": "",
+    "name": "沉着",
     "isBuff": true,
     "stacks": 5,
     "desc": "战斗中，刀具操作能力提升，每一层命中+3%"
@@ -29,8 +26,7 @@
   {
     "ID": 10004,
     "icon": "",
-    "name_cn": "兴奋",
-    "name_en": "",
+    "name": "兴奋",
     "isBuff": true,
     "stacks": 1,
     "desc": "战斗中，行为模式改变，角色更倾向于远程攻击"
@@ -38,8 +34,7 @@
   {
     "ID": 10005,
     "icon": "",
-    "name_cn": "跃跃欲试",
-    "name_en": "",
+    "name": "跃跃欲试",
     "isBuff": true,
     "stacks": 1,
     "desc": "战斗中，行为模式改变，角色更倾向于近程攻击"
@@ -47,8 +42,7 @@
   {
     "ID": 10006,
     "icon": "",
-    "name_cn": "伤愈",
-    "name_en": "",
+    "name": "伤愈",
     "isBuff": true,
     "stacks": 1,
     "desc": "使用【医疗补给品】治疗伤势时，效果+1%"
@@ -56,8 +50,7 @@
   {
     "ID": 10007,
     "icon": "",
-    "name_cn": "沮丧",
-    "name_en": "",
+    "name": "沮丧",
     "isBuff": false,
     "stacks": 1,
     "desc": "战斗中，行为模式改变，角色更倾向于退出战斗"
@@ -65,8 +58,7 @@
   {
     "ID": 10008,
     "icon": "",
-    "name_cn": "恐惧",
-    "name_en": "",
+    "name": "恐惧",
     "isBuff": false,
     "stacks": 5,
     "desc": "战斗中，枪械操作能力下降，每一层命中-3%"
@@ -74,8 +66,7 @@
   {
     "ID": 10009,
     "icon": "",
-    "name_cn": "混乱",
-    "name_en": "",
+    "name": "混乱",
     "isBuff": false,
     "stacks": 5,
     "desc": "战斗中，刀具操作能力下降，每一层命中-3%"
@@ -83,8 +74,7 @@
   {
     "ID": 10010,
     "icon": "",
-    "name_cn": "眩晕",
-    "name_en": "",
+    "name": "眩晕",
     "isBuff": false,
     "stacks": 1,
     "desc": "战斗中，移动速度降低10%"
@@ -92,8 +82,7 @@
   {
     "ID": 10011,
     "icon": "",
-    "name_cn": "割裂伤",
-    "name_en": "",
+    "name": "割裂伤",
     "isBuff": false,
     "stacks": 3,
     "desc": "战斗中，受到【刀具】造成的伤害时，累计1层，累计3层后消失"
@@ -101,8 +90,7 @@
   {
     "ID": 10012,
     "icon": "",
-    "name_cn": "出血",
-    "name_en": "",
+    "name": "出血",
     "isBuff": false,
     "stacks": 1,
     "desc": "战斗中，【割裂伤】消失时，扣除最大生命值10%的血量"
@@ -110,8 +98,7 @@
   {
     "ID": 10013,
     "icon": "",
-    "name_cn": "冻伤",
-    "name_en": "",
+    "name": "冻伤",
     "isBuff": false,
     "stacks": 3,
     "desc": "战斗中，受到的枪械伤害增加，每一层+2%"
@@ -119,8 +106,7 @@
   {
     "ID": 10014,
     "icon": "",
-    "name_cn": "烧伤",
-    "name_en": "",
+    "name": "烧伤",
     "isBuff": false,
     "stacks": 3,
     "desc": "战斗中，受到的道具伤害增加，每一层+2%"
@@ -128,8 +114,7 @@
   {
     "ID": 10015,
     "icon": "",
-    "name_cn": "视野受限",
-    "name_en": "",
+    "name": "视野受限",
     "isBuff": false,
     "stacks": 1,
     "desc": "战斗中，最大攻击距离缩短5%"
@@ -137,8 +122,7 @@
   {
     "ID": 10016,
     "icon": "",
-    "name_cn": "左臂残疾",
-    "name_en": "",
+    "name": "左臂残疾",
     "isBuff": false,
     "stacks": 1,
     "desc": "左手偏好的角色被迫使用右手，装备操作能力下降，命中-10%"
@@ -146,8 +130,7 @@
   {
     "ID": 10017,
     "icon": "",
-    "name_cn": "右臂残疾",
-    "name_en": "",
+    "name": "右臂残疾",
     "isBuff": false,
     "stacks": 1,
     "desc": "右手偏好的角色被迫使用左手，装备操作能力下降，命中-10%"
@@ -155,8 +138,7 @@
   {
     "ID": 10018,
     "icon": "",
-    "name_cn": "左腿残疾",
-    "name_en": "",
+    "name": "左腿残疾",
     "isBuff": false,
     "stacks": 1,
     "desc": "下肢残疾，角色移动性能下降，敏捷-10%"
@@ -164,8 +146,7 @@
   {
     "ID": 10019,
     "icon": "",
-    "name_cn": "右腿残疾",
-    "name_en": "",
+    "name": "右腿残疾",
     "isBuff": false,
     "stacks": 1,
     "desc": "下肢残疾，角色移动性能下降，敏捷-10%"
@@ -173,8 +154,7 @@
   {
     "ID": 10020,
     "icon": "",
-    "name_cn": "瘫痪",
-    "name_en": "",
+    "name": "瘫痪",
     "isBuff": false,
     "stacks": 1,
     "desc": "角色无法移动，无法使用装备"

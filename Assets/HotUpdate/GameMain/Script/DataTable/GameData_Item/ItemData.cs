@@ -20,8 +20,7 @@ public sealed partial class ItemData :  Bright.Config.BeanBase
     {
         { if(!_json["ID"].IsNumber) { throw new SerializationException(); }  ID = _json["ID"]; }
         { if(!_json["icon"].IsString) { throw new SerializationException(); }  Icon = _json["icon"]; }
-        { if(!_json["name_cn"].IsString) { throw new SerializationException(); }  NameCn = _json["name_cn"]; }
-        { if(!_json["name_en"].IsString) { throw new SerializationException(); }  NameEn = _json["name_en"]; }
+        { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["type_show"].IsNumber) { throw new SerializationException(); }  TypeShow = _json["type_show"]; }
         { if(!_json["type_group"].IsNumber) { throw new SerializationException(); }  TypeGroup = _json["type_group"]; }
         { if(!_json["specialFlag"].IsNumber) { throw new SerializationException(); }  SpecialFlag = _json["specialFlag"]; }
@@ -35,12 +34,11 @@ public sealed partial class ItemData :  Bright.Config.BeanBase
         PostInit();
     }
 
-    public ItemData(int ID, string icon, string name_cn, string name_en, int type_show, int type_group, int specialFlag, int weight, int quality, string effect, int isSell, int sellPrice, int use_type, string use_value ) 
+    public ItemData(int ID, string icon, string name, int type_show, int type_group, int specialFlag, int weight, int quality, string effect, int isSell, int sellPrice, int use_type, string use_value ) 
     {
         this.ID = ID;
         this.Icon = icon;
-        this.NameCn = name_cn;
-        this.NameEn = name_en;
+        this.Name = name;
         this.TypeShow = type_show;
         this.TypeGroup = type_group;
         this.SpecialFlag = specialFlag;
@@ -70,11 +68,7 @@ public sealed partial class ItemData :  Bright.Config.BeanBase
     /// <summary>
     /// 道具中文名
     /// </summary>
-    public string NameCn { get; private set; }
-    /// <summary>
-    /// 道具英文名
-    /// </summary>
-    public string NameEn { get; private set; }
+    public string Name { get; private set; }
     /// <summary>
     /// 道具展示类型
     /// </summary>
@@ -133,8 +127,7 @@ public sealed partial class ItemData :  Bright.Config.BeanBase
         return "{ "
         + "ID:" + ID + ","
         + "Icon:" + Icon + ","
-        + "NameCn:" + NameCn + ","
-        + "NameEn:" + NameEn + ","
+        + "Name:" + Name + ","
         + "TypeShow:" + TypeShow + ","
         + "TypeGroup:" + TypeGroup + ","
         + "SpecialFlag:" + SpecialFlag + ","

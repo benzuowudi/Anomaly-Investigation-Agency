@@ -67,7 +67,7 @@ namespace GameMain.Script.Warehouse
         public static string GetItemName(int _itemId)
         {
             cfg.GameData_Item.ItemData kConfig = WarehouseData.GetConfig(_itemId);
-            return kConfig == null ? "未知道具(" + _itemId + ")" : kConfig.NameCn;
+            return kConfig == null ? "未知道具(" + _itemId + ")" : kConfig.Name;
         }
 
         /// <summary>
@@ -514,7 +514,7 @@ namespace GameMain.Script.Warehouse
             for (int i = 0; i < kAll.Count; i++)
             {
                 cfg.GameData_Item.ItemData kConfig = WarehouseData.GetConfig(kAll[i].m_ItemId);
-                string kName = kConfig == null ? "?" : kConfig.NameCn;
+                string kName = kConfig == null ? "?" : kConfig.Name;
                 kBuilder.Append("\n  ").Append(kAll[i].m_ItemId).Append(" ").Append(kName)
                     .Append(" x").Append(kAll[i].m_Count);
             }

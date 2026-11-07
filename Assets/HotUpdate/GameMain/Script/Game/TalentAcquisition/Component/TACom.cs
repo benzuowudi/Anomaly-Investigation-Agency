@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using FairyGUI;
 using FairyGUI.Utils;
+using Framework.Script.UI;
 
 namespace GameMain.Script.UI
 {
@@ -44,6 +45,11 @@ namespace GameMain.Script.UI
             btn_ten = GetChild("btn_ten") as TABtnCom;
             btn_headhunter = GetChild("btn_headhunter ") as TABtn2Com;
             list_com = GetChild("list_com").asList;
+
+            // 消耗文本会写 "200/1.8万" 这种格式化数字，FGUI 里是 AGENCYR（纯英文字体），
+            // 不换字体的话"万"会静默回退到系统字体，和数字变成两种字体混排。
+            UIFont.Apply(txt_consume_1);
+            UIFont.Apply(txt_consume_10);
         }
 
         public void SetState(TAState _state)

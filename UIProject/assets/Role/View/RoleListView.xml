@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080" designImageLayer="1">
   <displayList>
-    <component id="n0_nye2" name="btn_back" src="l0617" fileName="Button/CommonBackBtn.xml" pkg="5wifhyqa" xy="80,15"/>
-    <image id="n1_nye2" name="n1" src="vccf1" fileName="Texture/ui_bg_common_2.png" pkg="5wifhyqa" xy="41,151" size="1858,864"/>
-    <list id="n2_nye2" name="list_role" xy="61,170" size="1797,811" layout="flow_hz" overflow="scroll" lineGap="15" colGap="17" defaultItem="ui://5wifhyqanye2f" autoClearItems="true">
+    <component id="n3_gfwq" name="com_bg" src="gfwq2f" fileName="BackGroundVIew/CommonBgCom.xml" pkg="5wifhyqa" xy="45,40"/>
+    <list id="n2_nye2" name="list_role" xy="84,243" size="1762,695" layout="flow_hz" overflow="scroll" lineGap="15" colGap="10" defaultItem="ui://5wifhyqanye2f" autoClearItems="true">
       <item/>
       <item/>
       <item/>

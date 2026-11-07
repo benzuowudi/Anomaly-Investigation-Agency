@@ -5,25 +5,35 @@
     <remark page="1" value="定向猎头"/>
   </controller>
   <displayList>
-    <image id="n4_nye2" name="n4" src="vccf3" fileName="Texture/ui_bg_common_1.png" pkg="5wifhyqa" xy="0,0" size="798,787" alpha="0.8"/>
-    <image id="n5_nye2" name="n5" src="nye20" fileName="Texture/ui_bg_TA1.png" xy="18,27" size="754,60"/>
-    <text id="n8_nye2" name="txt_title" xy="281,23" size="212,69" fontSize="52" color="#e1dde9" text="人才吸纳"/>
-    <richtext id="n13_nye2" name="txt_consume_1" xy="46,624" size="158,62" font="ui://5wifhyqavccf4" fontSize="46" color="#636168" leading="0" letterSpacing="-2" text="&lt;img src=&apos;ui://CommonUI/ui_icon_euro_dark&apos;&gt;  200/0"/>
-    <richtext id="n15_nye2" name="txt_consume_10" xy="427,624" size="158,62" font="ui://5wifhyqavccf4" fontSize="46" color="#636168" leading="0" letterSpacing="-2" text="&lt;img src=&apos;ui://CommonUI/ui_icon_euro_dark&apos;&gt;  200/0">
+    <image id="n4_nye2" name="n4" src="vccf3" fileName="Texture/ui_bg_common_1.png" pkg="5wifhyqa" xy="0,0" size="798,787" alpha="0.8">
+      <relation target="" sidePair="width-width,height-height,center-center,middle-middle"/>
+    </image>
+    <image id="n5_nye2" name="n5" src="nye20" fileName="Texture/ui_bg_TA1.png" xy="18,27" size="754,60" group="n27_gfwq"/>
+    <text id="n8_nye2" name="txt_title" xy="281,23" size="212,69" group="n27_gfwq" fontSize="52" color="#e1dde9" text="人才吸纳"/>
+    <group id="n27_gfwq" name="n27" xy="18,23" size="754,69" advanced="true">
+      <relation target="" sidePair="center-center,top-top"/>
+    </group>
+    <list id="n23_nye2" name="list_com" xy="47,114" size="704,498" overflow="scroll" autoClearItems="true">
+      <relation target="" sidePair="height-height,center-center"/>
+    </list>
+    <richtext id="n13_nye2" name="txt_consume_1" xy="47,632" size="158,62" group="n26_gfwq" font="ui://5wifhyqavccf4" fontSize="46" color="#636168" leading="0" letterSpacing="-2" text="&lt;img src=&apos;ui://CommonUI/ui_icon_euro_dark&apos;&gt;  200/0"/>
+    <richtext id="n15_nye2" name="txt_consume_10" xy="428,632" size="158,62" group="n26_gfwq" font="ui://5wifhyqavccf4" fontSize="46" color="#636168" leading="0" letterSpacing="-2" text="&lt;img src=&apos;ui://CommonUI/ui_icon_euro_dark&apos;&gt;  200/0">
       <gearDisplay controller="state" pages="0"/>
     </richtext>
-    <component id="n16_nye2" name="btn_once" src="nye26" fileName="Component/TABtn_1.xml" xy="41,685">
-      <gearDisplay controller="state" pages="0"/>
-    </component>
-    <component id="n20_nye2" name="btn_ten" src="nye26" fileName="Component/TABtn_1.xml" xy="423,685">
-      <gearDisplay controller="state" pages="0"/>
-    </component>
-    <component id="n24_qktp" name="btn_headhunter " src="qktpg" fileName="Component/TABtn_2.xml" xy="47,685">
-      <gearDisplay controller="state" pages="1"/>
-    </component>
-    <list id="n23_nye2" name="list_com" xy="47,114" size="704,484" overflow="scroll" autoClearItems="true"/>
-    <text id="n25_qktp" name="txt_headhunterTime" xy="609,619" pivot="1,0" size="139,64" font="ui://5wifhyqavccf4" fontSize="48" color="#636168" text="23:59:58">
+    <text id="n25_qktp" name="txt_headhunterTime" xy="609,627" pivot="1,0" size="139,64" group="n26_gfwq" font="ui://5wifhyqavccf4" fontSize="48" color="#636168" text="23:59:58">
       <gearDisplay controller="state" pages="1"/>
     </text>
+    <component id="n16_nye2" name="btn_once" src="nye26" fileName="Component/TABtn_1.xml" xy="47,693" group="n26_gfwq">
+      <gearDisplay controller="state" pages="0"/>
+    </component>
+    <component id="n20_nye2" name="btn_ten" src="nye26" fileName="Component/TABtn_1.xml" xy="427,693" group="n26_gfwq">
+      <gearDisplay controller="state" pages="0"/>
+    </component>
+    <component id="n24_qktp" name="btn_headhunter " src="qktpg" fileName="Component/TABtn_2.xml" xy="47,693" group="n26_gfwq">
+      <gearDisplay controller="state" pages="1"/>
+    </component>
+    <group id="n26_gfwq" name="n26" xy="47,627" size="704,137" advanced="true">
+      <relation target="" sidePair="center-center,bottom-bottom"/>
+    </group>
   </displayList>
 </component>

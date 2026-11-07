@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1920,1080">
+<component size="1920,1080" designImageLayer="1">
   <displayList>
     <loader id="n0_n940" name="n0" xy="0,0" size="1920,1080" url="ui://5wifhyqaqvtg1n" autoSize="true">
       <relation target="" sidePair="center-center,middle-middle"/>
     </loader>
+    <image id="n11_gfwq" name="n11" src="gfwq2d" fileName="BackGroundVIew/ui_bg_line1.png" xy="1544,1000">
+      <relation target="" sidePair="right-right,bottom-bottom"/>
+    </image>
+    <image id="n12_gfwq" name="n12" src="gfwq2e" fileName="BackGroundVIew/ui_bg_point.png" xy="1686,998">
+      <relation target="" sidePair="right-right,bottom-bottom"/>
+    </image>
+    <text id="n14_gfwq" name="txt_date" xy="1704,983" size="158,36" font="ui://5wifhyqavccf4" fontSize="26" color="#868589" align="right" text="26/11/20 23:59:58">
+      <relation target="" sidePair="right-right,bottom-bottom"/>
+    </text>
+    <text id="n15_gfwq" name="txt_verson" xy="1805,1011" size="56,36" font="ui://5wifhyqavccf4" fontSize="26" color="#868589" align="right" text="V 1.0.0"/>
+    <image id="n16_gfwq" name="n16" src="gfwq2d" fileName="BackGroundVIew/ui_bg_line1.png" xy="332,73" group="n19_gfwq">
+      <relation target="" sidePair="left-left,top-top"/>
+    </image>
+    <image id="n17_gfwq" name="n17" src="gfwq2d" fileName="BackGroundVIew/ui_bg_line1.png" xy="279,50" size="47,2" group="n19_gfwq" rotation="90">
+      <relation target="" sidePair="left-left,top-top"/>
+    </image>
+    <text id="n18_gfwq" name="txt_name" xy="472,54" size="251,36" group="n19_gfwq" font="ui://5wifhyqavccf4" fontSize="26" color="#868589" align="right" text="Anomaly-Investigation-Agency">
+      <relation target="" sidePair="left-left,top-top"/>
+    </text>
+    <group id="n19_gfwq" name="part_topTip" xy="279,50" size="444,40" advanced="true"/>
   </displayList>
 </component>

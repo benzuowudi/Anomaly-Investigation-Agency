@@ -16,10 +16,12 @@ namespace GameMain.Script.UI
     ///
     /// 选满后立即把选中的角色写入角色库并关闭结果界面；
     /// 定向猎头结果是已入职角色，只展示，不参与选择。
+    ///
+    /// 背景框 com_bg 用 Base/CommonBgCom，返回按钮在它内部，本界面只把返回事件传进去。
     /// </summary>
     public class TalentAcquisitionResultView : UIWindow
     {
-        private GButton btn_back;
+        private CommonBgCom com_bg;
         private Controller controller_state;
 
         /// <summary>FGUI 发布时重名节点可能带 _1/_2/_3 后缀，全部收进来统一隐藏</summary>
@@ -37,7 +39,7 @@ namespace GameMain.Script.UI
             // RoleCardCom 在 Base 包里，但立绘仍引用 Role 包的图片，结果界面需要确保 Role 已加载
             FairyGUIManager.Instance.LoadPackage("Role");
 
-            btn_back = ui.GetChild("btn_back").asButton;
+            com_bg = ui.GetChild("com_bg") as CommonBgCom;
             controller_state = ui.GetController("state");
 
             m_OnceCards[0] = ui.GetChild("com_card_once") as RoleCardCom;
@@ -56,17 +58,9 @@ namespace GameMain.Script.UI
                 AddCardClick(m_Cards[i]);
             }
 
+            com_bg.Init("人才招募", "TALENT ACQUISITION", OnClickBack);
+
             base.Init(o);
-        }
-
-        protected internal override void AddEvent()
-        {
-            btn_back.onClick.Add(OnClickBack);
-        }
-
-        protected internal override void RemoveEvent()
-        {
-            btn_back.onClick.Remove(OnClickBack);
         }
 
         protected internal override void Enter(object o)

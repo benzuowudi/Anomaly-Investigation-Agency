@@ -27,6 +27,22 @@ namespace GameMain.Script.TalentAcquisition
         }
 
         /// <summary>
+        /// 当前欧元
+        /// </summary>
+        public static int GetEuro()
+        {
+            return DB.GetEuro();
+        }
+
+        /// <summary>
+        /// 当前黄金
+        /// </summary>
+        public static int GetGold()
+        {
+            return DB.GetGold();
+        }
+
+        /// <summary>
         /// 使用 _contracts 张合同进行人才吸纳，返回最终入职的角色。
         /// </summary>
         public static TalentAcquisitionResult Recruit(int _contracts)

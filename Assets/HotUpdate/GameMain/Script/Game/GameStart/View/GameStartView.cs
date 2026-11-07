@@ -42,22 +42,14 @@ namespace GameMain.Script.UI
 
         /// <summary>
         /// CommonBtn2 的 title 在 FGUI 里用的是 AGENCYR（纯英文字体），
-        /// 运行时代码写入中文后会静默回退到系统字体，这里统一改成中文字体 FZYTK。
+        /// 运行时代码写入中文后会静默回退到系统字体，这里统一换成中英混排字体（见 UIFont）。
         /// </summary>
         private void ApplyButtonFont()
         {
-            ApplyFont(btn_continue);
-            ApplyFont(btn_newGame);
-            ApplyFont(btn_option);
-            ApplyFont(btn_exit);
-        }
-
-        private static void ApplyFont(GButton _button)
-        {
-            GTextField kText = _button.GetTextField();
-            TextFormat kFormat = kText.textFormat;
-            kFormat.font = "FZYTK";
-            kText.textFormat = kFormat;
+            UIFont.Apply(btn_continue);
+            UIFont.Apply(btn_newGame);
+            UIFont.Apply(btn_option);
+            UIFont.Apply(btn_exit);
         }
 
         private void OnClickNewGame()

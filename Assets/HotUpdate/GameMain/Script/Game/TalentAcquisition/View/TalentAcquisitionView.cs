@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using FairyGUI;
+using Framework.Script.Expand;
 using Framework.Script.UI;
 using GameMain.Script.Data;
 using GameMain.Script.Role;
@@ -21,27 +22,24 @@ namespace GameMain.Script.UI
             "2，消费【定向猎头委托】需要设置委托需求；\n" +
             "3，猎头会按照委托需求行动，并在一定时间后带回人才；";
 
-        private GButton btn_back;
-        private GTextField txt_title_1, txt_title_2;
+        private CommonBgCom com_bg;
         private TACom com_TA_1, com_TA_2;
         private TalentAcquisitionData m_Data;
         private int m_LastRemaining = -1;
 
         protected internal override void Init(object o)
         {
-            btn_back = ui.GetChild("btn_back").asButton;
-            txt_title_1 = ui.GetChild("txt_title_1").asTextField;
-            txt_title_2 = ui.GetChild("txt_title_2").asTextField;
+            com_bg = ui.GetChild("com_bg") as CommonBgCom;
             com_TA_1 = ui.GetChild("com_TA_1") as TACom;
             com_TA_2 = ui.GetChild("com_TA_2") as TACom;
             m_Data = Game.Data.GetGameData<TalentAcquisitionData>();
 
+            com_bg.Init("人才招募", "TALENT ACQUISITION", OnClickBack);
             base.Init(o);
         }
 
         protected internal override void AddEvent()
         {
-            btn_back.onClick.Add(OnClickBack);
             com_TA_1.onClickOnce.Add(OnClickOnce);
             com_TA_1.onClickTen.Add(OnClickTen);
             com_TA_2.onClickHeadhunter.Add(OnClickHunter);
@@ -49,7 +47,6 @@ namespace GameMain.Script.UI
 
         protected internal override void RemoveEvent()
         {
-            btn_back.onClick.Remove(OnClickBack);
             com_TA_1.onClickOnce.Remove(OnClickOnce);
             com_TA_1.onClickTen.Remove(OnClickTen);
             com_TA_2.onClickHeadhunter.Remove(OnClickHunter);
@@ -82,12 +79,14 @@ namespace GameMain.Script.UI
                     CompleteHeadhunter();
                     return;
                 }
+
                 if (m_LastRemaining > 0)
                 {
                     com_TA_2.SetHeadhunterTime("00:00:00");
                     com_TA_2.SetHeadhunterRunning(false);
                     m_LastRemaining = 0;
                 }
+
                 return;
             }
 
@@ -101,13 +100,11 @@ namespace GameMain.Script.UI
 
         private void Refresh()
         {
-            txt_title_1.text = "人才招募";
-            txt_title_2.text = "TALENT ACQUISTION";
-
             com_TA_1.SetState(TACom.TAState.Recruit);
             com_TA_1.SetTitle("人才吸纳");
             com_TA_1.SetConsume("ui://CommonUI/ui_icon_euro_dark",
-                "200/" + m_Data.GetEuro(), "2000/" + m_Data.GetEuro());
+                "200/" + NumberFormat.Format(m_Data.GetEuro()),
+                "2000/" + NumberFormat.Format(m_Data.GetEuro()));
             com_TA_1.SetDesc("合同说明：");
             com_TA_1.SetButtons("发送合同", 1, "发送合同", 10);
 
@@ -121,7 +118,8 @@ namespace GameMain.Script.UI
                 : null;
 
             com_TA_2.SetTitle("定向猎头");
-            com_TA_2.SetConsume("ui://CommonUI/ui_icon_glod", "10/" + m_Data.GetGold(), "0/0");
+            com_TA_2.SetConsume("ui://CommonUI/ui_icon_glod",
+                "10/" + NumberFormat.Format(m_Data.GetGold()), "0/0");
             com_TA_2.SetDescAndConditions("猎头说明：", c_HunterDesc, "猎头需求：",
                 kConditionTexts, kConditionTimes, kSelectedConditions);
             com_TA_2.SetHeadhunterButton("猎头委托", "准备就绪");
@@ -169,6 +167,7 @@ namespace GameMain.Script.UI
                 Game.Log.LogWarning("[人才招募] 请先选择猎头需求");
                 return;
             }
+
             if (m_Data.IsHeadhunterActive())
             {
                 Game.Log.LogWarning("[人才招募] 已有猎头正在进行中");

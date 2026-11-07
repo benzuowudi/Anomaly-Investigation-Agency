@@ -39,7 +39,7 @@ namespace GameMain.Script.Role
         public List<int> m_EquipIds = new List<int>();
         /// <summary>已佩戴勋章ID（1~3 枚，按职称解锁）</summary>
         public List<int> m_MedalIds = new List<int>();
-        /// <summary>主动技能ID（0 表示没有）</summary>
+        /// <summary>主动技能ID（生成角色时从 skill 表随机分配，0 表示没有）</summary>
         public int m_ActiveSkillId;
         /// <summary>被动技能ID（0 表示没有）</summary>
         public int m_PassiveSkillId;

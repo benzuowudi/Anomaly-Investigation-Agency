@@ -11,7 +11,7 @@ namespace GameMain.Script.Role
     ///
     /// 数据流：
     ///   业务调用 AcquireRole()（抽卡/剧情/商店发放）
-    ///     → RoleFactory 按 role.xlsx 模板掷出一份属性（含随机天赋、推导行为逻辑）
+    ///     → RoleFactory 按 role.xlsx 模板掷出一份属性（含随机天赋、随机主动技能、推导行为逻辑）
     ///     → RoleSystemData 写入权威角色库
     ///     → 广播 OnRoleAcquired / OnRoleChanged / OnRolesChanged
     ///     → 自动存档到本地（role.json），下次启动由 Load() 还原
@@ -356,12 +356,12 @@ namespace GameMain.Script.Role
         }
 
         /// <summary>
-        /// 属性显示名（role.xlsx 的 name_cn）
+        /// 属性显示名（role.xlsx 的 name）
         /// </summary>
         public static string GetAttributeName(int _attrId)
         {
             cfg.GameData_Role.RoleData kConfig = GetAttrConfig(_attrId);
-            return kConfig == null ? ("属性" + _attrId) : kConfig.NameCn;
+            return kConfig == null ? ("属性" + _attrId) : kConfig.Name;
         }
 
         /// <summary>
@@ -413,7 +413,7 @@ namespace GameMain.Script.Role
                 int kValue = _role.GetAttr(kAttr.ID);
                 RoleAttributeView kView = new RoleAttributeView();
                 kView.m_AttrId = kAttr.ID;
-                kView.m_Name = kAttr.NameCn;
+                kView.m_Name = kAttr.Name;
                 kView.m_Value = kValue;
                 kView.m_MaxValue = kAttr.ID == RoleAttrId.Talent ? 0 : Mathf.RoundToInt(kAttr.MaxValue);
                 kView.m_Show = kAttr.Show;
@@ -757,7 +757,7 @@ namespace GameMain.Script.Role
 
         /// <summary>
         /// 设置主动（_isActive = true）或被动技能。_skillId 传 0 表示清空；
-        /// skill 表的 singleFlag 表示专属角色，非 0 且不等于该角色时拒绝。
+        /// 非 0 时必须是 skill 表里配置过的技能。
         /// </summary>
         public static bool SetSkill(int _roleId, int _skillId, bool _isActive)
         {
@@ -774,11 +774,6 @@ namespace GameMain.Script.Role
                 if (kSkill == null)
                 {
                     Game.Log.LogWarning("[角色] 设置技能失败，skill 表中没有该技能：" + _skillId);
-                    return false;
-                }
-                if (kSkill.SingleFlag > 0 && kSkill.SingleFlag != _roleId)
-                {
-                    Game.Log.LogWarning("[角色] 设置技能失败，该技能专属角色 " + kSkill.SingleFlag);
                     return false;
                 }
             }
@@ -820,7 +815,7 @@ namespace GameMain.Script.Role
         public static string GetSkillName(int _skillId)
         {
             cfg.GameData_Skill.SkillData kSkill = GetSkill(_skillId);
-            return kSkill == null ? "无" : kSkill.NameCn;
+            return kSkill == null ? "无" : kSkill.Name;
         }
 
         /// <summary>
@@ -1032,7 +1027,7 @@ namespace GameMain.Script.Role
                 return "无天赋";
             }
             cfg.GameData_Skill.TalentData kConfig = GetTalent(_talentId);
-            return kConfig == null ? ("未知天赋(" + _talentId + ")") : kConfig.NameCn;
+            return kConfig == null ? ("未知天赋(" + _talentId + ")") : kConfig.Name;
         }
 
         /// <summary>
@@ -1091,7 +1086,7 @@ namespace GameMain.Script.Role
         public static string GetBuffName(int _buffId)
         {
             cfg.GameData_Skill.buffData kConfig = GetBuff(_buffId);
-            return kConfig == null ? ("未知效果(" + _buffId + ")") : kConfig.NameCn;
+            return kConfig == null ? ("未知效果(" + _buffId + ")") : kConfig.Name;
         }
 
         /// <summary>
@@ -1462,7 +1457,7 @@ namespace GameMain.Script.Role
                         : kFinal.ToString();
 
                     kBuilder.Append("\n  ").Append(kAttr.Show ? "· " : "  (隐藏) ")
-                        .Append(kAttr.NameCn).Append(" = ").Append(kDisplay);
+                        .Append(kAttr.Name).Append(" = ").Append(kDisplay);
                     if (kAttr.ID != RoleAttrId.Talent)
                     {
                         if (kBonus != 0)
@@ -1479,9 +1474,9 @@ namespace GameMain.Script.Role
                     .Append(" 行为数=").Append(_role.m_Behaviors.Count);
             }
 
-            kBuilder.Append("\n  天赋：").Append(kSnapshot.m_Talent == null ? "无" : kSnapshot.m_Talent.NameCn);
-            kBuilder.Append("\n  主动技能：").Append(kSnapshot.m_ActiveSkill == null ? "无" : kSnapshot.m_ActiveSkill.NameCn);
-            kBuilder.Append("\n  被动技能：").Append(kSnapshot.m_PassiveSkill == null ? "无" : kSnapshot.m_PassiveSkill.NameCn);
+            kBuilder.Append("\n  天赋：").Append(kSnapshot.m_Talent == null ? "无" : kSnapshot.m_Talent.Name);
+            kBuilder.Append("\n  主动技能：").Append(kSnapshot.m_ActiveSkill == null ? "无" : kSnapshot.m_ActiveSkill.Name);
+            kBuilder.Append("\n  被动技能：").Append(kSnapshot.m_PassiveSkill == null ? "无" : kSnapshot.m_PassiveSkill.Name);
 
             kBuilder.Append("\n  装备(").Append(kSnapshot.m_Equips.Count).Append(")：");
             if (kSnapshot.m_Equips.Count == 0)
@@ -1496,7 +1491,7 @@ namespace GameMain.Script.Role
                     {
                         kBuilder.Append("、");
                     }
-                    kBuilder.Append(kSnapshot.m_Equips[i].NameCn);
+                    kBuilder.Append(kSnapshot.m_Equips[i].Name);
                 }
             }
 
@@ -1513,7 +1508,7 @@ namespace GameMain.Script.Role
                     {
                         kBuilder.Append("、");
                     }
-                    kBuilder.Append(kSnapshot.m_Medals[i].NameCn);
+                    kBuilder.Append(kSnapshot.m_Medals[i].Name);
                 }
             }
 
@@ -1534,7 +1529,7 @@ namespace GameMain.Script.Role
                     cfg.GameData_Skill.buffData kBuff = kTables == null || kTables.buff == null
                         ? null
                         : kTables.buff.GetOrDefault(kBuffId);
-                    kBuilder.Append(kBuff == null ? kBuffId.ToString() : kBuff.NameCn);
+                    kBuilder.Append(kBuff == null ? kBuffId.ToString() : kBuff.Name);
                 }
             }
 
@@ -1572,7 +1567,7 @@ namespace GameMain.Script.Role
                     {
                         kBuilder.Append("、");
                     }
-                    kBuilder.Append(kBuff == null ? ("未知效果(" + kEffectId + ")") : kBuff.NameCn)
+                    kBuilder.Append(kBuff == null ? ("未知效果(" + kEffectId + ")") : kBuff.Name)
                         .Append(" x").Append(_role.m_Effects[i].m_Stacks);
                 }
             }
@@ -1630,7 +1625,7 @@ namespace GameMain.Script.Role
                 return _talentId.ToString();
             }
             cfg.GameData_Skill.TalentData kConfig = _tables.talent.GetOrDefault(_talentId);
-            return kConfig == null ? ("未知天赋(" + _talentId + ")") : kConfig.NameCn;
+            return kConfig == null ? ("未知天赋(" + _talentId + ")") : kConfig.Name;
         }
 
         #endregion

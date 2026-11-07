@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using FairyGUI;
 using FairyGUI.Utils;
 using GameMain.Script.Role;
 using UnityEngine;
-using cfg.GameData_Item;
 using cfg.GameData_Skill;
 
 namespace GameMain.Script.UI
@@ -11,7 +9,9 @@ namespace GameMain.Script.UI
     /// <summary>
     /// 角色列表 / 招募结果里的单张角色卡（FairyGUI 包 Base / RoleCardCom）。
     ///
-    /// 展示：NO、竖排姓名、角色立绘、职称徽章、装备/主动/被动技能图标。
+    /// 展示：NO、竖排姓名、角色立绘、职称徽章、主动技能 / 被动天赋图标。
+    /// 两个技能位的图标都来自配置（skill.icon / talent.icon），资源发在 CommonUI 包；
+    /// 技能 / 天赋为空时用 Base 包的 ui_icon_cross 占位。
     /// </summary>
     public class RoleCardCom : GComponent
     {
@@ -27,7 +27,7 @@ namespace GameMain.Script.UI
         private GLoader load_role;
         private CommonPosCom com_pos;
         private GTextField txt_name, txt_NO;
-        private CommonSkillIconCom com_equip, com_skill_1, com_skill_2;
+        private CommonSkillIconCom com_skill_1, com_skill_2;
         private Controller controller_state;
 
         public override void ConstructFromXML(XML xml)
@@ -42,7 +42,6 @@ namespace GameMain.Script.UI
             com_pos = GetChild("com_pos") as CommonPosCom;
             txt_name = GetChild("txt_name").asTextField;
             txt_NO = GetChild("txt_NO").asTextField;
-            com_equip = GetChild("com_equip") as CommonSkillIconCom;
             com_skill_1 = GetChild("com_skill_1") as CommonSkillIconCom;
             com_skill_2 = GetChild("com_skill_2") as CommonSkillIconCom;
         }
@@ -66,41 +65,19 @@ namespace GameMain.Script.UI
 
             com_pos.SetCom(_role.GetTitleName(), (int)_role.GetTitleLevel());
 
-            List<EquipData> kEquips = RoleSystem.GetEquips(_role);
-            SetIcon(com_equip, kEquips.Count > 0 && kEquips[0] != null ? kEquips[0].Icon : null);
-
+            // 两个技能位：左 = 主动技能（skill 表），右 = 被动天赋（talent 表，策划文档里的“被动技能”）
+            // 没有技能/天赋时用 Base 包的 ui_icon_cross 占位
             SkillData kActive = RoleSystem.GetSkill(_role.m_ActiveSkillId);
-            SetIcon(com_skill_1, kActive != null ? kActive.Icon : null);
+            com_skill_1.SetIconOrPlaceholder(kActive != null ? kActive.Icon : null);
 
-            SkillData kPassive = RoleSystem.GetSkill(_role.m_PassiveSkillId);
-            SetIcon(com_skill_2, kPassive != null ? kPassive.Icon : null);
+            TalentData kTalent = RoleSystem.GetTalent(_role.m_TalentId);
+            com_skill_2.SetIconOrPlaceholder(kTalent != null ? kTalent.Icon : null);
         }
 
         private static string GetCardImage(int _roleId)
         {
             int kIndex = Mathf.Abs(_roleId - 1) % c_CardImages.Length;
             return c_CardImages[kIndex];
-        }
-
-        private static void SetIcon(CommonSkillIconCom _com, string _icon)
-        {
-            string kUrl = ResolveIcon(_icon);
-            _com.SetCom(kUrl, !string.IsNullOrEmpty(kUrl));
-        }
-
-        private static string ResolveIcon(string _icon)
-        {
-            if (string.IsNullOrEmpty(_icon))
-            {
-                return null;
-            }
-
-            if (_icon.StartsWith("ui://"))
-            {
-                return _icon;
-            }
-
-            return "ui://CommonUI/" + _icon;
         }
     }
 }

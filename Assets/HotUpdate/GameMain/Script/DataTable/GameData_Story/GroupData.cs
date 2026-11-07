@@ -19,22 +19,18 @@ public sealed partial class GroupData :  Bright.Config.BeanBase
     public GroupData(JSONNode _json) 
     {
         { if(!_json["ID"].IsNumber) { throw new SerializationException(); }  ID = _json["ID"]; }
-        { if(!_json["num_cn"].IsString) { throw new SerializationException(); }  NumCn = _json["num_cn"]; }
-        { if(!_json["num_en"].IsString) { throw new SerializationException(); }  NumEn = _json["num_en"]; }
-        { if(!_json["name_cn"].IsString) { throw new SerializationException(); }  NameCn = _json["name_cn"]; }
-        { if(!_json["name_en"].IsString) { throw new SerializationException(); }  NameEn = _json["name_en"]; }
+        { if(!_json["num"].IsString) { throw new SerializationException(); }  Num = _json["num"]; }
+        { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
         { var __json0 = _json["chapter"]; if(!__json0.IsArray) { throw new SerializationException(); } Chapter = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  Chapter.Add(__v0); }   }
         PostInit();
     }
 
-    public GroupData(int ID, string num_cn, string num_en, string name_cn, string name_en, string desc, System.Collections.Generic.List<int> chapter ) 
+    public GroupData(int ID, string num, string name, string desc, System.Collections.Generic.List<int> chapter ) 
     {
         this.ID = ID;
-        this.NumCn = num_cn;
-        this.NumEn = num_en;
-        this.NameCn = name_cn;
-        this.NameEn = name_en;
+        this.Num = num;
+        this.Name = name;
         this.Desc = desc;
         this.Chapter = chapter;
         PostInit();
@@ -52,19 +48,11 @@ public sealed partial class GroupData :  Bright.Config.BeanBase
     /// <summary>
     /// 卷中文序号
     /// </summary>
-    public string NumCn { get; private set; }
-    /// <summary>
-    /// 卷英文序号
-    /// </summary>
-    public string NumEn { get; private set; }
+    public string Num { get; private set; }
     /// <summary>
     /// 卷中文名
     /// </summary>
-    public string NameCn { get; private set; }
-    /// <summary>
-    /// 卷英文名
-    /// </summary>
-    public string NameEn { get; private set; }
+    public string Name { get; private set; }
     /// <summary>
     /// 卷说明
     /// </summary>
@@ -90,10 +78,8 @@ public sealed partial class GroupData :  Bright.Config.BeanBase
     {
         return "{ "
         + "ID:" + ID + ","
-        + "NumCn:" + NumCn + ","
-        + "NumEn:" + NumEn + ","
-        + "NameCn:" + NameCn + ","
-        + "NameEn:" + NameEn + ","
+        + "Num:" + Num + ","
+        + "Name:" + Name + ","
         + "Desc:" + Desc + ","
         + "Chapter:" + Bright.Common.StringUtil.CollectionToString(Chapter) + ","
         + "}";

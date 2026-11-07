@@ -19,19 +19,17 @@ public sealed partial class ChapterData :  Bright.Config.BeanBase
     public ChapterData(JSONNode _json) 
     {
         { if(!_json["ID"].IsNumber) { throw new SerializationException(); }  ID = _json["ID"]; }
-        { if(!_json["name_cn"].IsString) { throw new SerializationException(); }  NameCn = _json["name_cn"]; }
-        { if(!_json["name_en"].IsString) { throw new SerializationException(); }  NameEn = _json["name_en"]; }
+        { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["num"].IsString) { throw new SerializationException(); }  Num = _json["num"]; }
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
         { var __json0 = _json["level"]; if(!__json0.IsArray) { throw new SerializationException(); } Level = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  Level.Add(__v0); }   }
         PostInit();
     }
 
-    public ChapterData(int ID, string name_cn, string name_en, string num, string desc, System.Collections.Generic.List<int> level ) 
+    public ChapterData(int ID, string name, string num, string desc, System.Collections.Generic.List<int> level ) 
     {
         this.ID = ID;
-        this.NameCn = name_cn;
-        this.NameEn = name_en;
+        this.Name = name;
         this.Num = num;
         this.Desc = desc;
         this.Level = level;
@@ -50,11 +48,7 @@ public sealed partial class ChapterData :  Bright.Config.BeanBase
     /// <summary>
     /// 章节中文名
     /// </summary>
-    public string NameCn { get; private set; }
-    /// <summary>
-    /// 章节英文名
-    /// </summary>
-    public string NameEn { get; private set; }
+    public string Name { get; private set; }
     /// <summary>
     /// 章节序号
     /// </summary>
@@ -84,8 +78,7 @@ public sealed partial class ChapterData :  Bright.Config.BeanBase
     {
         return "{ "
         + "ID:" + ID + ","
-        + "NameCn:" + NameCn + ","
-        + "NameEn:" + NameEn + ","
+        + "Name:" + Name + ","
         + "Num:" + Num + ","
         + "Desc:" + Desc + ","
         + "Level:" + Bright.Common.StringUtil.CollectionToString(Level) + ","

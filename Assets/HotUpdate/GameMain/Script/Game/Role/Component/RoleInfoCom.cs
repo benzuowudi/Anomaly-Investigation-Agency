@@ -23,9 +23,6 @@ namespace GameMain.Script.UI
             RoleAttrId.Hp, RoleAttrId.Atk, RoleAttrId.Agi, RoleAttrId.Per, RoleAttrId.San,
         };
 
-        private const string c_DefaultSkillIcon = "ui://CommonUI/Potion-Icon-Small";
-
-        private GTextField txt_titleC, txt_titleE;
         private GTextField txt_NO, txt_position, txt_nameC, txt_nameE;
         private GTextField txt_equipName, txt_equipType;
 
@@ -37,8 +34,6 @@ namespace GameMain.Script.UI
         {
             base.ConstructFromXML(xml);
 
-            txt_titleC = GetChild("txt_title_1").asTextField;
-            txt_titleE = GetChild("txt_title_2").asTextField;
             txt_NO = GetChild("txt_NO").asTextField;
             txt_position = GetChild("txt_position").asTextField;
             txt_nameC = GetChild("txt_nameC").asTextField;
@@ -58,8 +53,6 @@ namespace GameMain.Script.UI
             list_attr = GetChild("list_attr").asList;
             list_skill = GetChild("list_skill").asList;
 
-            txt_titleC.text = "详情";
-            txt_titleE.text = "DETAIL";
             com_title_attr.SetCom("角色属性", "ATTRIBUTES");
             com_title_equip.SetCom("装备", "EQUIP");
             com_title_medal.SetCom("勋章", "MEDAL");
@@ -166,7 +159,7 @@ namespace GameMain.Script.UI
             }
 
             SetItemState(com_equip, kEquip == null ? 0 : 3);
-            txt_equipName.text = kEquip == null ? "未装备" : kEquip.NameCn;
+            txt_equipName.text = kEquip == null ? "未装备" : kEquip.Name;
             txt_equipType.text = kEquip == null ? string.Empty : (RoleTitleRule.IsArmor(kEquip.Type1) ? "护甲" : "武器");
         }
 
@@ -207,26 +200,36 @@ namespace GameMain.Script.UI
             SkillData kSkill = _snapshot.m_ActiveSkill;
             RoleSkillCom kActive = list_skill.AddItemFromPool() as RoleSkillCom;
             kActive.SetCom("主动技能", "ACTIVE SKILL",
-                ResolveIcon(kSkill == null ? null : kSkill.Icon, c_DefaultSkillIcon),
-                kSkill == null ? "无" : kSkill.NameCn,
+                CommonSkillIconCom.ResolveIconUrlOrPlaceholder(kSkill == null ? null : kSkill.Icon),
+                kSkill == null ? "无" : kSkill.Name,
                 BuildSkillDesc(kSkill));
 
             TalentData kTalentData = _snapshot.m_Talent;
             RoleSkillCom kTalent = list_skill.AddItemFromPool() as RoleSkillCom;
             kTalent.SetCom("被动天赋", "PASSIVE TALENT",
-                ResolveIcon(kTalentData == null ? null : kTalentData.Icon, c_DefaultSkillIcon),
-                kTalentData == null ? "无天赋" : kTalentData.NameCn,
+                CommonSkillIconCom.ResolveIconUrlOrPlaceholder(kTalentData == null ? null : kTalentData.Icon),
+                kTalentData == null ? "无天赋" : kTalentData.Name,
                 kTalentData == null || string.IsNullOrEmpty(kTalentData.Desc) ? "无描述" : kTalentData.Desc);
+
+            // RoleSkillCom 的高度由描述文本撑开（底部扩展关联），而 GList 是在添加条目时
+            // 按当时的高度排的位置；这里强制重排一次，否则长描述会把下一条顶到上一条身上。
+            list_skill.SetBoundsChangedFlag();
+            list_skill.EnsureBoundsCorrect();
         }
 
         /// <summary>
-        /// 技能表没有描述字段，用技能 effect 里引用的 buff 说明拼出展示文本。
+        /// 优先用 skill 表的 desc；没填时退回 effect 里引用的 buff 说明。
         /// </summary>
         private static string BuildSkillDesc(SkillData _skill)
         {
             if (_skill == null)
             {
                 return "尚未配置主动技能";
+            }
+
+            if (!string.IsNullOrEmpty(_skill.Desc))
+            {
+                return _skill.Desc;
             }
 
             if (_skill.Effect != null && _skill.Effect.Count > 0)
@@ -244,7 +247,7 @@ namespace GameMain.Script.UI
                     {
                         kBuilder.Append('\n');
                     }
-                    kBuilder.Append(string.IsNullOrEmpty(kBuff.Desc) ? kBuff.NameCn : kBuff.Desc);
+                    kBuilder.Append(string.IsNullOrEmpty(kBuff.Desc) ? kBuff.Name : kBuff.Desc);
                 }
 
                 if (kBuilder.Length > 0)
@@ -253,47 +256,7 @@ namespace GameMain.Script.UI
                 }
             }
 
-            return string.IsNullOrEmpty(_skill.NameEn) ? "无描述" : _skill.NameEn;
-        }
-
-        /// <summary>
-        /// 配置里的 icon 可能是包内资源名，也可能是完整 ui:// 地址；解析不到时用默认图标。
-        /// </summary>
-        private static string ResolveIcon(string _icon, string _fallback)
-        {
-            if (!string.IsNullOrEmpty(_icon))
-            {
-                if (_icon.StartsWith("ui://"))
-                {
-                    if (UIPackage.GetItemByURL(_icon) != null)
-                    {
-                        return _icon;
-                    }
-                }
-                else
-                {
-                    // 配置里可能写的是资源名或带目录/后缀的路径，统一取文件名再拼 CommonUI 包地址
-                    string kName = _icon;
-                    int kSlash = kName.LastIndexOf('/');
-                    if (kSlash >= 0)
-                    {
-                        kName = kName.Substring(kSlash + 1);
-                    }
-                    int kDot = kName.LastIndexOf('.');
-                    if (kDot > 0)
-                    {
-                        kName = kName.Substring(0, kDot);
-                    }
-
-                    string kUrl = "ui://CommonUI/" + kName;
-                    if (UIPackage.GetItemByURL(kUrl) != null)
-                    {
-                        return kUrl;
-                    }
-                }
-            }
-
-            return _fallback;
+            return "无描述";
         }
 
         #endregion

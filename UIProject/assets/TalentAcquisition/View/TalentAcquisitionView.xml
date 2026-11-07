@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080" designImageLayer="1">
   <displayList>
-    <component id="n0_nye2" name="btn_back" src="l0617" fileName="Button/CommonBackBtn.xml" pkg="5wifhyqa" xy="80,15"/>
-    <image id="n1_nye2" name="n1" src="vccf1" fileName="Texture/ui_bg_common_2.png" pkg="5wifhyqa" xy="40,151" size="1859,864"/>
-    <text id="n2_nye2" name="txt_title_1" xy="1342,109" size="244,79" fontSize="60" color="#e1dde9" text="人才招募"/>
-    <text id="n3_nye2" name="txt_title_2" xy="1583,128" size="300,64" font="ui://5wifhyqavccf4" fontSize="48" color="#e1dde9" text="TALENT ACQUISTION"/>
-    <component id="n4_nye2" name="com_TA_1" src="nye28" fileName="View/TACom.xml" xy="154,187"/>
-    <component id="n21_nye2" name="com_TA_2" src="nye28" fileName="View/TACom.xml" xy="1016,189"/>
+    <component id="n22_gfwq" name="com_bg" src="gfwq2f" fileName="BackGroundVIew/CommonBgCom.xml" pkg="5wifhyqa" xy="45,40"/>
+    <component id="n4_nye2" name="com_TA_1" src="nye28" fileName="Component/TACom.xml" xy="154,275" size="798,657"/>
+    <component id="n21_nye2" name="com_TA_2" src="nye28" fileName="Component/TACom.xml" xy="1018,275" size="798,657"/>
   </displayList>
 </component>

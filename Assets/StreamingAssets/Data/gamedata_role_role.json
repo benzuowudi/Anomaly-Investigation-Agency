@@ -1,8 +1,7 @@
 [
   {
     "ID": 1,
-    "name_cn": "生命",
-    "name_en": "",
+    "name": "生命",
     "min": 80,
     "max": 120,
     "maxValue": 200,
@@ -10,8 +9,7 @@
   },
   {
     "ID": 2,
-    "name_cn": "攻击",
-    "name_en": "",
+    "name": "攻击",
     "min": 1,
     "max": 3,
     "maxValue": 20,
@@ -19,8 +17,7 @@
   },
   {
     "ID": 3,
-    "name_cn": "敏捷",
-    "name_en": "",
+    "name": "敏捷",
     "min": 10,
     "max": 50,
     "maxValue": 100,
@@ -28,8 +25,7 @@
   },
   {
     "ID": 4,
-    "name_cn": "感知",
-    "name_en": "",
+    "name": "感知",
     "min": 0,
     "max": 100,
     "maxValue": 130,
@@ -37,8 +33,7 @@
   },
   {
     "ID": 5,
-    "name_cn": "理智",
-    "name_en": "",
+    "name": "理智",
     "min": 20,
     "max": 50,
     "maxValue": 100,
@@ -46,8 +41,7 @@
   },
   {
     "ID": 6,
-    "name_cn": "天赋",
-    "name_en": "",
+    "name": "天赋",
     "min": 20001,
     "max": 20010,
     "maxValue": 30000,
@@ -55,8 +49,7 @@
   },
   {
     "ID": 8,
-    "name_cn": "攻击距离倾向",
-    "name_en": "",
+    "name": "攻击距离倾向",
     "min": 0,
     "max": 1,
     "maxValue": 1,
@@ -64,8 +57,7 @@
   },
   {
     "ID": 9,
-    "name_cn": "自我治疗倾向",
-    "name_en": "",
+    "name": "自我治疗倾向",
     "min": 0,
     "max": 1,
     "maxValue": 1,
@@ -73,8 +65,7 @@
   },
   {
     "ID": 10,
-    "name_cn": "使用装备倾向",
-    "name_en": "",
+    "name": "使用装备倾向",
     "min": 0,
     "max": 2,
     "maxValue": 2,
@@ -82,8 +73,7 @@
   },
   {
     "ID": 11,
-    "name_cn": "使用道具倾向",
-    "name_en": "",
+    "name": "使用道具倾向",
     "min": 0,
     "max": 1,
     "maxValue": 1,
@@ -91,8 +81,7 @@
   },
   {
     "ID": 12,
-    "name_cn": "左手偏好",
-    "name_en": "",
+    "name": "左手偏好",
     "min": 0,
     "max": 1,
     "maxValue": 1,
@@ -100,8 +89,7 @@
   },
   {
     "ID": 13,
-    "name_cn": "右手偏好",
-    "name_en": "",
+    "name": "右手偏好",
     "min": 0,
     "max": 1,
     "maxValue": 1,
@@ -109,8 +97,7 @@
   },
   {
     "ID": 14,
-    "name_cn": "武器偏好",
-    "name_en": "",
+    "name": "武器偏好",
     "min": 0,
     "max": 1,
     "maxValue": 1,

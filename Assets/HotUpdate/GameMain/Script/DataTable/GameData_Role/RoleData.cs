@@ -19,8 +19,7 @@ public sealed partial class RoleData :  Bright.Config.BeanBase
     public RoleData(JSONNode _json) 
     {
         { if(!_json["ID"].IsNumber) { throw new SerializationException(); }  ID = _json["ID"]; }
-        { if(!_json["name_cn"].IsString) { throw new SerializationException(); }  NameCn = _json["name_cn"]; }
-        { if(!_json["name_en"].IsString) { throw new SerializationException(); }  NameEn = _json["name_en"]; }
+        { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["min"].IsNumber) { throw new SerializationException(); }  Min = _json["min"]; }
         { if(!_json["max"].IsNumber) { throw new SerializationException(); }  Max = _json["max"]; }
         { if(!_json["maxValue"].IsNumber) { throw new SerializationException(); }  MaxValue = _json["maxValue"]; }
@@ -28,11 +27,10 @@ public sealed partial class RoleData :  Bright.Config.BeanBase
         PostInit();
     }
 
-    public RoleData(int ID, string name_cn, string name_en, float min, float max, float maxValue, bool show ) 
+    public RoleData(int ID, string name, float min, float max, float maxValue, bool show ) 
     {
         this.ID = ID;
-        this.NameCn = name_cn;
-        this.NameEn = name_en;
+        this.Name = name;
         this.Min = min;
         this.Max = max;
         this.MaxValue = maxValue;
@@ -52,11 +50,7 @@ public sealed partial class RoleData :  Bright.Config.BeanBase
     /// <summary>
     /// 中文名
     /// </summary>
-    public string NameCn { get; private set; }
-    /// <summary>
-    /// 英文名
-    /// </summary>
-    public string NameEn { get; private set; }
+    public string Name { get; private set; }
     /// <summary>
     /// 初始随机区间下限
     /// </summary>
@@ -90,8 +84,7 @@ public sealed partial class RoleData :  Bright.Config.BeanBase
     {
         return "{ "
         + "ID:" + ID + ","
-        + "NameCn:" + NameCn + ","
-        + "NameEn:" + NameEn + ","
+        + "Name:" + Name + ","
         + "Min:" + Min + ","
         + "Max:" + Max + ","
         + "MaxValue:" + MaxValue + ","

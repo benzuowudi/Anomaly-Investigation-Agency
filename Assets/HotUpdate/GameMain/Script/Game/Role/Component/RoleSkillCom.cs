@@ -28,6 +28,15 @@ namespace GameMain.Script.UI
             load_icon.url = _icon;
             txt_name.text = _name;
             txt_desc.text = _desc;
+
+            // 组件在 FairyGUI 里已经用「底边延伸」关联跟随描述文本的高度。
+            // 这里再兜底一次：保证运行时条目高度不小于内容高度（关联失效、包没重发时也能兜住），
+            // 否则描述文本会溢出到下一个条目上，被误认为列表内容重叠。
+            float kContentBottom = txt_desc.y + txt_desc.height;
+            if (height < kContentBottom)
+            {
+                height = kContentBottom;
+            }
         }
     }
 }

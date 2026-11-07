@@ -6,8 +6,7 @@
     <remark page="1" value="定向猎头"/>
   </controller>
   <displayList>
-    <component id="n0_nye2" name="btn_back" src="l0617" fileName="Button/CommonBackBtn.xml" pkg="5wifhyqa" xy="80,15"/>
-    <image id="n1_nye2" name="n1" src="vccf1" fileName="Texture/ui_bg_common_2.png" pkg="5wifhyqa" xy="40,151" size="1859,864"/>
+    <component id="n73_gfwq" name="com_bg" src="gfwq2f" fileName="BackGroundVIew/CommonBgCom.xml" pkg="5wifhyqa" xy="45,40"/>
     <component id="n37_qktp" name="com_card_1" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="86,170" group="n47_qktp"/>
     <component id="n38_qktp" name="com_card_2" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="261,170" group="n47_qktp"/>
     <component id="n39_qktp" name="com_card_3" src="nye2f" fileName="Component/RoleCardCom.xml" pkg="5wifhyqa" xy="436,170" group="n47_qktp"/>

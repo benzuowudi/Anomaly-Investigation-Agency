@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080" designImageLayer="1">
   <displayList>
-    <component id="n2_l061" name="btn_back" src="l0617" fileName="Button/CommonBackBtn.xml" pkg="5wifhyqa" xy="80,15"/>
-    <list id="n6_l061" name="list_tab" xy="59,158" size="271,517" lineGap="3" defaultItem="ui://5m40pj94l0619" autoClearItems="true">
+    <component id="n10_gfwq" name="com_bg" src="gfwq2f" fileName="BackGroundVIew/CommonBgCom.xml" pkg="5wifhyqa" xy="45,40"/>
+    <list id="n6_l061" name="list_tab" xy="72,235" size="271,517" lineGap="3" defaultItem="ui://5m40pj94l0619" autoClearItems="true">
       <item/>
       <item/>
       <item/>
@@ -12,6 +12,7 @@
       <item/>
       <item/>
     </list>
-    <component id="n9_l061" name="com_info" src="l061c" fileName="Component/RoleInfoCom.xml" xy="408,110"/>
+    <loader id="n12_gfwq" name="load_com" xy="350,240" size="1497,717" url="ui://5m40pj94l061c" autoSize="true"/>
+    <image id="n11_gfwq" name="n11" src="l0611q" fileName="Texture/ui_bg_line.png" pkg="5wifhyqa" xy="351,237" size="720,5" rotation="90"/>
   </displayList>
 </component>

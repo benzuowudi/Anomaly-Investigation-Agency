@@ -17,7 +17,7 @@
     <image id="vccf3" name="ui_bg_common_1.png" path="/Texture/" exported="true" scale="9grid" scale9grid="31,24,62,48"/>
     <component id="qvtgb" name="CommonBtn2.xml" path="/Button/" exported="true"/>
     <image id="l0611o" name="ui_btn_back.png" path="/Texture/" exported="true"/>
-    <image id="vccf1" name="ui_bg_common_2.png" path="/Texture/" exported="true"/>
+    <image id="vccf1" name="ui_bg_common_2.png" path="/Texture/" exported="true" scale="9grid" scale9grid="32,32,64,64"/>
     <component id="l0617" name="CommonBackBtn.xml" path="/Button/" exported="true"/>
     <image id="l0611q" name="ui_bg_line.png" path="/Texture/" exported="true" scale="9grid" scale9grid="139,1,278,2"/>
     <component id="l0611r" name="CommonItemCom.xml" path="/Component/" exported="true"/>
@@ -31,6 +31,13 @@
     <component id="nye21z" name="CommonSkillIconCom.xml" path="/Component/" exported="true"/>
     <component id="nye2f" name="RoleCardCom.xml" path="/Component/" exported="true"/>
     <image id="nye2g" name="ui_bg_card.png" path="/Texture/" exported="true"/>
+    <image id="kihu28" name="ui_bg_btn.png" path="/Texture/"/>
+    <image id="kihu2a" name="ui_icon_cross.png" path="/Texture/" exported="true"/>
+    <image id="gfwq2b" name="ui_bg_box.png" path="/BackGroundVIew/" scale="9grid" scale9grid="453,392,906,321"/>
+    <image id="gfwq2d" name="ui_bg_line1.png" path="/BackGroundVIew/"/>
+    <image id="gfwq2e" name="ui_bg_point.png" path="/BackGroundVIew/"/>
+    <component id="gfwq2f" name="CommonBgCom.xml" path="/BackGroundVIew/" exported="true"/>
+    <image id="gfwq2g" name="背景.png" path="/BackGroundVIew/"/>
   </resources>
   <publish name=""/>
 </packageDescription>
