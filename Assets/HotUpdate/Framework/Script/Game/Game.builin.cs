@@ -66,4 +66,9 @@ public partial class Game
     {
         get { return LanguageManager.Instance; }
     }
+
+    public static SoundManager Sound
+    {
+        get { return SoundManager.Instance; }
+    }
 }

@@ -58,6 +58,10 @@ namespace Framework.Script.Manager
                 UnityEngine.Object.DontDestroyOnLoad(StageCamera.main.gameObject);
             }
 
+            // FairyGUI 的按钮 / 界面音效由 Stage 自己的 AudioSource 播放，
+            // 同步一次音量后，UI 音效同样受 SoundManager 的音效音量 / 静音控制
+            Stage.inst.soundVolume = Game.Sound.IsSFXMute ? 0f : Game.Sound.SFXVolume;
+
             Debug.Log("[UIManager] 初始化完成，默认层：" + (m_Layer != null ? m_Layer.name : "null") + "，默认字体：" + UIConfig.defaultFont);
         }
 
