@@ -2,9 +2,13 @@ using cfg;
 using Framework.Script.Base;
 using Framework.Script.Constant;
 using Framework.Script.Data;
+using GameMain.Script.Battle;
 using GameMain.Script.Class;
 using GameMain.Script.Data;
+using GameMain.Script.Explore;
 using GameMain.Script.Role;
+using GameMain.Script.Skill;
+using GameMain.Script.UI;
 using GameMain.Script.Warehouse;
 using Nino.Serialization;
 using SimpleJSON;
@@ -104,16 +108,16 @@ namespace Framework.Script.Manager
 
         public void LoadGameData()
         {
-            // RegisterData<BattleData>();
-            // RegisterData<FightProcessData>();
             RegisterData<BaseData>();
             RegisterData<CommandRoomData>();
+            RegisterData<RoleViewData>();
             RegisterData<RoleData>();
-            RegisterData<RoleSystemData>();
             RegisterData<TalentAcquisitionData>();
             RegisterData<WarehouseData>();
-            // 读档放在最后：此时所有 GameData 都已注册，事件监听方也能收到 OnRolesChanged
-            RoleSystem.Load();
+            RegisterData<BattleData>();
+            RegisterData<ExploreData>();
+            RegisterData<SkillData>();
+            // 各业务系统的读档由 ModelManager 在全部 GameData 注册完成后调用 Model.OnStart() 触发
         }
 
         public void RegisterData<T>() where T : GameData, new()

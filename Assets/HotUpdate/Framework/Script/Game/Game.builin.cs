@@ -12,6 +12,10 @@ public partial class Game
     {
         get { return DataManager.Instance; }
     }
+    public static ModelManager Model
+    {
+        get { return ModelManager.Instance; }
+    }
     public static EventManager Event
     {
         get { return EventManager.Instance; }

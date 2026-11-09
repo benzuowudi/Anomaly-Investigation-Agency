@@ -56,12 +56,18 @@ namespace GameMain.Script.UI
             string.Empty,               // 道具
         };
 
-        /// <summary>页签对应的 RoleSystemData 界面状态名（沿用原 Role 模块的命名）</summary>
+        /// <summary>页签对应的 RoleViewData 界面状态名（沿用原 Role 模块的命名）</summary>
         private static readonly string[] c_PageStateNames =
         {
             "RoleInfoView", "RoleGrowView", "RoleSkillView", "RoleWeaponView",
             "RoleMedalView", "RoleEquipView", "RoleFashionView", "RoleItemView",
         };
+
+        /// <summary>角色模型（由 ModelManager 注册，界面只通过它读写角色数据）</summary>
+        private static RoleSystem Role
+        {
+            get { return Game.Model.Get<RoleSystem>(); }
+        }
 
         private CommonBgCom com_bg;
         private GList list_tab;
@@ -176,7 +182,7 @@ namespace GameMain.Script.UI
                 RefreshPageCom();
             }
 
-            RoleSystemData kData = Game.Data.GetGameData<RoleSystemData>();
+            RoleViewData kData = Game.Data.GetGameData<RoleViewData>();
             kData.SetCurrentType(c_PageStateNames[(int)_page]);
         }
 
@@ -202,7 +208,7 @@ namespace GameMain.Script.UI
                     RoleInfoCom kInfo = load_com.component as RoleInfoCom;
                     if (kInfo != null)
                     {
-                        kInfo.SetCom(RoleSystem.GetRoleData(m_RoleId));
+                        kInfo.SetCom(Role.GetRoleData(m_RoleId));
                     }
 
                     break;
@@ -215,15 +221,15 @@ namespace GameMain.Script.UI
 
         private void Refresh()
         {
-            RoleRecord kRole = m_RoleId > 0 ? RoleSystem.GetRole(m_RoleId) : null;
+            RoleRecord kRole = m_RoleId > 0 ? Role.GetRole(m_RoleId) : null;
             if (kRole == null)
             {
-                kRole = RoleSystem.GetMainRole();
+                kRole = Role.GetMainRole();
             }
 
             if (kRole == null)
             {
-                List<RoleRecord> kAll = RoleSystem.GetAllRoles();
+                List<RoleRecord> kAll = Role.GetAllRoles();
                 if (kAll.Count > 0)
                 {
                     kRole = kAll[0];
@@ -248,19 +254,19 @@ namespace GameMain.Script.UI
             if (_o is int)
             {
                 int kId = (int)_o;
-                if (RoleSystem.HasRole(kId))
+                if (Role.HasRole(kId))
                 {
                     return kId;
                 }
             }
 
             RoleRecord kRecord = _o as RoleRecord;
-            if (kRecord != null && RoleSystem.HasRole(kRecord.m_Id))
+            if (kRecord != null && Role.HasRole(kRecord.m_Id))
             {
                 return kRecord.m_Id;
             }
 
-            return RoleSystem.GetMainRoleId();
+            return Role.GetMainRoleId();
         }
 
         private void Subscribe()
@@ -270,9 +276,9 @@ namespace GameMain.Script.UI
                 return;
             }
 
-            Game.Event.Subscribe(RoleEventDefine.OnRoleChanged, OnRoleChanged);
-            Game.Event.Subscribe(RoleEventDefine.OnRolesChanged, OnRolesChanged);
-            Game.Event.Subscribe(RoleEventDefine.OnMainRoleChanged, OnMainRoleChanged);
+            Game.Event.Subscribe(RoleEvent.OnRoleChanged, OnRoleChanged);
+            Game.Event.Subscribe(RoleEvent.OnRolesChanged, OnRolesChanged);
+            Game.Event.Subscribe(RoleEvent.OnMainRoleChanged, OnMainRoleChanged);
             m_Subscribed = true;
         }
 
@@ -283,9 +289,9 @@ namespace GameMain.Script.UI
                 return;
             }
 
-            Game.Event.UnSubscribe(RoleEventDefine.OnRoleChanged, OnRoleChanged);
-            Game.Event.UnSubscribe(RoleEventDefine.OnRolesChanged, OnRolesChanged);
-            Game.Event.UnSubscribe(RoleEventDefine.OnMainRoleChanged, OnMainRoleChanged);
+            Game.Event.UnSubscribe(RoleEvent.OnRoleChanged, OnRoleChanged);
+            Game.Event.UnSubscribe(RoleEvent.OnRolesChanged, OnRolesChanged);
+            Game.Event.UnSubscribe(RoleEvent.OnMainRoleChanged, OnMainRoleChanged);
             m_Subscribed = false;
         }
 

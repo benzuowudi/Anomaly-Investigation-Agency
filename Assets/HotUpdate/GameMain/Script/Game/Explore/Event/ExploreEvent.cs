@@ -1,0 +1,20 @@
+namespace GameMain.Script.Explore
+{
+    /// <summary>
+    /// 探索系统的事件名（Event 辅助模块）。
+    /// </summary>
+    public static class ExploreEvent
+    {
+        /// <summary>一次调查开始。参数：ExploreRunStartedMsg</summary>
+        public const string OnRunStarted = "OnRunStarted";
+
+        /// <summary>进入了某个节点（状态已更新）。参数：ExploreNodeEnteredMsg</summary>
+        public const string OnNodeEntered = "OnNodeEntered";
+
+        /// <summary>调查结束（完成或撤离）。参数：ExploreRunEndedMsg</summary>
+        public const string OnRunEnded = "OnRunEnded";
+
+        /// <summary>节点网/进度发生任何变化（UI 可据此重绘）。参数：ExploreRunChangedMsg</summary>
+        public const string OnRunChanged = "OnRunChanged";
+    }
+}

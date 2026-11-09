@@ -11,7 +11,7 @@ namespace GameMain.Script.UI
     /// <summary>
     /// 角色详情页（FairyGUI 包 Role / RoleInfoCom）。
     ///
-    /// 数据全部来自 RoleSystem.GetRoleData(roleId) 返回的 RoleSnapshot：
+    /// 数据全部来自 Game.Model.Get&lt;RoleSystem&gt;().GetRoleData(roleId) 返回的 RoleSnapshot：
     ///   NO. / 职称序号 / 中英文名 / 属性列表 / 装备 / 勋章 / 主动技能 / 被动天赋
     /// 这里只负责把快照刷到控件上，不修改任何角色数据。
     /// </summary>

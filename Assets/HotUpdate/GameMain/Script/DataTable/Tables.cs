@@ -93,6 +93,50 @@ public sealed partial class Tables
     /// 猎头条件配置表
     /// </summary>
     public GameData_Role.talentAcquisition talentAcquisition {get; }
+    /// <summary>
+    /// 一维战场配置
+    /// </summary>
+    public GameData_Battle.battlefield battlefield {get; }
+    /// <summary>
+    /// 遭遇（一场战斗的敌人编成）
+    /// </summary>
+    public GameData_Battle.encounter encounter {get; }
+    /// <summary>
+    /// 战斗常量（KV）
+    /// </summary>
+    public GameData_Battle.combatConst combatConst {get; }
+    /// <summary>
+    /// 战斗指令配置
+    /// </summary>
+    public GameData_Battle.command command {get; }
+    /// <summary>
+    /// 异常区域配置（节点网生成规则）
+    /// </summary>
+    public GameData_Explore.exploreZone exploreZone {get; }
+    /// <summary>
+    /// 探索节点类型字典
+    /// </summary>
+    public GameData_Explore.nodeType nodeType {get; }
+    /// <summary>
+    /// 原子效果配置（技能/天赋/装备/道具共用）
+    /// </summary>
+    public GameData_Skill.effect effect {get; }
+    /// <summary>
+    /// 技能→效果序列绑定
+    /// </summary>
+    public GameData_Skill.skill_effect skill_effect {get; }
+    /// <summary>
+    /// 敌人技能配置（与玩家 skill 表分离）
+    /// </summary>
+    public GameData_Skill.skill_enemy skill_enemy {get; }
+    /// <summary>
+    /// 遭遇的敌人编成（一对多）
+    /// </summary>
+    public GameData_Battle.encounterEnemy encounterEnemy {get; }
+    /// <summary>
+    /// 区域节点类型权重（一对多）
+    /// </summary>
+    public GameData_Explore.zoneNodeWeight zoneNodeWeight {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -137,6 +181,28 @@ public sealed partial class Tables
         tables.Add("GameData_Operate.operate", operate);
         talentAcquisition = new GameData_Role.talentAcquisition(loader("gamedata_role_talentacquisition")); 
         tables.Add("GameData_Role.talentAcquisition", talentAcquisition);
+        battlefield = new GameData_Battle.battlefield(loader("gamedata_battle_battlefield")); 
+        tables.Add("GameData_Battle.battlefield", battlefield);
+        encounter = new GameData_Battle.encounter(loader("gamedata_battle_encounter")); 
+        tables.Add("GameData_Battle.encounter", encounter);
+        combatConst = new GameData_Battle.combatConst(loader("gamedata_battle_combatconst")); 
+        tables.Add("GameData_Battle.combatConst", combatConst);
+        command = new GameData_Battle.command(loader("gamedata_battle_command")); 
+        tables.Add("GameData_Battle.command", command);
+        exploreZone = new GameData_Explore.exploreZone(loader("gamedata_explore_explorezone")); 
+        tables.Add("GameData_Explore.exploreZone", exploreZone);
+        nodeType = new GameData_Explore.nodeType(loader("gamedata_explore_nodetype")); 
+        tables.Add("GameData_Explore.nodeType", nodeType);
+        effect = new GameData_Skill.effect(loader("gamedata_skill_effect")); 
+        tables.Add("GameData_Skill.effect", effect);
+        skill_effect = new GameData_Skill.skill_effect(loader("gamedata_skill_skill_effect")); 
+        tables.Add("GameData_Skill.skill_effect", skill_effect);
+        skill_enemy = new GameData_Skill.skill_enemy(loader("gamedata_skill_skill_enemy")); 
+        tables.Add("GameData_Skill.skill_enemy", skill_enemy);
+        encounterEnemy = new GameData_Battle.encounterEnemy(loader("gamedata_battle_encounterenemy")); 
+        tables.Add("GameData_Battle.encounterEnemy", encounterEnemy);
+        zoneNodeWeight = new GameData_Explore.zoneNodeWeight(loader("gamedata_explore_zonenodeweight")); 
+        tables.Add("GameData_Explore.zoneNodeWeight", zoneNodeWeight);
         PostInit();
 
         map.Resolve(tables); 
@@ -159,6 +225,17 @@ public sealed partial class Tables
         buff.Resolve(tables); 
         operate.Resolve(tables); 
         talentAcquisition.Resolve(tables); 
+        battlefield.Resolve(tables); 
+        encounter.Resolve(tables); 
+        combatConst.Resolve(tables); 
+        command.Resolve(tables); 
+        exploreZone.Resolve(tables); 
+        nodeType.Resolve(tables); 
+        effect.Resolve(tables); 
+        skill_effect.Resolve(tables); 
+        skill_enemy.Resolve(tables); 
+        encounterEnemy.Resolve(tables); 
+        zoneNodeWeight.Resolve(tables); 
         PostResolve();
     }
 
@@ -184,6 +261,17 @@ public sealed partial class Tables
         buff.TranslateText(translator); 
         operate.TranslateText(translator); 
         talentAcquisition.TranslateText(translator); 
+        battlefield.TranslateText(translator); 
+        encounter.TranslateText(translator); 
+        combatConst.TranslateText(translator); 
+        command.TranslateText(translator); 
+        exploreZone.TranslateText(translator); 
+        nodeType.TranslateText(translator); 
+        effect.TranslateText(translator); 
+        skill_effect.TranslateText(translator); 
+        skill_enemy.TranslateText(translator); 
+        encounterEnemy.TranslateText(translator); 
+        zoneNodeWeight.TranslateText(translator); 
     }
     
     partial void PostInit();

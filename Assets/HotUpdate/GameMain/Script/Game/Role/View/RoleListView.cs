@@ -13,7 +13,7 @@ namespace GameMain.Script.UI
     ///   n1          背景
     ///   list_role   角色卡列表（RoleCardCom，Base 包）
     ///
-    /// 列表数据来自 RoleSystem.GetAllRoles()；点击卡片打开 RoleBaseView 并传入角色 ID。
+    /// 列表数据来自角色模型 RoleSystem.GetAllRoles()；点击卡片打开 RoleBaseView 并传入角色 ID。
     /// </summary>
     public class RoleListView : UIWindow
     {
@@ -21,6 +21,12 @@ namespace GameMain.Script.UI
         private GList list_role;
 
         private bool m_Subscribed;
+
+        /// <summary>角色模型（由 ModelManager 注册）</summary>
+        private static RoleSystem Role
+        {
+            get { return Game.Model.Get<RoleSystem>(); }
+        }
 
         protected internal override void Init(object o)
         {
@@ -63,7 +69,7 @@ namespace GameMain.Script.UI
 
         private void Refresh()
         {
-            List<RoleRecord> kRoles = RoleSystem.GetAllRoles();
+            List<RoleRecord> kRoles = Role.GetAllRoles();
 
             list_role.RemoveChildrenToPool();
             for (int i = 0; i < kRoles.Count; i++)
@@ -94,8 +100,8 @@ namespace GameMain.Script.UI
                 return;
             }
 
-            Game.Event.Subscribe(RoleEventDefine.OnRolesChanged, OnRolesChanged);
-            Game.Event.Subscribe(RoleEventDefine.OnRoleChanged, OnRoleChanged);
+            Game.Event.Subscribe(RoleEvent.OnRolesChanged, OnRolesChanged);
+            Game.Event.Subscribe(RoleEvent.OnRoleChanged, OnRoleChanged);
             m_Subscribed = true;
         }
 
@@ -106,8 +112,8 @@ namespace GameMain.Script.UI
                 return;
             }
 
-            Game.Event.UnSubscribe(RoleEventDefine.OnRolesChanged, OnRolesChanged);
-            Game.Event.UnSubscribe(RoleEventDefine.OnRoleChanged, OnRoleChanged);
+            Game.Event.UnSubscribe(RoleEvent.OnRolesChanged, OnRolesChanged);
+            Game.Event.UnSubscribe(RoleEvent.OnRoleChanged, OnRoleChanged);
             m_Subscribed = false;
         }
 

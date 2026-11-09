@@ -47,6 +47,7 @@ public partial class Game : MonoBehaviour
 
         _ = Res;        // Addressables 初始化
         _ = Data;       // 配置表加载 + GameData 注册
+        _ = Model;      // 业务模型注册 + 各系统读档（依赖 Data，必须在 Data 之后）
         _ = Logic;      // 逻辑注册
         _ = Operate;    // 操作预制体预加载（依赖 Data / Res）
         _ = Sound;      // 声音通道与音量设置（依赖 Manager / Res）

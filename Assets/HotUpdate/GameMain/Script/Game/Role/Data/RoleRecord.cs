@@ -11,7 +11,7 @@ namespace GameMain.Script.Role
     /// 天赋（属性ID 6）比较特殊：值域就是 talent 表的 ID 区间，生成时随机挑一个天赋ID。
     ///
     /// 本类只做数据载体，不持有权威数据，也不做存档 IO：
-    /// 权威数据在 RoleSystemData，读写入口是 RoleSystem。
+    /// 权威数据在 RoleData，读写入口是 RoleSystem 模型。
     /// </summary>
     public class RoleRecord
     {

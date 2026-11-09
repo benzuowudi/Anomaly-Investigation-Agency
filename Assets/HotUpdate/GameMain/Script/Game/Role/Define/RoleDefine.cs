@@ -1,35 +1,7 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace GameMain.Script.Role
 {
-    /// <summary>
-    /// 角色养成系统的事件主题。
-    /// EventManager 以字符串作为契约，所有主题统一收敛到这里，避免字面量散落在业务代码中。
-    /// </summary>
-    public static class RoleEventDefine
-    {
-        /// <summary>
-        /// 获得了一个新角色（权威数据已写入、存档已完成）。参数：RoleAcquiredMsg。
-        /// </summary>
-        public const string OnRoleAcquired = "OnRoleAcquired";
-
-        /// <summary>
-        /// 单个角色发生变化（属性/等级/天赋/改名）。参数：RoleChangedMsg。
-        /// </summary>
-        public const string OnRoleChanged = "OnRoleChanged";
-
-        /// <summary>
-        /// 角色列表整体变化（新增/移除/读档），参数：RolesChangedMsg，UI 可用版本号判断是否重绘。
-        /// </summary>
-        public const string OnRolesChanged = "OnRolesChanged";
-
-        /// <summary>
-        /// 当前出战（主）角色变化。参数：MainRoleChangedMsg。
-        /// </summary>
-        public const string OnMainRoleChanged = "OnMainRoleChanged";
-    }
-
     /// <summary>
     /// 获得角色的来源，便于统计与排查（不是生成的必需条件）
     /// </summary>

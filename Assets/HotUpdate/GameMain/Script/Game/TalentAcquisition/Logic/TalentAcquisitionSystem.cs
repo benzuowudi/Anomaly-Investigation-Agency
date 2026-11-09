@@ -26,6 +26,12 @@ namespace GameMain.Script.TalentAcquisition
             get { return Game.Data.GetGameData<TalentAcquisitionData>(); }
         }
 
+        /// <summary>角色模型（由 ModelManager 注册）</summary>
+        private static RoleSystem Role
+        {
+            get { return Game.Model.Get<RoleSystem>(); }
+        }
+
         /// <summary>
         /// 当前欧元
         /// </summary>
@@ -68,7 +74,7 @@ namespace GameMain.Script.TalentAcquisition
             }
 
             List<RoleRecord> kCandidates = new List<RoleRecord>();
-            int kStartId = RoleSystem.GetNextRoleId();
+            int kStartId = Role.GetNextRoleId();
             int kCandidateCount = _contracts * CandidatesPerContract;
             for (int i = 0; i < kCandidateCount; i++)
             {
@@ -110,7 +116,7 @@ namespace GameMain.Script.TalentAcquisition
             int kCount = 0;
             for (int i = 0; i < _selected.Count; i++)
             {
-                if (RoleSystem.AddGeneratedRole(_selected[i], RoleAcquireReason.Lottery))
+                if (Role.AddGeneratedRole(_selected[i], RoleAcquireReason.Lottery))
                 {
                     kCount++;
                 }
@@ -158,7 +164,7 @@ namespace GameMain.Script.TalentAcquisition
             }
 
             kDB.ClearHeadhunter();
-            RoleRecord kRole = RoleSystem.AcquireRole(RoleAcquireReason.Lottery);
+            RoleRecord kRole = Role.AcquireRole(RoleAcquireReason.Lottery);
             if (kRole != null)
             {
                 Game.Log.LogInfo("[人才招募] 猎头带回角色：" + kRole.GetDisplayName());

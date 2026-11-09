@@ -57,5 +57,8 @@ GameOperate同时最多允许存在1个，每一次加载新的GameOperate都会
 
 1，因为所有的UI资源都已经打包，所以在加载UI的时候需要先加载对应的AB包资源
 
+系统开发规范见 Docs/系统制作规范.md：新系统按 Model（ModelBase）+ Data（SystemDataBase）+ Event 结构制作，
+并在 DataManager / ModelManager 里各注册一次。
+
 
 

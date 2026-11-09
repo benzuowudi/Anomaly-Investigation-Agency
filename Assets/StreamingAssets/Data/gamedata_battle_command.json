@@ -1,0 +1,44 @@
+[
+  {
+    "ID": 80001,
+    "name": "集火",
+    "icon": "",
+    "desc": "指定一个敌人，全队优先攻击它",
+    "scope": 1,
+    "targetType": 1,
+    "baseSuccess": 10000,
+    "selfPriority": true,
+    "refuseBubble": "（没听见）",
+    "duration": 0,
+    "priority": 10,
+    "cd": 15
+  },
+  {
+    "ID": 80002,
+    "name": "全体撤离",
+    "icon": "",
+    "desc": "所有人向最近的战场边界撤离，越界即离场",
+    "scope": 1,
+    "targetType": 0,
+    "baseSuccess": 10000,
+    "selfPriority": false,
+    "refuseBubble": "（拒绝撤离）",
+    "duration": 0,
+    "priority": 100,
+    "cd": 0
+  },
+  {
+    "ID": 80003,
+    "name": "自由行动",
+    "icon": "",
+    "desc": "清除当前指令，恢复自主判断",
+    "scope": 1,
+    "targetType": 0,
+    "baseSuccess": 10000,
+    "selfPriority": false,
+    "refuseBubble": "",
+    "duration": 0,
+    "priority": 0,
+    "cd": 5
+  }
+]

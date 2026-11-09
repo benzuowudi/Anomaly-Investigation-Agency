@@ -24,10 +24,12 @@ public sealed partial class SkillData :  Bright.Config.BeanBase
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
         { if(!_json["cd"].IsNumber) { throw new SerializationException(); }  Cd = _json["cd"]; }
         { var __json0 = _json["effect"]; if(!__json0.IsArray) { throw new SerializationException(); } Effect = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  Effect.Add(__v0); }   }
+        { var __json0 = _json["target"]; if(!__json0.IsArray) { throw new SerializationException(); } Target = new System.Collections.Generic.List<GameType.SkillTarget>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { GameType.SkillTarget __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = (GameType.SkillTarget)__e0.AsInt; }  Target.Add(__v0); }   }
+        { var __json0 = _json["scope"]; if(!__json0.IsArray) { throw new SerializationException(); } Scope = new System.Collections.Generic.List<GameType.SkillScope>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { GameType.SkillScope __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = (GameType.SkillScope)__e0.AsInt; }  Scope.Add(__v0); }   }
         PostInit();
     }
 
-    public SkillData(int ID, string icon, string name, string desc, int cd, System.Collections.Generic.List<int> effect ) 
+    public SkillData(int ID, string icon, string name, string desc, int cd, System.Collections.Generic.List<int> effect, System.Collections.Generic.List<GameType.SkillTarget> target, System.Collections.Generic.List<GameType.SkillScope> scope ) 
     {
         this.ID = ID;
         this.Icon = icon;
@@ -35,6 +37,8 @@ public sealed partial class SkillData :  Bright.Config.BeanBase
         this.Desc = desc;
         this.Cd = cd;
         this.Effect = effect;
+        this.Target = target;
+        this.Scope = scope;
         PostInit();
     }
 
@@ -67,6 +71,14 @@ public sealed partial class SkillData :  Bright.Config.BeanBase
     /// 技能效果
     /// </summary>
     public System.Collections.Generic.List<int> Effect { get; private set; }
+    /// <summary>
+    /// 技能释放目标
+    /// </summary>
+    public System.Collections.Generic.List<GameType.SkillTarget> Target { get; private set; }
+    /// <summary>
+    /// 范围类型
+    /// </summary>
+    public System.Collections.Generic.List<GameType.SkillScope> Scope { get; private set; }
 
     public const int __ID__ = 1291160219;
     public override int GetTypeId() => __ID__;
@@ -89,6 +101,8 @@ public sealed partial class SkillData :  Bright.Config.BeanBase
         + "Desc:" + Desc + ","
         + "Cd:" + Cd + ","
         + "Effect:" + Bright.Common.StringUtil.CollectionToString(Effect) + ","
+        + "Target:" + Bright.Common.StringUtil.CollectionToString(Target) + ","
+        + "Scope:" + Bright.Common.StringUtil.CollectionToString(Scope) + ","
         + "}";
     }
     

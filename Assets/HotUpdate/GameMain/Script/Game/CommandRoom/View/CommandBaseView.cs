@@ -109,7 +109,7 @@ namespace GameMain.Script.UI
 
         private void Refresh()
         {
-            com_role.SetCom(RoleSystem.GetRoleCount(), CommandRoleCom.RoleCapacity, false);
+            com_role.SetCom(Game.Model.Get<RoleSystem>().GetRoleCount(), CommandRoleCom.RoleCapacity, false);
 
             com_inventory.SetCom(WarehouseSystem.GetUsedSlots(), WarehouseSystem.GetMaxSlots());
 
@@ -129,9 +129,9 @@ namespace GameMain.Script.UI
                 return;
             }
 
-            Game.Event.Subscribe(RoleEventDefine.OnRoleChanged, OnRoleChanged);
-            Game.Event.Subscribe(RoleEventDefine.OnRolesChanged, OnRolesChanged);
-            Game.Event.Subscribe(RoleEventDefine.OnMainRoleChanged, OnMainRoleChanged);
+            Game.Event.Subscribe(RoleEvent.OnRoleChanged, OnRoleChanged);
+            Game.Event.Subscribe(RoleEvent.OnRolesChanged, OnRolesChanged);
+            Game.Event.Subscribe(RoleEvent.OnMainRoleChanged, OnMainRoleChanged);
             Game.Event.Subscribe(WarehouseEventDefine.OnWarehouseChanged, OnWarehouseChanged);
             Game.Event.Subscribe(TalentAcquisitionEventDefine.OnCurrencyChanged, OnCurrencyChanged);
             m_Subscribed = true;
@@ -144,9 +144,9 @@ namespace GameMain.Script.UI
                 return;
             }
 
-            Game.Event.UnSubscribe(RoleEventDefine.OnRoleChanged, OnRoleChanged);
-            Game.Event.UnSubscribe(RoleEventDefine.OnRolesChanged, OnRolesChanged);
-            Game.Event.UnSubscribe(RoleEventDefine.OnMainRoleChanged, OnMainRoleChanged);
+            Game.Event.UnSubscribe(RoleEvent.OnRoleChanged, OnRoleChanged);
+            Game.Event.UnSubscribe(RoleEvent.OnRolesChanged, OnRolesChanged);
+            Game.Event.UnSubscribe(RoleEvent.OnMainRoleChanged, OnMainRoleChanged);
             Game.Event.UnSubscribe(WarehouseEventDefine.OnWarehouseChanged, OnWarehouseChanged);
             Game.Event.UnSubscribe(TalentAcquisitionEventDefine.OnCurrencyChanged, OnCurrencyChanged);
             m_Subscribed = false;
