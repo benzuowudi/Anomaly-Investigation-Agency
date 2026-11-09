@@ -26,8 +26,15 @@ namespace Framework.Script.UI
         /// <summary>角色列表（预制体 RoleListView，内容包 Role/RoleListView）</summary>
         public const string RoleList = "RoleListView";
 
+        /// <summary>角色选择弹窗（预制体 RoleListWindow，内容包 Role/RoleListWindow）</summary>
+        public const string RoleListWindow = "RoleListWindow";
+
         /// <summary>角色界面（预制体 RoleBaseView，内容包 Role/RoleBaseView）</summary>
         public const string RoleBase = "RoleBaseView";
+
+        /// <summary>战前整备（预制体 BattleSettingView，内容包 BattleSetting/BattleSettingView）</summary>
+        public const string BattleSetting = "BattleSettingView";
+
         public const string GameStart = "GameStartView";
     }
 }

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: BattleSetting
+  m_EditorClassIdentifier: 
+  m_GroupName: BattleSetting
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9047152d5b7196c44a97d3982d893146
+  m_SerializeEntries:
+  - m_GUID: 5167c61fbf8373c42a41d327bbfafcbb
+    m_Address: BattleSetting_fui
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BattleSetting
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0e53f50c1fc8cb48b6158a573b71b6d
+    m_Address: BattleSettingView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f03275243783f84459f17ea14ec4b776, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2442432e40afad4428d0292ae60b6248, type: 2}
+    - {fileID: 11400000, guid: f70bcac13f9e73d4099d95b1d45640f4, type: 2}

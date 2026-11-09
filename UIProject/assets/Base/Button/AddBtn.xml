@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="32,31" extention="Button">
+  <controller name="button" pages="0,up,1,down" selected="0"/>
+  <displayList>
+    <image id="n3_nwkm" name="n3" src="nwkm2j" fileName="Texture/ui_bg_smallBtn.png" xy="0,0"/>
+    <image id="n4_nwkm" name="n4" src="l0611s" fileName="Texture/ui_bg_plus.png" xy="0,0"/>
+  </displayList>
+  <Button/>
+</component>

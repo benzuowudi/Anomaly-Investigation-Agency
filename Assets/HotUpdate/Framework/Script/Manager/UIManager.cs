@@ -36,6 +36,9 @@ namespace Framework.Script.Manager
         // 层 -> 该层已创建窗口数量（用于给 FairyGUI 面板分配递增的 sortingOrder）
         private readonly Dictionary<Transform, int> m_LayerSortingCount = new Dictionary<Transform, int>();
 
+        // 弹窗栈（后进先出，栈顶 = 最近打开的弹窗）
+        private readonly List<string> m_PopupStack = new List<string>();
+
         /// <summary>
         /// UI 初始化（首次访问 UIManager.Instance 时执行）
         /// </summary>
@@ -161,6 +164,9 @@ namespace Framework.Script.Manager
         public UIWindow ShowWindow(string _ui, string _parent = null, object o = null,
             bool _isHideCurrentUI = true, Transform _layer = null, int? _sortingOrder = null)
         {
+            // 弹窗跳转到普通界面时，弹窗关闭自己
+            CloseAllPopups();
+
             if (!EnsureLoaded(_ui))
             {
                 return null;
@@ -258,6 +264,75 @@ namespace Framework.Script.Manager
             Debug.Log("[UIManager] 显示界面：" + _ui);
             return kUIWindow;
         }
+
+        #region 弹窗（UIPopup）
+
+        /// <summary>
+        /// 打开弹窗：不隐藏当前界面，挂在顶层（T 层），并压入弹窗栈。
+        /// 弹窗之间跳转时旧的弹窗会关闭自己（_closePreviousPopup）。
+        /// </summary>
+        public UIWindow ShowPopup(string _ui, object o = null, bool _closePreviousPopup = true)
+        {
+            if (string.IsNullOrEmpty(_ui))
+            {
+                return null;
+            }
+
+            if (_closePreviousPopup)
+            {
+                CloseTopPopup();
+            }
+
+            UIWindow kPopup = ShowWindow(_ui, null, o, false, Game.Manager.m_TLayer);
+            if (kPopup == null)
+            {
+                return null;
+            }
+
+            m_PopupStack.Remove(_ui);
+            m_PopupStack.Add(_ui);
+            return kPopup;
+        }
+
+        /// <summary>关闭指定弹窗</summary>
+        public void ClosePopup(string _ui)
+        {
+            if (string.IsNullOrEmpty(_ui))
+            {
+                return;
+            }
+
+            m_PopupStack.Remove(_ui);
+            Hide(_ui);
+        }
+
+        /// <summary>关闭栈顶弹窗</summary>
+        public void CloseTopPopup()
+        {
+            if (m_PopupStack.Count == 0)
+            {
+                return;
+            }
+
+            ClosePopup(m_PopupStack[m_PopupStack.Count - 1]);
+        }
+
+        /// <summary>关闭全部弹窗（普通界面打开时自动调用）</summary>
+        public void CloseAllPopups()
+        {
+            while (m_PopupStack.Count > 0)
+            {
+                ClosePopup(m_PopupStack[m_PopupStack.Count - 1]);
+            }
+        }
+
+        /// <summary>当前是否有弹窗打开</summary>
+        public bool IsPopupOpen(string _ui)
+        {
+            return !string.IsNullOrEmpty(_ui) && m_PopupStack.Contains(_ui);
+        }
+
+        #endregion
 
         /// <summary>
         /// 给窗口的 FairyGUI 面板设置渲染层级：子界面永远在父界面之上，

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Framework.Script.Base;
 using Framework.Script.Model;
 using GameMain.Script.Battle;
+using GameMain.Script.BattleSetting;
 using GameMain.Script.Explore;
 using GameMain.Script.Role;
 using GameMain.Script.Skill;
@@ -45,6 +46,8 @@ namespace Framework.Script.Manager
             Register<ExploreSystem>();
             // 技能系统无依赖，但 BattleSystem.Tick 会调它，必须注册（否则 TickSkills 直接跳过）
             Register<SkillSystem>();
+            // 战前整备依赖 RoleSystem / BattleSystem（开战与站位应用），放在它们之后
+            Register<BattleSettingSystem>();
 
             // 待迁移的旧系统（迁移时改成 Register<XxxSystem>()）：
             // Register<WarehouseSystem>();

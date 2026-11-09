@@ -23,6 +23,16 @@ MonoBehaviour:
     m_SerializedLabels:
     - Role
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9de7d1d7edc195c4d846091b6c7c626e
+    m_Address: role1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf89a4f9489565e4d834e829b523f3b8
+    m_Address: RoleListWindow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cfe732be3f2dc7c45967be24360747b6
     m_Address: Role_atlas0
     m_ReadOnly: 0

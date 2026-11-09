@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="luky3lzg">
+  <resources>
+    <component id="xgq70" name="WorldView.xml" path="/View/"/>
+    <component id="xgq71" name="NodeView.xml" path="/View/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <component id="n1_nwkm" name="com_popup" src="nwkm2o" fileName="PopupWindow/PopupWindow.xml" pkg="5wifhyqa" xy="179,134"/>
+    <list id="n2_nwkm" name="list_role" xy="216,210" size="1486,703" layout="flow_hz" overflow="scroll" lineGap="16" colGap="3" defaultItem="ui://5wifhyqanye2f" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

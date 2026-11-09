@@ -13,6 +13,7 @@
     <component id="l061c" name="RoleInfoCom.xml" path="/Component/" exported="true"/>
     <component id="l061d" name="RoleSkillCom.xml" path="/Component/"/>
     <component id="nye2e" name="RoleListView.xml" path="/View/" exported="true"/>
+    <component id="nwkmf" name="RoleListWindow.xml" path="/View/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

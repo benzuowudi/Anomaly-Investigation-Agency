@@ -2,6 +2,10 @@
 <packageDescription id="nii41y9z">
   <resources>
     <component id="kihu0" name="BattleSettingView.xml" path="/View/" exported="true"/>
+    <component id="xgq72" name="BattleSettingRoleCom.xml" path="/Component/" exported="true"/>
+    <component id="xgq73" name="BattleSettingACCom.xml" path="/Component/"/>
+    <component id="xgq74" name="BattleSettingSupportCom.xml" path="/Component/"/>
+    <component id="xgq75" name="BattleSettingItemCom.xml" path="/Component/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

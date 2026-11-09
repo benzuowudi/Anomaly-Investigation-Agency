@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="829,236">
+  <displayList>
+    <image id="n43_xgq7" name="n43" src="vccf3" fileName="Texture/ui_bg_common_1.png" pkg="5wifhyqa" xy="0,0" size="829,236"/>
+    <image id="n44_xgq7" name="n44" src="l0611q" fileName="Texture/ui_bg_line.png" pkg="5wifhyqa" xy="21,86" size="787,5"/>
+    <text id="n45_xgq7" name="txt_name_chinese" xy="17,16" size="175,75" fontSize="57" color="#636168" text="机械骡"/>
+    <text id="n46_xgq7" name="txt_name_english" xy="190,36" size="240,55" font="ui://5wifhyqavccf4" fontSize="41" color="#636168" text="MECHANICAL MULE">
+      <relation target="n45_xgq7" sidePair="left-right"/>
+    </text>
+    <list id="n51_xgq7" name="list_item" xy="199,108" size="430,103" layout="row" colGap="91" defaultItem="ui://5wifhyqal0611r" autoItemSize="false" vAlign="middle" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

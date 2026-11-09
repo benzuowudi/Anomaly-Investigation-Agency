@@ -54,6 +54,9 @@ namespace GameMain.Script.UI
             com_action = ui.GetChild("com_action") as CommandActionCom;
             com_currency = ui.GetChild("com_currency") as CommonCurrencyCom;
 
+            // 「开始行动」→ 战前整备界面
+            com_action.Init(OnClickBattleSetting);
+
             // 节点绑定完成后再触发 AddEvent
             base.Init(o);
         }
@@ -69,7 +72,6 @@ namespace GameMain.Script.UI
             com_TA.onClick.Add(OnClickTA);
             com_inventory.onClick.Add(OnClickNotOpen);
             com_armory.onClick.Add(OnClickNotOpen);
-            com_action.onClick.Add(OnClickNotOpen);
             com_currency.onClick.Add(OnClickNotOpen);
         }
 
@@ -84,7 +86,6 @@ namespace GameMain.Script.UI
             com_TA.onClick.Clear();
             com_inventory.onClick.Clear();
             com_armory.onClick.Clear();
-            com_action.onClick.Clear();
             com_currency.onClick.Clear();
         }
 
@@ -181,6 +182,12 @@ namespace GameMain.Script.UI
         private void OnClickTA()
         {
             Game.UI.ShowWindow(UIDefine.TalentAcquisition);
+        }
+
+        /// <summary>「开始行动」→ 战前整备界面</summary>
+        private void OnClickBattleSetting()
+        {
+            Game.UI.ShowWindow(UIDefine.BattleSetting);
         }
 
         private void OnClickNotOpen(EventContext _context)

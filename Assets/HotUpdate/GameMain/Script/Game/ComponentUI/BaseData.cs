@@ -14,6 +14,9 @@ namespace GameMain.Script.Data
             UIObjectFactory.SetPackageItemExtension("ui://Base/CommonSkillIconCom", typeof(CommonSkillIconCom));
             UIObjectFactory.SetPackageItemExtension("ui://Base/RoleCardCom", typeof(RoleCardCom));
             UIObjectFactory.SetPackageItemExtension("ui://Base/CommonBgCom", typeof(CommonBgCom));
+            UIObjectFactory.SetPackageItemExtension("ui://Base/RoleAnimCom", typeof(RoleAnimCom));
+            UIObjectFactory.SetPackageItemExtension("ui://Base/CommonItemCom", typeof(CommonItemCom));
+            UIObjectFactory.SetPackageItemExtension("ui://Base/CommonAttrCom", typeof(CommonAttrCom));
         }
     }
 }

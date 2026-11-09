@@ -45,9 +45,12 @@ MonoBehaviour:
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: f81f832abedfb8e4b8240742b2f95d28, type: 2}
+  - {fileID: 11400000, guid: 02fe43c95e1b888459971a84a7baf7d4, type: 2}
   - {fileID: 11400000, guid: 2fae862c06a1e4d42b1b383913e4bd8c, type: 2}
   - {fileID: 11400000, guid: 3855648ff3ec7904a88cf083793ef392, type: 2}
+  - {fileID: 11400000, guid: d508556cb90ca294ea2dd1ef77d3f2c3, type: 2}
   - {fileID: 11400000, guid: 085e11c1ee17a9b429bcca20aeae6208, type: 2}
+  - {fileID: 11400000, guid: 7d91b0ee878c48a498ab881a99c6e615, type: 2}
   - {fileID: 11400000, guid: 42d06cbfa1c101144837a9ee2748761f, type: 2}
   - {fileID: 11400000, guid: 54ec264d17d086d408ae01926a4b70c0, type: 2}
   m_BuildSettings:
@@ -95,6 +98,9 @@ MonoBehaviour:
     - Role
     - CommandRoom
     - GameStart
+    - BattleSetting
+    - CommonUI
+    - TalentAcquisition
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 5a337de723d264b46a02acd183d99508, type: 2}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1561,812" initName="com_popup">
+  <displayList>
+    <loader id="n0_nwkm" name="n0" xy="0,0" size="1561,812" url="ui://5wifhyqanwkm2m"/>
+    <component id="n1_nwkm" name="btn_close" src="nwkm2p" fileName="Button/PopupCloseBtn.xml" xy="1502,5"/>
+    <text id="n4_nwkm" name="txt_tip" xy="598,839" size="364,54" fontSize="40" color="#e1dde9" text="点击空白处关闭界面"/>
+  </displayList>
+</component>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="829,241">
+  <displayList>
+    <image id="n33_xgq7" name="n33" src="vccf3" fileName="Texture/ui_bg_common_1.png" pkg="5wifhyqa" xy="0,0" size="829,241"/>
+    <image id="n34_xgq7" name="n34" src="l0611q" fileName="Texture/ui_bg_line.png" pkg="5wifhyqa" xy="21,90" size="787,5"/>
+    <text id="n35_xgq7" name="txt_name_chinese" xy="14,20" size="232,75" fontSize="57" color="#636168" text="行动队员"/>
+    <text id="n36_xgq7" name="txt_name_english" xy="247,40" size="188,55" font="ui://5wifhyqavccf4" fontSize="41" color="#636168" text="ACTIVITY TEAM">
+      <relation target="n35_xgq7" sidePair="left-right"/>
+    </text>
+    <list id="n43_xgq7" name="list_role" xy="80,121" size="668,83" layout="row" colGap="63" defaultItem="ui://5wifhyqal0611r" autoItemSize="false" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

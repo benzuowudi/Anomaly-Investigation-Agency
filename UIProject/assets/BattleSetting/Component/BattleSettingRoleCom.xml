@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="831,129">
+  <controller name="state" pages="0,show,1,empty" selected="0"/>
+  <displayList>
+    <image id="n13_xgq7" name="n13" src="nye21y" fileName="Texture/ui_bg_box.png" pkg="5wifhyqa" xy="0,0" size="831,129"/>
+    <text id="n14_xgq7" name="txt_name_chinese" xy="11,9" size="156,52" fontSize="38" color="#636168" text="队员名字">
+      <gearDisplay controller="state" pages="0"/>
+    </text>
+    <text id="n15_xgq7" name="txt_name_english" xy="166,26" size="145,38" font="ui://5wifhyqavccf4" fontSize="27" color="#636168" text="Teammate Name">
+      <gearDisplay controller="state" pages="0"/>
+      <relation target="n14_xgq7" sidePair="left-right"/>
+    </text>
+    <component id="n16_xgq7" name="com_pos" src="nye21x" fileName="Component/CommonPosCom.xml" pkg="5wifhyqa" xy="316,31">
+      <gearDisplay controller="state" pages="0"/>
+      <relation target="n15_xgq7" sidePair="left-right"/>
+    </component>
+    <list id="n32_xgq7" name="list_attr" xy="13,70" size="522,51" layout="row" colGap="5" defaultItem="ui://5wifhyqaxgq71" autoItemSize="false" autoClearItems="true">
+      <gearDisplay controller="state" pages="0"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <list id="n33_xgq7" name="list_role" xy="544,37" size="279,85" layout="row" colGap="11" defaultItem="ui://5wifhyqal0611r" autoItemSize="false" align="right" autoClearItems="true">
+      <gearDisplay controller="state" pages="0"/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n34_nwkm" name="btn_add" src="vccf8" fileName="Button/CommonBtn.xml" pkg="5wifhyqa" xy="0,0" size="831,129">
+      <gearDisplay controller="state" pages="1"/>
+    </component>
+    <component id="n36_nwkm" name="btn_cut" src="nwkm2l" fileName="Button/CutBtn.xml" pkg="5wifhyqa" xy="796,3"/>
+    <image id="n35_nwkm" name="n35" src="l0611s" fileName="Texture/ui_bg_plus.png" pkg="5wifhyqa" xy="399,49" color="#666666">
+      <gearDisplay controller="state" pages="1"/>
+    </image>
+  </displayList>
+</component>

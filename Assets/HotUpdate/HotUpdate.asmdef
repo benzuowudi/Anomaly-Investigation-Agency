@@ -8,7 +8,9 @@
         "GUID:10f969401ca61cf478ec7ce32d25ccc1",
         "Unity.Addressables",
         "Unity.ResourceManager",
-        "UniTask"
+        "UniTask",
+        "spine-unity",
+        "spine-csharp"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

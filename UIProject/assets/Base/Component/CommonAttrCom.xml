@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="77,50">
+  <displayList>
+    <loader id="n17_xgq7" name="load_icon" xy="0,0" size="50,50" url="ui://zgdu5cgql0611p" fill="scaleFree"/>
+    <text id="n18_xgq7" name="txt_value" xy="56,6" size="21,38" font="ui://5wifhyqavccf4" fontSize="27" color="#636168" text="10"/>
+  </displayList>
+  <relation target="n18_xgq7" sidePair="rightext-right"/>
+</component>

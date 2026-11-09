@@ -3,6 +3,7 @@ using Framework.Script.Base;
 using Framework.Script.Constant;
 using Framework.Script.Data;
 using GameMain.Script.Battle;
+using GameMain.Script.BattleSetting;
 using GameMain.Script.Class;
 using GameMain.Script.Data;
 using GameMain.Script.Explore;
@@ -117,6 +118,8 @@ namespace Framework.Script.Manager
             RegisterData<BattleData>();
             RegisterData<ExploreData>();
             RegisterData<SkillData>();
+            RegisterData<BattleSettingViewData>();
+            RegisterData<BattleSettingData>();
             // 各业务系统的读档由 ModelManager 在全部 GameData 注册完成后调用 Model.OnStart() 触发
         }
 

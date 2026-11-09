@@ -37,16 +37,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d7b9692b842be21438c586447fe5aed8
-    m_Address: TalentAcquisition_fui
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c8e2b863c4554f74d803446422031a1d
-    m_Address: TalentAcquisition_atlas0
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f03275243783f84459f17ea14ec4b776, type: 2}
   m_SchemaSet:

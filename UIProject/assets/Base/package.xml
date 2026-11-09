@@ -27,17 +27,27 @@
     <image id="nye21v" name="ui_bg_pos1.png" path="/Texture/" exported="true"/>
     <image id="nye21w" name="ui_bg_pos2.png" path="/Texture/" exported="true"/>
     <component id="nye21x" name="CommonPosCom.xml" path="/Component/" exported="true"/>
-    <image id="nye21y" name="ui_bg_box.png" path="/Texture/" scale="9grid" scale9grid="13,13,26,26"/>
+    <image id="nye21y" name="ui_bg_box.png" path="/Texture/" exported="true" scale="9grid" scale9grid="13,13,26,26"/>
     <component id="nye21z" name="CommonSkillIconCom.xml" path="/Component/" exported="true"/>
     <component id="nye2f" name="RoleCardCom.xml" path="/Component/" exported="true"/>
     <image id="nye2g" name="ui_bg_card.png" path="/Texture/" exported="true"/>
-    <image id="kihu28" name="ui_bg_btn.png" path="/Texture/"/>
+    <image id="kihu28" name="ui_bg_btn.png" path="/Texture/" exported="true"/>
     <image id="kihu2a" name="ui_icon_cross.png" path="/Texture/" exported="true"/>
     <image id="gfwq2b" name="ui_bg_box.png" path="/BackGroundVIew/" scale="9grid" scale9grid="453,392,906,321"/>
     <image id="gfwq2d" name="ui_bg_line1.png" path="/BackGroundVIew/"/>
     <image id="gfwq2e" name="ui_bg_point.png" path="/BackGroundVIew/"/>
     <component id="gfwq2f" name="CommonBgCom.xml" path="/BackGroundVIew/" exported="true"/>
     <image id="gfwq2g" name="背景.png" path="/BackGroundVIew/"/>
+    <component id="xgq72h" name="RoleAnimCom.xml" path="/Component/" exported="true"/>
+    <component id="xgq71" name="CommonAttrCom.xml" path="/Component/" exported="true"/>
+    <image id="nwkm2i" name="ui_bg_cut.png" path="/Texture/" exported="true"/>
+    <image id="nwkm2j" name="ui_bg_smallBtn.png" path="/Texture/" exported="true"/>
+    <component id="nwkm2k" name="AddBtn.xml" path="/Button/" exported="true"/>
+    <component id="nwkm2l" name="CutBtn.xml" path="/Button/" exported="true"/>
+    <image id="nwkm2m" name="ui_bg_popup.png" path="/Texture/" exported="true"/>
+    <image id="nwkm2n" name="ui_btn_popupClose.png" path="/Texture/" exported="true"/>
+    <component id="nwkm2o" name="PopupWindow.xml" path="/PopupWindow/" exported="true"/>
+    <component id="nwkm2p" name="PopupCloseBtn.xml" path="/Button/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

@@ -2,5 +2,16 @@
 <component size="1920,1080">
   <displayList>
     <component id="n1_gfwq" name="com_bg" src="gfwq2f" fileName="BackGroundVIew/CommonBgCom.xml" pkg="5wifhyqa" xy="45,40"/>
+    <image id="n54_xgq7" name="n54" src="l0611q" fileName="Texture/ui_bg_line.png" pkg="5wifhyqa" xy="308,186" size="34,5" rotation="90">
+      <relation target="n53_xgq7" sidePair="left-right"/>
+    </image>
+    <text id="n53_xgq7" name="txt_name_chinese" xy="98,184" size="193,38" fontSize="27" color="#636168" text="废弃污水处理厂"/>
+    <text id="n55_xgq7" name="txt_name_english" xy="320,185" size="108,38" font="ui://5wifhyqavccf4" fontSize="27" color="#636168" text="Chapter 1-01">
+      <relation target="n53_xgq7" sidePair="left-right"/>
+    </text>
+    <component id="n3_xgq7" name="com_team" src="xgq73" fileName="View/BattleSettingACCom.xml" xy="97,254"/>
+    <component id="n33_xgq7" name="com_support" src="xgq74" fileName="View/BattleSettingSupportCom.xml" xy="1017,253"/>
+    <component id="n43_xgq7" name="com_item" src="xgq75" fileName="View/BattleSettingItemCom.xml" xy="1018,514"/>
+    <component id="n52_xgq7" name="btn_battle" src="qvtgb" fileName="Button/CommonBtn2.xml" pkg="5wifhyqa" xy="1018,772" size="829,172"/>
   </displayList>
 </component>

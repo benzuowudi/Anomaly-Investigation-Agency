@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="209,323">
-  <controller name="state" pages="0,,1," selected="1">
+  <controller name="state" pages="0,,1," selected="0">
     <remark page="0" value="选中"/>
     <remark page="1" value="未选中"/>
   </controller>
