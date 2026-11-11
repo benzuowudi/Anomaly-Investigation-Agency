@@ -16,11 +16,15 @@ namespace GameMain.Script.Battle
     /// </summary>
     public static class BattleFactory
     {
-        /// <summary>没有配置时敌人的默认模板</summary>
-        public const int DefaultEnemyHp = 100;
-        public const int DefaultEnemyAtk = 10;
+        /// <summary>没有配置时敌人的默认模板（临时敌人：血 50 / 攻 1，方便测探索流程）</summary>
+        public const int DefaultEnemyHp = 50;
+        public const int DefaultEnemyAtk = 1;
         public const int DefaultEnemyAgi = 20;
         public const int DefaultEnemyPer = 50;
+
+        /// <summary>合成队友的默认模板（队伍不满 4 人时补位，保持原来的强度）</summary>
+        public const int DefaultAllyHp = 100;
+        public const int DefaultAllyAtk = 10;
 
         /// <summary>我方默认落点（没有 battlefield 配置时）</summary>
         public const float DefaultAllyMin = 2f;
@@ -168,7 +172,7 @@ namespace GameMain.Script.Battle
             kUnit.m_TeamIndex = _teamIndex;
 
             int kHp = _snapshot.GetFinalAttr(RoleAttrId.Hp);
-            kUnit.m_MaxHp = kHp > 0 ? kHp : DefaultEnemyHp;
+            kUnit.m_MaxHp = kHp > 0 ? kHp : DefaultAllyHp;
             kUnit.m_Hp = kUnit.m_MaxHp;
 
             int kSan = _snapshot.GetFinalAttr(RoleAttrId.San);
@@ -258,7 +262,8 @@ namespace GameMain.Script.Battle
             kUnit.m_Pos = _pos;
             kUnit.m_MoveSpeed = BattleConst.MoveSpeedBase;
             kUnit.m_ActionInterval = BattleConst.DefaultActionInterval;
-            kUnit.m_WeaponAtk = BattleConst.DefaultWeaponAtk;
+            // 临时敌人不拿武器：伤害 = 攻击力 1（否则会叠加 DefaultWeaponAtk）
+            kUnit.m_WeaponAtk = 0;
             kUnit.m_DamageRate = BattleConst.DefaultDamageRate;
             kUnit.m_Defense = 0;
             kUnit.m_MagazineSize = 0;
@@ -271,6 +276,13 @@ namespace GameMain.Script.Battle
             BattleUnit kUnit = CreateSyntheticEnemy(_teamIndex, _pos, _unitId);
             kUnit.m_Kind = UnitKind.Role;
             kUnit.m_Faction = Faction.ally;
+
+            // 合成队友沿用原来的强度，不要跟着"临时敌人"一起被削弱
+            kUnit.m_MaxHp = DefaultAllyHp;
+            kUnit.m_Hp = kUnit.m_MaxHp;
+            kUnit.SetAttr(RoleAttrId.Hp, kUnit.m_MaxHp);
+            kUnit.SetAttr(RoleAttrId.Atk, DefaultAllyAtk);
+            kUnit.m_WeaponAtk = BattleConst.DefaultWeaponAtk;
             return kUnit;
         }
 

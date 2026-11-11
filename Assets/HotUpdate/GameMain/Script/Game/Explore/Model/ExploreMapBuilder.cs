@@ -5,14 +5,20 @@ namespace GameMain.Script.Explore
 {
     /// <summary>
     /// 节点网生成器（纯函数，允许 static）：
-    /// exploreZone（层数/密度/营地间隔/遭遇池）+ zoneNodeWeight（类型权重）+ 种子 → ExploreRun。
+    /// exploreZone（层数/密度/营地间隔/遭遇池）+ nodeType（可选类型）+ zoneNodeWeight（类型权重）+ 种子 → ExploreRun。
     ///
     /// 生成规则：
-    /// - 第 0 层 1 个节点（出发阵地，类型固定露营地），最后一层 1 个节点（目标，类型固定战斗）；
+    /// - 第 0 层 1 个节点（出发阵地，类型固定露营地），最后一层 1 个节点（目标：有"强敌"配置时用强敌，否则战斗）；
     /// - 中间每层 nodesPerLayerMin~Max 个节点；
     /// - 相邻层之间连边：每个父节点连 1~2 个子节点，且保证每个子节点至少有一个父节点；
     /// - 每 campInterval 层保底一个露营地；
-    /// - 配表缺失时全部走 ExploreConst 的默认值，保证没有数据也能跑通。
+    /// - 配表缺失时全部走 ExploreConst 的默认值，保证没有数据也能跑通；
+    /// - 节点类型集合以 nodeType 表为准（表里有几类就能出几类，含 8 强敌）；
+    ///   权重优先用 zoneNodeWeight，没有配置时用 ExploreConst.DefaultWeights；
+    /// - 生成完拓扑后调 ExploreMapLayout 给每个节点算地图坐标（2000×2000 画布）。
+    ///
+    /// 测试开关 ExploreConst.TestAllBattle = true 时：除出发阵地外全部生成战斗节点、
+    /// 跳过露营地保底、层数压到 ExploreConst.TestLayerCount（调试用，默认关闭）。
     /// </summary>
     public static class ExploreMapBuilder
     {
@@ -23,14 +29,25 @@ namespace GameMain.Script.Explore
             cfg.GameData_Explore.ExploreZoneData kZone =
                 _tables == null || _tables.exploreZone == null ? null : _tables.exploreZone.GetOrDefault(_zoneId);
 
-            int kLayerCount = kZone != null && kZone.LayerCount > 0 ? kZone.LayerCount : ExploreConst.DefaultLayerCount;
+            int kLayerCount = kZone != null && kZone.LayerCount > 0
+                ? kZone.LayerCount
+                : (ExploreConst.TestAllBattle ? ExploreConst.TestLayerCount : ExploreConst.DefaultLayerCount);
             int kNodesMin = kZone != null && kZone.NodesPerLayerMin > 0 ? kZone.NodesPerLayerMin : ExploreConst.DefaultNodesMin;
             int kNodesMax = kZone != null && kZone.NodesPerLayerMax >= kNodesMin ? kZone.NodesPerLayerMax : ExploreConst.DefaultNodesMax;
             int kCampInterval = kZone != null && kZone.CampInterval > 0 ? kZone.CampInterval : ExploreConst.DefaultCampInterval;
             int kGoalEncounter = kZone == null ? 0 : kZone.GoalEncounterID;
             List<int> kEncounterPool = kZone == null ? null : kZone.EncounterPool;
 
-            int[] kWeights = LoadWeights(_tables, _zoneId);
+            // 可选类型 + 权重：类型集合来自 nodeType 表，权重来自 zoneNodeWeight / 默认值
+            List<int> kTypeIds = new List<int>();
+            Dictionary<int, int> kWeights = new Dictionary<int, int>();
+            LoadTypeWeights(_tables, _zoneId, kTypeIds, kWeights);
+
+            int kBattleType = ResolveBattleType(kTypeIds);
+            int kCampType = (int)NodeType.camp;
+            int kGoalType = kTypeIds.Contains(ExploreConst.BossNodeType)
+                ? ExploreConst.BossNodeType
+                : kBattleType;
 
             ExploreRun kRun = new ExploreRun();
             kRun.m_ZoneId = _zoneId;
@@ -54,36 +71,43 @@ namespace GameMain.Script.Explore
                     int kType;
                     if (kIsStart)
                     {
-                        kType = (int)NodeType.camp;
+                        kType = kCampType;
                     }
                     else if (kIsGoal)
                     {
-                        kType = (int)NodeType.battle;
+                        kType = kGoalType;
+                    }
+                    else if (ExploreConst.TestAllBattle)
+                    {
+                        kType = kBattleType;
                     }
                     else
                     {
-                        kType = PickType(kRandom, kWeights);
+                        kType = PickType(kRandom, kTypeIds, kWeights, kBattleType);
                     }
 
                     ExploreNode kNode = kRun.AddNode(kNextId++, layer, i, kType);
-                    if (kType == (int)NodeType.camp)
+                    if (kType == kCampType)
                     {
                         kCampPlaced = true;
                     }
                     kLayerNodes.Add(kNode);
                 }
 
-                // 保底露营地：每 campInterval 层强制放一个（起点/终点层除外）
-                if (!kIsStart && !kIsGoal && kCampInterval > 0 && layer % kCampInterval == 0 && !kCampPlaced)
+                // 保底露营地：每 campInterval 层强制放一个（起点/终点层除外；全战斗测试时不要）
+                if (!ExploreConst.TestAllBattle
+                    && !kIsStart && !kIsGoal && kCampInterval > 0
+                    && layer % kCampInterval == 0 && !kCampPlaced
+                    && kTypeIds.Contains(kCampType))
                 {
-                    kLayerNodes[0].m_TypeId = (int)NodeType.camp;
+                    kLayerNodes[0].m_TypeId = kCampType;
                 }
 
-                // 战斗节点分配遭遇
+                // 战斗/强敌节点分配遭遇
                 for (int i = 0; i < kLayerNodes.Count; i++)
                 {
                     ExploreNode kNode = kLayerNodes[i];
-                    if (kNode.m_TypeId == (int)NodeType.battle)
+                    if (ExploreConst.IsBattleType(kNode.m_TypeId))
                     {
                         kNode.m_EncounterId = kIsGoal ? kGoalEncounter : PickEncounter(kRandom, kEncounterPool);
                     }
@@ -103,83 +127,156 @@ namespace GameMain.Script.Explore
             kRun.m_CurrentNodeId = kRun.m_StartNodeId;
             kRun.m_Steps = 0;
             kRun.m_GoalReached = false;
+
+            // 坐标：拓扑定完再算，布局用的是独立随机流
+            ExploreMapLayout.Build(kRun);
+
             kRun.RefreshAvailability();
+            kRun.m_VisitedOrder.Add(kRun.m_StartNodeId);
 
             return kRun;
         }
 
-        #region 内部
+        #region 类型与权重
 
-        /// <summary>按 GameType.NodeType 1~7 读取权重；没有配置时用默认值</summary>
-        private static int[] LoadWeights(cfg.Tables _tables, int _zoneId)
+        /// <summary>
+        /// 类型集合以 nodeType 表为准；表为空时退回 1~7。
+        /// 权重：zoneNodeWeight 有该区域的行就覆盖，否则用 ExploreConst.DefaultWeights。
+        /// </summary>
+        private static void LoadTypeWeights(cfg.Tables _tables, int _zoneId,
+            List<int> _types, Dictionary<int, int> _weights)
         {
-            int[] kWeights = new int[8];
-            for (int i = 1; i <= 7; i++)
+            if (_tables != null && _tables.nodeType != null)
             {
-                kWeights[i] = ExploreConst.DefaultWeights[i - 1];
+                List<cfg.GameData_Explore.NodeTypeData> kRows = _tables.nodeType.DataList;
+                for (int i = 0; i < kRows.Count; i++)
+                {
+                    cfg.GameData_Explore.NodeTypeData kRow = kRows[i];
+                    if (kRow != null && kRow.ID > 0 && !_types.Contains(kRow.ID))
+                    {
+                        _types.Add(kRow.ID);
+                    }
+                }
+            }
+
+            if (_types.Count == 0)
+            {
+                for (int i = 1; i <= 7; i++)
+                {
+                    _types.Add(i);
+                }
+            }
+
+            _types.Sort();
+
+            for (int i = 0; i < _types.Count; i++)
+            {
+                _weights[_types[i]] = GetDefaultWeight(_types[i]);
             }
 
             if (_tables == null || _tables.zoneNodeWeight == null)
             {
-                return kWeights;
+                return;
             }
 
-            bool kHasData = false;
-            List<cfg.GameData_Explore.ZoneNodeWeightData> kRows = _tables.zoneNodeWeight.DataList;
-            for (int i = 0; i < kRows.Count; i++)
+            List<cfg.GameData_Explore.ZoneNodeWeightData> kWeightRows = _tables.zoneNodeWeight.DataList;
+            for (int i = 0; i < kWeightRows.Count; i++)
             {
-                cfg.GameData_Explore.ZoneNodeWeightData kRow = kRows[i];
+                cfg.GameData_Explore.ZoneNodeWeightData kRow = kWeightRows[i];
                 if (kRow == null || kRow.ZoneID != _zoneId)
                 {
                     continue;
                 }
-                if (kRow.NodeTypeID < 1 || kRow.NodeTypeID > 7)
+                if (_weights.ContainsKey(kRow.NodeTypeID))
                 {
-                    continue;
+                    _weights[kRow.NodeTypeID] = kRow.Weight > 0 ? kRow.Weight : 0;
                 }
-                kWeights[kRow.NodeTypeID] = kRow.Weight;
-                kHasData = true;
             }
 
-            if (!kHasData)
+            // 所有类型权重都被配成 0 时，至少让战斗类型能出
+            int kTotal = 0;
+            foreach (KeyValuePair<int, int> kPair in _weights)
             {
-                for (int i = 1; i <= 7; i++)
+                if (kPair.Value > 0)
                 {
-                    kWeights[i] = ExploreConst.DefaultWeights[i - 1];
+                    kTotal += kPair.Value;
                 }
             }
-            return kWeights;
+
+            if (kTotal <= 0)
+            {
+                int kBattleType = ResolveBattleType(_types);
+                if (_weights.ContainsKey(kBattleType))
+                {
+                    _weights[kBattleType] = 100;
+                }
+            }
         }
 
-        private static int PickType(System.Random _random, int[] _weights)
+        private static int GetDefaultWeight(int _typeId)
         {
-            int kTotal = 0;
-            for (int i = 1; i <= 7; i++)
+            int kIndex = _typeId - 1;
+            if (kIndex >= 0 && kIndex < ExploreConst.DefaultWeights.Length)
             {
-                if (_weights[i] > 0)
-                {
-                    kTotal += _weights[i];
-                }
+                return ExploreConst.DefaultWeights[kIndex];
             }
-            if (kTotal <= 0)
+            return 1;
+        }
+
+        /// <summary>优先用 1 战斗；表里没有就找第一个战斗类（含强敌），再退回 1</summary>
+        private static int ResolveBattleType(List<int> _types)
+        {
+            if (_types.Contains((int)NodeType.battle))
             {
                 return (int)NodeType.battle;
             }
 
-            int kRoll = _random.Next(0, kTotal);
-            for (int i = 1; i <= 7; i++)
+            for (int i = 0; i < _types.Count; i++)
             {
-                if (_weights[i] <= 0)
+                if (ExploreConst.IsBattleType(_types[i]))
+                {
+                    return _types[i];
+                }
+            }
+
+            return (int)NodeType.battle;
+        }
+
+        private static int PickType(System.Random _random, List<int> _types,
+            Dictionary<int, int> _weights, int _fallback)
+        {
+            int kTotal = 0;
+            for (int i = 0; i < _types.Count; i++)
+            {
+                int kWeight;
+                if (_weights.TryGetValue(_types[i], out kWeight) && kWeight > 0)
+                {
+                    kTotal += kWeight;
+                }
+            }
+
+            if (kTotal <= 0)
+            {
+                return _fallback;
+            }
+
+            int kRoll = _random.Next(0, kTotal);
+            for (int i = 0; i < _types.Count; i++)
+            {
+                int kWeight;
+                if (!_weights.TryGetValue(_types[i], out kWeight) || kWeight <= 0)
                 {
                     continue;
                 }
-                kRoll -= _weights[i];
+
+                kRoll -= kWeight;
                 if (kRoll < 0)
                 {
-                    return i;
+                    return _types[i];
                 }
             }
-            return (int)NodeType.battle;
+
+            return _fallback;
         }
 
         private static int PickEncounter(System.Random _random, List<int> _pool)
@@ -190,6 +287,10 @@ namespace GameMain.Script.Explore
             }
             return _pool[_random.Next(0, _pool.Count)];
         }
+
+        #endregion
+
+        #region 连边
 
         /// <summary>相邻层连边：父节点各连 1~2 个，再补全没有父节点的子节点</summary>
         private static void ConnectLayers(List<ExploreNode> _parents, List<ExploreNode> _children, System.Random _random)

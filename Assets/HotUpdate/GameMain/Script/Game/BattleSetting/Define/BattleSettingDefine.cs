@@ -36,7 +36,7 @@ namespace GameMain.Script.BattleSetting
     ///
     /// 职责边界：
     /// - 本系统只管"战前配置"：编队、站位、物资分配、当前遭遇战；
-    /// - 真正的战斗过程归 BattleSystem；角色数据归 RoleSystem，物品归 WarehouseSystem；
+    /// - 真正的战斗过程归 BattleSystem；角色数据归 RoleSystem，物品归 InventorySystem；
     /// - 本系统不写角色/仓库的权威数据，只读取与校验。
     /// </summary>
     public static class BattleSettingDefine

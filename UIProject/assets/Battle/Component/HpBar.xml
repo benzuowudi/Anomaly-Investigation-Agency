@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="668,72" extention="ProgressBar">
+  <displayList>
+    <image id="n0_oz3x" name="n0" src="qd3id" fileName="Texture/ui_pro_bg.png" pkg="5wifhyqa" xy="73,40" size="595,28">
+      <relation target="" sidePair="width-width"/>
+    </image>
+    <image id="n1_oz3x" name="bar" src="qd3ic" fileName="Texture/ui_pro_bar.png" pkg="5wifhyqa" xy="76,43" size="589,22"/>
+    <text id="n2_oz3x" name="title" xy="3,37" size="66,34" font="ui://5wifhyqavccf4" fontSize="24" color="#636168" text="100/100"/>
+    <text id="n3_oz3x" name="txt_name" xy="3,1" size="135,34" fontSize="24" color="#636168" autoSize="shrink" text="名字"/>
+  </displayList>
+  <ProgressBar titleType="valueAndmax"/>
+</component>

@@ -49,6 +49,14 @@ namespace Framework.Script.Data
         }
 
         /// <summary>
+        /// 旧版存档文件名（不含路径），用于系统/文件改名后的自动迁移；返回 null 表示不需要迁移。
+        /// </summary>
+        protected virtual string GetLegacySaveFileName()
+        {
+            return null;
+        }
+
+        /// <summary>
         /// 内存数据 → JSON 字符串
         /// </summary>
         protected abstract string ToJson();
@@ -98,23 +106,44 @@ namespace Framework.Script.Data
 
         /// <summary>
         /// 从本地读档。文件不存在返回 false（新档，不算错误）。
+        ///
+        /// 兼容旧存档：子类用 GetLegacySaveFileName() 声明旧文件名（例如系统/文件改名），
+        /// 新文件不存在而旧文件存在时，先按旧文件读入，再立刻另存为新文件名完成迁移。
+        /// 新文件存在但内容损坏时不会回退到旧文件（避免把旧数据又读回来）。
         /// </summary>
         public virtual bool Load()
         {
             string kPath = GetSavePath();
-            if (!File.Exists(kPath))
+            if (File.Exists(kPath))
             {
-                Game.Log.LogInfo("[" + GetLogTag() + "] 没有找到存档（新档）：" + kPath);
-                return false;
+                return TryLoadFile(kPath);
             }
 
+            string kLegacyName = GetLegacySaveFileName();
+            if (!string.IsNullOrEmpty(kLegacyName))
+            {
+                string kLegacyPath = Application.persistentDataPath + "/GameMain/Data/" + kLegacyName;
+                if (File.Exists(kLegacyPath) && TryLoadFile(kLegacyPath))
+                {
+                    Game.Log.LogInfo("[" + GetLogTag() + "] 已从旧存档迁移：" + kLegacyPath + " → " + kPath);
+                    Save();
+                    return true;
+                }
+            }
+
+            Game.Log.LogInfo("[" + GetLogTag() + "] 没有找到存档（新档）：" + kPath);
+            return false;
+        }
+
+        private bool TryLoadFile(string _path)
+        {
             try
             {
-                string kJson = File.ReadAllText(kPath, Encoding.UTF8);
+                string kJson = File.ReadAllText(_path, Encoding.UTF8);
                 bool kOk = FromJson(kJson);
                 if (kOk)
                 {
-                    Game.Log.LogInfo("[" + GetLogTag() + "] 读档完成：" + kPath);
+                    Game.Log.LogInfo("[" + GetLogTag() + "] 读档完成：" + _path);
                 }
                 return kOk;
             }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="192,55" extention="Button">
+  <controller name="button" pages="2,up,3,down" selected="1"/>
+  <displayList>
+    <graph id="n5_oz3x" name="n5" xy="0,0" size="192,55" type="rect" lineSize="0">
+      <gearDisplay controller="button" pages="3"/>
+    </graph>
+    <image id="n3_oz3x" name="n3" src="nye21y" fileName="Texture/ui_bg_box.png" pkg="5wifhyqa" xy="0,0" size="192,55"/>
+    <text id="n4_oz3x" name="title" xy="64,6" size="64,42" fontSize="30" color="#636168" text="类型">
+      <gearColor controller="button" pages="3" values="#636168,#000000" default="#e1dde9,#000000"/>
+    </text>
+  </displayList>
+  <Button mode="Radio"/>
+</component>

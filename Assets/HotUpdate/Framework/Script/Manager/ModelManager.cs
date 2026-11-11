@@ -4,7 +4,9 @@ using Framework.Script.Base;
 using Framework.Script.Model;
 using GameMain.Script.Battle;
 using GameMain.Script.BattleSetting;
+using GameMain.Script.Armory;
 using GameMain.Script.Explore;
+using GameMain.Script.Inventory;
 using GameMain.Script.Role;
 using GameMain.Script.Skill;
 
@@ -48,9 +50,12 @@ namespace Framework.Script.Manager
             Register<SkillSystem>();
             // 战前整备依赖 RoleSystem / BattleSystem（开战与站位应用），放在它们之后
             Register<BattleSettingSystem>();
+            // 仓库（道具权威数据）与军械库互相只读引用（合成扣材料 / 仓库展示装备）；
+            // 两边 OnInit 都不访问对方，注册顺序不影响，放在一起便于阅读
+            Register<InventorySystem>();
+            Register<ArmorySystem>();
 
             // 待迁移的旧系统（迁移时改成 Register<XxxSystem>()）：
-            // Register<WarehouseSystem>();
             // Register<TalentAcquisitionSystem>();
 
             StartAll();

@@ -1,0 +1,139 @@
+
+bosspit_giant_plant.png
+size: 988,528
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 2, 166
+  size: 203, 360
+  orig: 203, 360
+  offset: 0, 0
+  index: -1
+hand-b
+  rotate: true
+  xy: 422, 315
+  size: 211, 141
+  orig: 211, 141
+  offset: 0, 0
+  index: -1
+hand-f
+  rotate: true
+  xy: 839, 194
+  size: 141, 144
+  orig: 141, 144
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 532, 51
+  size: 190, 123
+  orig: 190, 123
+  offset: 0, 0
+  index: -1
+jaw
+  rotate: true
+  xy: 715, 337
+  size: 189, 136
+  orig: 189, 136
+  offset: 0, 0
+  index: -1
+jaw-f
+  rotate: true
+  xy: 853, 337
+  size: 189, 133
+  orig: 189, 133
+  offset: 0, 0
+  index: -1
+leg-f
+  rotate: true
+  xy: 588, 244
+  size: 84, 151
+  orig: 84, 151
+  offset: 0, 0
+  index: -1
+lower_leg-b
+  rotate: true
+  xy: 769, 3
+  size: 56, 128
+  orig: 56, 128
+  offset: 0, 0
+  index: -1
+neck
+  rotate: false
+  xy: 207, 243
+  size: 213, 283
+  orig: 213, 283
+  offset: 0, 0
+  index: -1
+pot-b
+  rotate: false
+  xy: 422, 243
+  size: 164, 70
+  orig: 164, 70
+  offset: 0, 0
+  index: -1
+pot-f
+  rotate: false
+  xy: 657, 61
+  size: 180, 181
+  orig: 180, 181
+  offset: 0, 0
+  index: -1
+root_ball
+  rotate: true
+  xy: 378, 2
+  size: 239, 152
+  orig: 239, 152
+  offset: 0, 0
+  index: -1
+root_ball1
+  rotate: false
+  xy: 2, 3
+  size: 204, 161
+  orig: 204, 161
+  offset: 0, 0
+  index: -1
+seed
+  rotate: true
+  xy: 208, 2
+  size: 239, 168
+  orig: 239, 168
+  offset: 0, 0
+  index: -1
+tail
+  rotate: false
+  xy: 565, 330
+  size: 148, 196
+  orig: 148, 196
+  offset: 0, 0
+  index: -1
+tentacle1
+  rotate: false
+  xy: 532, 26
+  size: 91, 23
+  orig: 91, 23
+  offset: 0, 0
+  index: -1
+tentacle2
+  rotate: false
+  xy: 899, 126
+  size: 80, 66
+  orig: 80, 66
+  offset: 0, 0
+  index: -1
+tentacle3
+  rotate: false
+  xy: 657, 2
+  size: 110, 57
+  orig: 110, 57
+  offset: 0, 0
+  index: -1
+upper_leg-b
+  rotate: true
+  xy: 899, 58
+  size: 66, 70
+  orig: 66, 70
+  offset: 0, 0
+  index: -1

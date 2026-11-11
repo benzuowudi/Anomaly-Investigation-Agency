@@ -67,8 +67,10 @@ namespace GameMain.Script.Role
             kRole.m_Behaviors = RoleBehaviorRule.Build(kRole.m_Attributes);
             // 每个新角色随机一个主动技能（skill 表），被动技能后续培养再解锁
             kRole.m_ActiveSkillId = PickActiveSkill(_tables, _random);
-            // 新人入职默认初级专员（职称评分 0），装备/勋章/适应性由后续培养流程填
+            // 新人入职默认初级专员（职称评分 0），勋章/适应性由后续培养流程填；
+            // 所有角色获得时默认穿戴"赤手空拳"（装备 5000）
             kRole.m_TitleScore = 0;
+            kRole.m_EquipIds.Add(RoleTitleRule.DefaultEquipId);
             return kRole;
         }
 

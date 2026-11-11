@@ -137,6 +137,10 @@ public sealed partial class Tables
     /// 区域节点类型权重（一对多）
     /// </summary>
     public GameData_Explore.zoneNodeWeight zoneNodeWeight {get; }
+    /// <summary>
+    /// 道具配置表
+    /// </summary>
+    public GameData_Item.itemUse itemUse {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -203,6 +207,8 @@ public sealed partial class Tables
         tables.Add("GameData_Battle.encounterEnemy", encounterEnemy);
         zoneNodeWeight = new GameData_Explore.zoneNodeWeight(loader("gamedata_explore_zonenodeweight")); 
         tables.Add("GameData_Explore.zoneNodeWeight", zoneNodeWeight);
+        itemUse = new GameData_Item.itemUse(loader("gamedata_item_itemuse")); 
+        tables.Add("GameData_Item.itemUse", itemUse);
         PostInit();
 
         map.Resolve(tables); 
@@ -236,6 +242,7 @@ public sealed partial class Tables
         skill_enemy.Resolve(tables); 
         encounterEnemy.Resolve(tables); 
         zoneNodeWeight.Resolve(tables); 
+        itemUse.Resolve(tables); 
         PostResolve();
     }
 
@@ -272,6 +279,7 @@ public sealed partial class Tables
         skill_enemy.TranslateText(translator); 
         encounterEnemy.TranslateText(translator); 
         zoneNodeWeight.TranslateText(translator); 
+        itemUse.TranslateText(translator); 
     }
     
     partial void PostInit();

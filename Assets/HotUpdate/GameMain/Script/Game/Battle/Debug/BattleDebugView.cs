@@ -67,6 +67,12 @@ namespace GameMain.Script.Battle
                 return;
             }
 
+            // FGUI 战斗画面正在显示时，这里只负责 Tick（Update），不画 IMGUI
+            if (BattlePresentation.s_FguiActive)
+            {
+                return;
+            }
+
             BattleSystem kBattle = GetBattle();
             if (kBattle == null)
             {

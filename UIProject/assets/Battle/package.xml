@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="l9rwuvsr">
   <resources>
-    <component id="xgq70" name="BattleView.xml" path="/View/"/>
+    <component id="xgq70" name="BattleView.xml" path="/View/" exported="true"/>
+    <component id="oz3x1" name="HpBar.xml" path="/Component/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

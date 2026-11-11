@@ -27,7 +27,7 @@ namespace GameMain.Script.UI
         private GTextField txt_equipName, txt_equipType;
 
         private RoleTitleCom com_title_attr, com_title_equip, com_title_medal;
-        private GComponent com_equip, com_medal_1, com_medal_2, com_medal_3;
+        private CommonItemCom com_equip, com_medal_1, com_medal_2, com_medal_3;
         private GList list_attr, list_skill;
 
         public override void ConstructFromXML(XML xml)
@@ -45,10 +45,10 @@ namespace GameMain.Script.UI
             com_title_equip = GetChild("com_title_equip") as RoleTitleCom;
             com_title_medal = GetChild("com_title_medal") as RoleTitleCom;
 
-            com_equip = GetChild("com_equip") as GComponent;
-            com_medal_1 = GetChild("com_medal_1") as GComponent;
-            com_medal_2 = GetChild("com_medal_2") as GComponent;
-            com_medal_3 = GetChild("com_medal_3") as GComponent;
+            com_equip = GetChild("com_equip") as CommonItemCom;
+            com_medal_1 = GetChild("com_medal_1") as CommonItemCom;
+            com_medal_2 = GetChild("com_medal_2") as CommonItemCom;
+            com_medal_3 = GetChild("com_medal_3") as CommonItemCom;
 
             list_attr = GetChild("list_attr").asList;
             list_skill = GetChild("list_skill").asList;
@@ -94,10 +94,10 @@ namespace GameMain.Script.UI
             txt_equipName.text = "未装备";
             txt_equipType.text = string.Empty;
 
-            SetItemState(com_equip, 0);
-            SetItemState(com_medal_1, 0);
-            SetItemState(com_medal_2, 0);
-            SetItemState(com_medal_3, 0);
+            com_equip.SetCom(CommonItemCom.StateEmpty);
+            com_medal_1.SetCom(CommonItemCom.StateEmpty);
+            com_medal_2.SetCom(CommonItemCom.StateEmpty);
+            com_medal_3.SetCom(CommonItemCom.StateEmpty);
 
             list_attr.RemoveChildrenToPool();
             list_skill.RemoveChildrenToPool();
@@ -158,7 +158,15 @@ namespace GameMain.Script.UI
                 kEquip = _snapshot.m_Equips[0];
             }
 
-            SetItemState(com_equip, kEquip == null ? 0 : 3);
+            if (kEquip == null)
+            {
+                com_equip.SetCom(CommonItemCom.StateEmpty);
+            }
+            else
+            {
+                com_equip.SetEquip(kEquip.ID);
+            }
+
             txt_equipName.text = kEquip == null ? "未装备" : kEquip.Name;
             txt_equipType.text = kEquip == null ? string.Empty : (RoleTitleRule.IsArmor(kEquip.Type1) ? "护甲" : "武器");
         }
@@ -170,7 +178,7 @@ namespace GameMain.Script.UI
             FillMedal(com_medal_3, _snapshot, 2);
         }
 
-        private void FillMedal(GComponent _com, RoleSnapshot _snapshot, int _index)
+        private void FillMedal(CommonItemCom _com, RoleSnapshot _snapshot, int _index)
         {
             MedalData kMedal = null;
             if (_index < _snapshot.m_Medals.Count)
@@ -178,15 +186,14 @@ namespace GameMain.Script.UI
                 kMedal = _snapshot.m_Medals[_index];
             }
 
-            SetItemState(_com, kMedal == null ? 0 : 1);
-        }
-
-        /// <summary>
-        /// Base/CommonItemCom 的 state 控制器：0 空 / 1 道具 / 2 角色 / 3 装备
-        /// </summary>
-        private static void SetItemState(GComponent _com, int _state)
-        {
-            _com.GetController("state").selectedIndex = _state;
+            if (kMedal == null)
+            {
+                _com.SetCom(CommonItemCom.StateEmpty);
+            }
+            else
+            {
+                _com.SetCom(CommonItemCom.StateItem, kMedal.Icon, 1, kMedal.Name);
+            }
         }
 
         #endregion

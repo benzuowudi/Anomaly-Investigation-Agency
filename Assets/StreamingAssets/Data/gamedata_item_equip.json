@@ -1,1 +1,219 @@
-[]
+[
+  {
+    "ID": 5000,
+    "icon": "ui_equip_fist",
+    "name": "赤手空拳",
+    "type_1": 1,
+    "type_2": 4,
+    "quality": 1,
+    "useRoleATK": true,
+    "atkRange": 1,
+    "atkType": [
+      1
+    ],
+    "ATK": 1,
+    "DEF": 0,
+    "magazine": -1,
+    "ammu": 0,
+    "atkInterval": 1.2
+  },
+  {
+    "ID": 5001,
+    "icon": "ui_equip_knife",
+    "name": "匕首",
+    "type_1": 1,
+    "type_2": 1,
+    "quality": 1,
+    "useRoleATK": true,
+    "atkRange": 1,
+    "atkType": [
+      2
+    ],
+    "ATK": 5,
+    "DEF": 0,
+    "magazine": -1,
+    "ammu": 0,
+    "atkInterval": 0.8
+  },
+  {
+    "ID": 5002,
+    "icon": "ui_equip_knife",
+    "name": "日本刀",
+    "type_1": 1,
+    "type_2": 1,
+    "quality": 2,
+    "useRoleATK": true,
+    "atkRange": 1,
+    "atkType": [
+      2
+    ],
+    "ATK": 7,
+    "DEF": 0,
+    "magazine": -1,
+    "ammu": 0,
+    "atkInterval": 1.5
+  },
+  {
+    "ID": 5003,
+    "icon": "ui_equip_gun",
+    "name": "手枪",
+    "type_1": 1,
+    "type_2": 2,
+    "quality": 2,
+    "useRoleATK": false,
+    "atkRange": 2,
+    "atkType": [
+      6
+    ],
+    "ATK": 10,
+    "DEF": 0,
+    "magazine": 5,
+    "ammu": 15,
+    "atkInterval": 0.6
+  },
+  {
+    "ID": 5004,
+    "icon": "ui_equip_gun",
+    "name": "突击步枪",
+    "type_1": 1,
+    "type_2": 2,
+    "quality": 3,
+    "useRoleATK": false,
+    "atkRange": 2,
+    "atkType": [
+      6
+    ],
+    "ATK": 12,
+    "DEF": 0,
+    "magazine": 4,
+    "ammu": 30,
+    "atkInterval": 0.2
+  },
+  {
+    "ID": 5005,
+    "icon": "ui_equip_gun",
+    "name": "榴弹发射器",
+    "type_1": 1,
+    "type_2": 3,
+    "quality": 3,
+    "useRoleATK": false,
+    "atkRange": 2,
+    "atkType": [
+      6,
+      7
+    ],
+    "ATK": 20,
+    "DEF": 0,
+    "magazine": 6,
+    "ammu": 6,
+    "atkInterval": 3
+  },
+  {
+    "ID": 5006,
+    "icon": "ui_equip_gun",
+    "name": "火焰喷射器",
+    "type_1": 1,
+    "type_2": 3,
+    "quality": 4,
+    "useRoleATK": false,
+    "atkRange": 2,
+    "atkType": [
+      4
+    ],
+    "ATK": 15,
+    "DEF": 0,
+    "magazine": 10,
+    "ammu": 100,
+    "atkInterval": 0.1
+  },
+  {
+    "ID": 5007,
+    "icon": "ui_equip_shield",
+    "name": "盾牌",
+    "type_1": 1,
+    "type_2": 4,
+    "quality": 2,
+    "useRoleATK": true,
+    "atkRange": 1,
+    "atkType": [
+      3
+    ],
+    "ATK": 0,
+    "DEF": 5,
+    "magazine": -1,
+    "ammu": 0,
+    "atkInterval": 2
+  },
+  {
+    "ID": 5008,
+    "icon": "ui_equip_knife",
+    "name": "高密度合金刀",
+    "type_1": 2,
+    "type_2": 1,
+    "quality": 5,
+    "useRoleATK": true,
+    "atkRange": 2,
+    "atkType": [
+      2
+    ],
+    "ATK": 0,
+    "DEF": 0,
+    "magazine": -1,
+    "ammu": 0,
+    "atkInterval": 1.2
+  },
+  {
+    "ID": 5009,
+    "icon": "ui_equip_shield",
+    "name": "高密度合金盾牌",
+    "type_1": 2,
+    "type_2": 4,
+    "quality": 5,
+    "useRoleATK": true,
+    "atkRange": 2,
+    "atkType": [
+      3
+    ],
+    "ATK": 0,
+    "DEF": 15,
+    "magazine": -1,
+    "ammu": 0,
+    "atkInterval": 1.8
+  },
+  {
+    "ID": 5010,
+    "icon": "ui_equip_eye",
+    "name": "全知之眼",
+    "type_1": 3,
+    "type_2": 1,
+    "quality": 6,
+    "useRoleATK": false,
+    "atkRange": 2,
+    "atkType": [
+      8
+    ],
+    "ATK": 10,
+    "DEF": 0,
+    "magazine": -1,
+    "ammu": 0,
+    "atkInterval": 1.6
+  },
+  {
+    "ID": 5011,
+    "icon": "ui_equip_flail",
+    "name": "邪能连枷",
+    "type_1": 3,
+    "type_2": 2,
+    "quality": 6,
+    "useRoleATK": false,
+    "atkRange": 1,
+    "atkType": [
+      3
+    ],
+    "ATK": 25,
+    "DEF": 0,
+    "magazine": -1,
+    "ammu": 0,
+    "atkInterval": 3
+  }
+]

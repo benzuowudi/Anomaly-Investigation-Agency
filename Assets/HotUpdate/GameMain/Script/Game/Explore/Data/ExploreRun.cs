@@ -7,6 +7,8 @@ namespace GameMain.Script.Explore
     /// 一次调查（run）的运行时状态：节点网 + 当前位置 + 进度。
     ///
     /// 只描述"这一局"，不含任何 UI；UI 读它来画地图。
+    /// 节点坐标（ExploreNode.m_X/m_Y）是权威数据的一部分：同 seed 可复现，
+    /// 但读档时以存档里的坐标为准（布局参数改了也不挪动已有进度）。
     /// </summary>
     public class ExploreRun
     {
@@ -16,6 +18,8 @@ namespace GameMain.Script.Explore
         public int m_Seed;
         /// <summary>层数</summary>
         public int m_LayerCount;
+        /// <summary>深入次数（0 = 首次进入）</summary>
+        public int m_Depth;
         /// <summary>起点节点ID</summary>
         public int m_StartNodeId;
         /// <summary>终点节点ID（目标节点）</summary>
@@ -28,6 +32,12 @@ namespace GameMain.Script.Explore
         public bool m_GoalReached;
         /// <summary>最近一场战斗的结果</summary>
         public BattleOutcome m_LastBattleOutcome = BattleOutcome.None;
+        /// <summary>地图画布宽（虚拟像素）</summary>
+        public float m_MapWidth = ExploreConst.MapWidth;
+        /// <summary>地图画布高（虚拟像素）</summary>
+        public float m_MapHeight = ExploreConst.MapHeight;
+        /// <summary>行走路径（按进入顺序，画轨迹 / 调试用）</summary>
+        public readonly List<int> m_VisitedOrder = new List<int>();
         /// <summary>节点表：id → 节点</summary>
         public readonly Dictionary<int, ExploreNode> m_Nodes = new Dictionary<int, ExploreNode>();
 
@@ -97,6 +107,7 @@ namespace GameMain.Script.Explore
         {
             return "{ run zone:" + m_ZoneId + " seed:" + m_Seed
                 + " nodes:" + m_Nodes.Count + " layers:" + m_LayerCount
+                + " depth:" + m_Depth
                 + " current:" + m_CurrentNodeId + " steps:" + m_Steps
                 + " goal:" + (m_GoalReached ? "done" : "todo") + " }";
         }

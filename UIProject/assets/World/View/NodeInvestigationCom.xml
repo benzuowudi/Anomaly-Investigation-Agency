@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1761,723">
+  <displayList>
+    <image id="n4_qd3i" name="n4" src="vccf3" fileName="Texture/ui_bg_common_1.png" pkg="5wifhyqa" xy="0,0" size="1761,723"/>
+    <list id="n26_qd3i" name="list_investigation" xy="31,19" size="1699,684" layout="row" overflow="scroll" scroll="horizontal" colGap="17" defaultItem="ui://luky3lzgqd3ik" autoItemSize="false" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

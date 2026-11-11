@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1920,1080"/>
+<component size="1920,1080">
+  <displayList>
+    <list id="n3_oz3x" name="list_hp" xy="18,705" size="406,359" overflow="hidden" defaultItem="ui://l9rwuvsroz3x1" vAlign="bottom" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

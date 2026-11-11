@@ -48,6 +48,16 @@
     <image id="nwkm2n" name="ui_btn_popupClose.png" path="/Texture/" exported="true"/>
     <component id="nwkm2o" name="PopupWindow.xml" path="/PopupWindow/" exported="true"/>
     <component id="nwkm2p" name="PopupCloseBtn.xml" path="/Button/" exported="true"/>
+    <component id="qd3i2q" name="RoleBattleCom.xml" path="/Component/" exported="true"/>
+    <image id="oz3x2r" name="ui_itembg_3.png" path="/Texture/" exported="true"/>
+    <image id="oz3x2s" name="ui_itembg_5.png" path="/Texture/" exported="true"/>
+    <image id="oz3x2t" name="ui_itembg_2.png" path="/Texture/" exported="true"/>
+    <image id="oz3x2u" name="ui_itembg_6.png" path="/Texture/" exported="true"/>
+    <image id="oz3x2v" name="ui_itembg_4.png" path="/Texture/" exported="true"/>
+    <image id="oz3x2w" name="ui_itembg_7.png" path="/Texture/" exported="true"/>
+    <image id="oz3x2x" name="ui_itembg_1.png" path="/Texture/" exported="true"/>
+    <image id="qd3ic" name="ui_pro_bar.png" path="/Texture/" exported="true" scale="9grid" scale9grid="5,5,10,10"/>
+    <image id="qd3id" name="ui_pro_bg.png" path="/Texture/" exported="true" scale="9grid" scale9grid="167,7,334,14"/>
   </resources>
   <publish name=""/>
 </packageDescription>

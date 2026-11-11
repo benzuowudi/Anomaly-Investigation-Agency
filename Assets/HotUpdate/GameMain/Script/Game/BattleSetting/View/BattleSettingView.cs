@@ -46,6 +46,8 @@ namespace GameMain.Script.UI
             com_support = ui.GetChild("com_support") as BattleSettingSupportCom;
             com_item = ui.GetChild("com_item") as BattleSettingItemCom;
             btn_battle = ui.GetChild("btn_battle").asButton;
+            // 战前整备在探索流程里是"出发"：确认后进入异常区域，而不是直接开战
+            btn_battle.title = "出　发";
 
             // 空队员格 → 角色选择弹窗；已填格子的 btn_cut → 移出队伍
             com_team.onAdd = OnClickAddSlot;
@@ -104,8 +106,15 @@ namespace GameMain.Script.UI
             com_support.SetCom(kSnapshot.m_SupportItems);
             com_item.SetCom(kSnapshot.m_MuleItems);
 
-            btn_battle.grayed = !kSnapshot.m_CanStart;
-            btn_battle.tooltips = kSnapshot.m_CanStart ? null : kSnapshot.m_BlockReason;
+            // 这个界面在探索流程里是"出发"：队伍为空也能出发（战斗节点退回调试编成），
+            // 只有正在战斗时才置灰
+            string kDepartReason;
+            bool kCanDepart = Setting.CanDepart(out kDepartReason);
+            btn_battle.grayed = !kCanDepart;
+            // 同上：没有配置 tooltip 组件时不挂 tooltips，避免 hover 刷警告
+            btn_battle.tooltips = string.IsNullOrEmpty(UIConfig.tooltipsWin) || kCanDepart
+                ? null
+                : kDepartReason;
         }
 
         #endregion
@@ -114,13 +123,13 @@ namespace GameMain.Script.UI
 
         private void OnClickBattle()
         {
-            if (!Setting.ConfirmSetting())
+            if (!Setting.ConfirmAndDepart())
             {
                 Refresh();
                 return;
             }
 
-            Game.UI.Hide(UIDefine.BattleSetting);
+            Game.UI.ShowWindow(UIDefine.Explore);
         }
 
         private void OnClickBack()

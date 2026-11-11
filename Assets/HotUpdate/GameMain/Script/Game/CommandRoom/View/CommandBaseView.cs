@@ -1,8 +1,8 @@
 using FairyGUI;
 using Framework.Script.UI;
+using GameMain.Script.Inventory;
 using GameMain.Script.Role;
 using GameMain.Script.TalentAcquisition;
-using GameMain.Script.Warehouse;
 
 namespace GameMain.Script.UI
 {
@@ -38,6 +38,12 @@ namespace GameMain.Script.UI
 
         private bool m_Subscribed;
 
+        /// <summary>仓库模型（道具权威数据的唯一业务入口）</summary>
+        private static InventorySystem Inventory
+        {
+            get { return Game.Model.Get<InventorySystem>(); }
+        }
+
         protected internal override void Init(object o)
         {
             load_role = ui.GetChild("load_role").asLoader;
@@ -70,8 +76,8 @@ namespace GameMain.Script.UI
 
             com_player.onClick.Add(OnClickNotOpen);
             com_TA.onClick.Add(OnClickTA);
-            com_inventory.onClick.Add(OnClickNotOpen);
-            com_armory.onClick.Add(OnClickNotOpen);
+            com_inventory.onClick.Add(OnClickInventory);
+            com_armory.onClick.Add(OnClickArmory);
             com_currency.onClick.Add(OnClickNotOpen);
         }
 
@@ -112,7 +118,7 @@ namespace GameMain.Script.UI
         {
             com_role.SetCom(Game.Model.Get<RoleSystem>().GetRoleCount(), CommandRoleCom.RoleCapacity, false);
 
-            com_inventory.SetCom(WarehouseSystem.GetUsedSlots(), WarehouseSystem.GetMaxSlots());
+            com_inventory.SetCom(Inventory.GetUsedSlots(), Inventory.GetMaxSlots());
 
             // 右上角货币：欧元暂时存在人才招募数据里（等经济系统接入后再换数据源）
             com_currency.SetCom(TalentAcquisitionSystem.GetEuro());
@@ -133,7 +139,7 @@ namespace GameMain.Script.UI
             Game.Event.Subscribe(RoleEvent.OnRoleChanged, OnRoleChanged);
             Game.Event.Subscribe(RoleEvent.OnRolesChanged, OnRolesChanged);
             Game.Event.Subscribe(RoleEvent.OnMainRoleChanged, OnMainRoleChanged);
-            Game.Event.Subscribe(WarehouseEventDefine.OnWarehouseChanged, OnWarehouseChanged);
+            Game.Event.Subscribe(InventoryEvent.OnInventoryChanged, OnInventoryChanged);
             Game.Event.Subscribe(TalentAcquisitionEventDefine.OnCurrencyChanged, OnCurrencyChanged);
             m_Subscribed = true;
         }
@@ -148,7 +154,7 @@ namespace GameMain.Script.UI
             Game.Event.UnSubscribe(RoleEvent.OnRoleChanged, OnRoleChanged);
             Game.Event.UnSubscribe(RoleEvent.OnRolesChanged, OnRolesChanged);
             Game.Event.UnSubscribe(RoleEvent.OnMainRoleChanged, OnMainRoleChanged);
-            Game.Event.UnSubscribe(WarehouseEventDefine.OnWarehouseChanged, OnWarehouseChanged);
+            Game.Event.UnSubscribe(InventoryEvent.OnInventoryChanged, OnInventoryChanged);
             Game.Event.UnSubscribe(TalentAcquisitionEventDefine.OnCurrencyChanged, OnCurrencyChanged);
             m_Subscribed = false;
         }
@@ -168,7 +174,7 @@ namespace GameMain.Script.UI
             Refresh();
         }
 
-        private void OnWarehouseChanged(object _o)
+        private void OnInventoryChanged(object _o)
         {
             Refresh();
         }
@@ -182,6 +188,18 @@ namespace GameMain.Script.UI
         private void OnClickTA()
         {
             Game.UI.ShowWindow(UIDefine.TalentAcquisition);
+        }
+
+        /// <summary>「军械库」→ 装备合成界面</summary>
+        private void OnClickArmory(EventContext _context)
+        {
+            Game.UI.ShowWindow(UIDefine.Armory);
+        }
+
+        /// <summary>「仓库」→ 道具 / 装备列表</summary>
+        private void OnClickInventory(EventContext _context)
+        {
+            Game.UI.ShowWindow(UIDefine.Inventory);
         }
 
         /// <summary>「开始行动」→ 战前整备界面</summary>

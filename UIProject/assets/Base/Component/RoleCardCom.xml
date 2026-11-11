@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="209,323">
+<component size="209,323" mask="n15_qd3i">
   <controller name="state" pages="0,,1," selected="0">
     <remark page="0" value="选中"/>
     <remark page="1" value="未选中"/>
   </controller>
   <displayList>
-    <image id="n0_nye2" name="n0" src="nye2g" fileName="Texture/ui_bg_card.png" xy="0,0" group="n10_qktp"/>
-    <image id="n3_nye2" name="n3" src="l0611q" fileName="Texture/ui_bg_line.png" xy="2,229" size="201,5" group="n10_qktp"/>
-    <loader id="n1_nye2" name="load_role" xy="41,12" size="157,217" group="n10_qktp" url="ui://5m40pj94gndh1"/>
-    <component id="n2_nye2" name="com_pos" src="nye21x" fileName="Component/CommonPosCom.xml" xy="5,5" group="n10_qktp"/>
-    <text id="n4_nye2" name="txt_name" xy="6,63" size="33,162" group="n10_qktp" fontSize="27" color="#636168" leading="-3" autoSize="none" text="井之上泷奈"/>
-    <text id="n5_nye2" name="txt_NO" xy="6,31" size="70,34" group="n10_qktp" font="ui://5wifhyqavccf4" fontSize="24" color="#636168" leading="-3" text="NO.0083"/>
-    <component id="n7_nye2" name="com_skill_1" src="nye21z" fileName="Component/CommonSkillIconCom.xml" xy="33,248" size="55,55" group="n9_nye2"/>
-    <component id="n8_nye2" name="com_skill_2" src="nye21z" fileName="Component/CommonSkillIconCom.xml" xy="118,248" size="55,55" group="n9_nye2"/>
-    <group id="n9_nye2" name="n9" xy="33,248" size="140,55" group="n10_qktp" advanced="true" layout="hz" colGap="30"/>
-    <group id="n10_qktp" name="n10" xy="0,0" size="209,323" advanced="true"/>
+    <graph id="n15_qd3i" name="n15" xy="0,0" size="209,323" type="rect"/>
+    <image id="n0_nye2" name="n0" src="nye2g" fileName="Texture/ui_bg_card.png" xy="0,0"/>
+    <image id="n3_nye2" name="n3" src="l0611q" fileName="Texture/ui_bg_line.png" xy="2,229" size="201,5"/>
+    <component id="n13_qd3i" name="com_anim" src="xgq72h" fileName="Component/RoleAnimCom.xml" xy="103,315"/>
+    <component id="n2_nye2" name="com_pos" src="nye21x" fileName="Component/CommonPosCom.xml" xy="5,5"/>
+    <text id="n4_nye2" name="txt_name" xy="6,63" size="33,162" fontSize="27" color="#636168" leading="-3" autoSize="none" text="井之上泷奈"/>
+    <text id="n5_nye2" name="txt_NO" xy="6,31" size="70,34" font="ui://5wifhyqavccf4" fontSize="24" color="#636168" leading="-3" text="NO.0083"/>
+    <graph id="n14_qd3i" name="n14" xy="3,235" size="199,80" type="rect" lineSize="0" fillColor="#ffededed">
+      <relation target="" sidePair="center-center,bottom-bottom"/>
+    </graph>
+    <component id="n17_oz3x" name="com_equip" src="l0611r" fileName="Component/CommonItemCom.xml" xy="16,250" size="54,54" group="n9_nye2"/>
+    <component id="n18_oz3x" name="com_skill_1" src="l0611r" fileName="Component/CommonItemCom.xml" xy="77,250" size="54,54" group="n9_nye2"/>
+    <component id="n19_oz3x" name="com_skill_2" src="l0611r" fileName="Component/CommonItemCom.xml" xy="138,250" size="54,54" group="n9_nye2"/>
+    <group id="n9_nye2" name="n9" xy="16,250" size="176,54" advanced="true" layout="hz" colGap="7"/>
     <image id="n11_qktp" name="n11" src="nye2g" fileName="Texture/ui_bg_card.png" xy="0,0" alpha="0.5" color="#000000">
       <gearDisplay controller="state" pages="1"/>
     </image>

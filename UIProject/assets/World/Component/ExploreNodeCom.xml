@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="120,181">
+  <controller name="state" pages="0,noselect,1,select" selected="0"/>
+  <displayList>
+    <image id="n0_qd3i" name="n0" src="qd3i2" fileName="Texture/ui_bg_node.png" xy="2,0"/>
+    <image id="n4_qd3i" name="n4" src="qd3i9" fileName="Texture/ui_bg_light.png" xy="0,-2">
+      <gearDisplay controller="state" pages="1"/>
+    </image>
+    <loader id="n1_qd3i" name="load_icon" xy="10,8" size="100,100" url="ui://luky3lzgqd3i4" autoSize="true"/>
+    <text id="n2_qd3i" name="txt_name" xy="32,114" size="56,36" font="ui://5wifhyqavccf6" fontSize="26" color="#e1dde9" text="名字"/>
+    <text id="n3_qd3i" name="txt_pro" xy="39,147" size="41,34" font="ui://5wifhyqavccf4" fontSize="24" color="#e1dde9" text="89%"/>
+  </displayList>
+</component>

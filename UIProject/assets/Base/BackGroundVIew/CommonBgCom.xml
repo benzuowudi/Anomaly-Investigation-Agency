@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1830,1000" initName="com_bg">
   <displayList>
-    <image id="n1_gfwq" name="n1" src="gfwq2b" fileName="BackGroundVIew/ui_bg_box.png" xy="16,134">
+    <image id="n1_gfwq" name="n1" src="gfwq2b" fileName="BackGroundVIew/ui_bg_box.png" xy="16,134" size="1814,812">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
     <component id="n3_gfwq" name="btn_back" src="l0617" fileName="Button/CommonBackBtn.xml" xy="0,0">

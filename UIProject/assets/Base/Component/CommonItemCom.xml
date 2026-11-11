@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="83,83">
-  <controller name="state" pages="0,empty,1,item,2,hero,3,equip" selected="0"/>
+  <controller name="state" pages="0,empty,1,item,3,equip" selected="0"/>
   <displayList>
-    <image id="n0_l061" name="n0" src="l0611t" fileName="Texture/ui_bg_item.png" xy="0,0">
+    <loader id="n3_oz3x" name="load_bg" xy="0,0" size="83,83" url="ui://5wifhyqaoz3x2r" fill="scaleFree">
+      <gearDisplay controller="state" pages="1,2,3"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <image id="n0_l061" name="n0" src="nye21y" fileName="Texture/ui_bg_box.png" xy="0,0" size="83,83">
       <relation target="" sidePair="width-width,height-height,center-center,middle-middle"/>
     </image>
     <image id="n1_l061" name="n1" src="l0611s" fileName="Texture/ui_bg_plus.png" xy="25,26">
       <gearDisplay controller="state" pages="0"/>
       <relation target="" sidePair="center-center,middle-middle"/>
     </image>
+    <loader id="n2_qd3i" name="load_icon" xy="6,6" size="71,70" fill="scaleFree">
+      <gearDisplay controller="state" pages="1,2,3"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
   </displayList>
 </component>

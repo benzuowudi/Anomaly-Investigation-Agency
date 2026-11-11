@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using Framework.Script.Model;
 using GameMain.Script.Battle;
+using GameMain.Script.Explore;
+using GameMain.Script.Inventory;
 using GameMain.Script.Role;
-using GameMain.Script.Warehouse;
 
 namespace GameMain.Script.BattleSetting
 {
@@ -35,6 +36,11 @@ namespace GameMain.Script.BattleSetting
         private static RoleSystem Role
         {
             get { return Game.Model.Get<RoleSystem>(); }
+        }
+
+        private static InventorySystem Inventory
+        {
+            get { return Game.Model.Get<InventorySystem>(); }
         }
 
         #region 生命周期
@@ -102,11 +108,13 @@ namespace GameMain.Script.BattleSetting
                 return false;
             }
 
-            // 新队员默认进到当前队伍均分后的位置
+            // 新队员默认落在自己格子的中心。
+            // 不能直接用端点均分：添加时新队员永远在最后一格（index == count-1），
+            // 端点均分算出来恒等于最右端，连加几个人会全部叠在战场右边。
             if (!DB.HasPosition(_roleId))
             {
                 int kSlot = DB.IndexOfRole(_roleId);
-                DB.SetPosition(_roleId, SpreadPosition(kSlot, DB.GetTeamCount()));
+                DB.SetPosition(_roleId, SlotCenterPosition(kSlot, DB.GetTeamCount()));
             }
 
             Broadcast(BattleSettingChangeReason.Team, _roleId);
@@ -269,6 +277,17 @@ namespace GameMain.Script.BattleSetting
                 BattleSettingDefine.c_MaxPosition, _index, _count);
         }
 
+        /// <summary>第 index 个槽位的中心（不贴左右边，按人数均分格子）</summary>
+        private static float SlotCenterPosition(int _index, int _count)
+        {
+            if (_count <= 1)
+            {
+                return BattleSettingDefine.c_DefaultPosition;
+            }
+
+            return ClampPosition((_index + 0.5f) / _count);
+        }
+
         /// <summary>归一化站位 → 战场坐标</summary>
         private static float ToFieldPosition(float _normalized, float _fieldLength)
         {
@@ -325,13 +344,13 @@ namespace GameMain.Script.BattleSetting
                 return ClearItem(_slotKind, _slot);
             }
 
-            if (!WarehouseSystem.IsKnownItem(_itemId))
+            if (!Inventory.IsKnownItem(_itemId))
             {
                 Game.Log.LogWarning(BattleSettingDefine.c_LogTag + "物品配置不存在：" + _itemId);
                 return false;
             }
 
-            if (!WarehouseSystem.HasItem(_itemId, 1))
+            if (!Inventory.HasItem(_itemId, 1))
             {
                 Game.Log.LogWarning(BattleSettingDefine.c_LogTag + "仓库里没有这件物品：" + _itemId);
                 return false;
@@ -451,6 +470,60 @@ namespace GameMain.Script.BattleSetting
         #region 开战
 
         /// <summary>
+        /// 是否满足出发条件。探索流程只要求"不在战斗中"；队伍为空也允许出发，
+        /// 战斗节点会退回调试编成（方便在内容就绪前测通流程）。
+        /// </summary>
+        public bool CanDepart(out string _reason)
+        {
+            if (Battle.IsFighting())
+            {
+                _reason = "已经有一场战斗在进行";
+                return false;
+            }
+
+            _reason = string.Empty;
+            return true;
+        }
+
+        /// <summary>
+        /// 确认出发：校验队伍 → 开始（或继续）一次异常区域调查。
+        /// 探索界面由调用方负责打开；已经有进行中的调查时直接返回 true（继续原进度）。
+        /// </summary>
+        public bool ConfirmAndDepart(int _zoneId = 0)
+        {
+            string kReason;
+            if (!CanDepart(out kReason))
+            {
+                Game.Log.LogWarning(BattleSettingDefine.c_LogTag + "无法出发：" + kReason);
+                return false;
+            }
+
+            IReadOnlyList<int> kTeam = DB.GetTeamRoleIds();
+            if (kTeam.Count == 0)
+            {
+                Game.Log.LogWarning(BattleSettingDefine.c_LogTag + "队伍为空，仍以调试编成出发（探索流程测试）");
+            }
+
+            ExploreSystem kExplore = Game.Model.Get<ExploreSystem>();
+            if (kExplore.HasRun())
+            {
+                Game.Log.LogInfo(BattleSettingDefine.c_LogTag + "已有进行中的调查，继续原进度");
+                return true;
+            }
+
+            int kZoneId = _zoneId > 0 ? _zoneId : ExploreConst.DefaultZoneId;
+            if (!kExplore.StartRun(kZoneId, 0))
+            {
+                return false;
+            }
+
+            Save();
+            Game.Log.LogInfo(BattleSettingDefine.c_LogTag + "出发前往异常区域：" + kZoneId
+                + "，队员 " + kTeam.Count + " 人");
+            return true;
+        }
+
+        /// <summary>
         /// 是否满足开战条件（给界面置灰按钮用）。
         /// </summary>
         public bool CanStart(out string _reason)
@@ -526,6 +599,15 @@ namespace GameMain.Script.BattleSetting
             Game.Log.LogInfo(BattleSettingDefine.c_LogTag + "开战：遭遇战 " + kEncounterId +
                 "，队员 " + kRoleIds.Count + " 人");
             return true;
+        }
+
+        /// <summary>
+        /// 开战后把当前"布阵站位"应用到己方单位。
+        /// 给"直接由战斗节点开战"的界面用（ConfirmSetting 内部也会调一次）。
+        /// </summary>
+        public void ApplyPositionsToBattle()
+        {
+            ApplyPositions();
         }
 
         /// <summary>
@@ -619,8 +701,8 @@ namespace GameMain.Script.BattleSetting
                 kSlot.m_ItemId = _itemIds[i];
                 if (kSlot.m_ItemId > 0)
                 {
-                    kSlot.m_Item = WarehouseSystem.GetItemConfig(kSlot.m_ItemId);
-                    kSlot.m_Count = WarehouseSystem.GetItemCount(kSlot.m_ItemId);
+                    kSlot.m_Item = Inventory.GetItemConfig(kSlot.m_ItemId);
+                    kSlot.m_Count = Inventory.GetItemCount(kSlot.m_ItemId);
                 }
 
                 _slots.Add(kSlot);

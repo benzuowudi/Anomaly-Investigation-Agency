@@ -35,6 +35,27 @@ namespace Framework.Script.UI
         /// <summary>战前整备（预制体 BattleSettingView，内容包 BattleSetting/BattleSettingView）</summary>
         public const string BattleSetting = "BattleSettingView";
 
+        /// <summary>探索场景（预制体 ExploreView，内容包 World/ExploreView）</summary>
+        public const string Explore = "ExploreView";
+
+        /// <summary>战斗节点布阵（预制体 NodeSettingView，内容包 World/NodeSettingView）</summary>
+        public const string NodeSetting = "NodeSettingView";
+
+        /// <summary>战斗画面（预制体 BattleView，内容包 Battle/BattleView）</summary>
+        public const string Battle = "BattleView";
+
+        /// <summary>探索结算 · 成功（预制体 ExploreSuccessWindow，内容包 World/ExploreSuccessWindow）</summary>
+        public const string ExploreSuccess = "ExploreSuccessWindow";
+
+        /// <summary>探索结算 · 失败（预制体 ExploreFailWindow，内容包 World/ExploreFailWindow）</summary>
+        public const string ExploreFail = "ExploreFailWindow";
+
+        /// <summary>军械库（预制体 ArmoryView，内容包 Armory/ArmoryView）</summary>
+        public const string Armory = "ArmoryView";
+
+        /// <summary>仓库（预制体 InventoryView，内容包 Inventory/InventoryView）</summary>
+        public const string Inventory = "InventoryView";
+
         public const string GameStart = "GameStartView";
     }
 }

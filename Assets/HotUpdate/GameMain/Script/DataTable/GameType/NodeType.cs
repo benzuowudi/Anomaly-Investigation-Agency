@@ -38,5 +38,9 @@ namespace cfg.GameType
         /// 恢复/换人/使用机械骡/撤离
         /// </summary>
         camp = 7,
+        /// <summary>
+        /// 更为强力的敌人
+        /// </summary>
+        boss = 8,
     }
 }

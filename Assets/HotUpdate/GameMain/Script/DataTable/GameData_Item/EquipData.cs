@@ -23,32 +23,34 @@ public sealed partial class EquipData :  Bright.Config.BeanBase
         { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["type_1"].IsNumber) { throw new SerializationException(); }  Type1 = _json["type_1"]; }
         { if(!_json["type_2"].IsNumber) { throw new SerializationException(); }  Type2 = _json["type_2"]; }
-        { if(!_json["specialFlag"].IsNumber) { throw new SerializationException(); }  SpecialFlag = _json["specialFlag"]; }
-        { if(!_json["equip_set"].IsNumber) { throw new SerializationException(); }  EquipSet = _json["equip_set"]; }
         { if(!_json["quality"].IsNumber) { throw new SerializationException(); }  Quality = _json["quality"]; }
-        { if(!_json["weight"].IsNumber) { throw new SerializationException(); }  Weight = _json["weight"]; }
+        { if(!_json["useRoleATK"].IsBoolean) { throw new SerializationException(); }  UseRoleATK = _json["useRoleATK"]; }
+        { if(!_json["atkRange"].IsNumber) { throw new SerializationException(); }  AtkRange = (GameType.ATKRange)_json["atkRange"].AsInt; }
+        { var __json0 = _json["atkType"]; if(!__json0.IsArray) { throw new SerializationException(); } AtkType = new System.Collections.Generic.List<GameType.ATKType>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { GameType.ATKType __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = (GameType.ATKType)__e0.AsInt; }  AtkType.Add(__v0); }   }
         { if(!_json["ATK"].IsNumber) { throw new SerializationException(); }  ATK = _json["ATK"]; }
         { if(!_json["DEF"].IsNumber) { throw new SerializationException(); }  DEF = _json["DEF"]; }
-        { var __json0 = _json["effect"]; if(!__json0.IsArray) { throw new SerializationException(); } Effect = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  Effect.Add(__v0); }   }
+        { if(!_json["magazine"].IsNumber) { throw new SerializationException(); }  Magazine = _json["magazine"]; }
         { if(!_json["ammu"].IsNumber) { throw new SerializationException(); }  Ammu = _json["ammu"]; }
+        { if(!_json["atkInterval"].IsNumber) { throw new SerializationException(); }  AtkInterval = _json["atkInterval"]; }
         PostInit();
     }
 
-    public EquipData(int ID, string icon, string name, int type_1, int type_2, int specialFlag, int equip_set, int quality, int weight, int ATK, int DEF, System.Collections.Generic.List<int> effect, int ammu ) 
+    public EquipData(int ID, string icon, string name, int type_1, int type_2, int quality, bool useRoleATK, GameType.ATKRange atkRange, System.Collections.Generic.List<GameType.ATKType> atkType, int ATK, int DEF, int magazine, int ammu, float atkInterval ) 
     {
         this.ID = ID;
         this.Icon = icon;
         this.Name = name;
         this.Type1 = type_1;
         this.Type2 = type_2;
-        this.SpecialFlag = specialFlag;
-        this.EquipSet = equip_set;
         this.Quality = quality;
-        this.Weight = weight;
+        this.UseRoleATK = useRoleATK;
+        this.AtkRange = atkRange;
+        this.AtkType = atkType;
         this.ATK = ATK;
         this.DEF = DEF;
-        this.Effect = effect;
+        this.Magazine = magazine;
         this.Ammu = ammu;
+        this.AtkInterval = atkInterval;
         PostInit();
     }
 
@@ -78,21 +80,21 @@ public sealed partial class EquipData :  Bright.Config.BeanBase
     /// </summary>
     public int Type2 { get; private set; }
     /// <summary>
-    /// 特殊装备标识
-    /// </summary>
-    public int SpecialFlag { get; private set; }
-    /// <summary>
-    /// 装备所属套装
-    /// </summary>
-    public int EquipSet { get; private set; }
-    /// <summary>
     /// 装备品质
     /// </summary>
     public int Quality { get; private set; }
     /// <summary>
-    /// 装备重量
+    /// 是否叠加角色攻击力
     /// </summary>
-    public int Weight { get; private set; }
+    public bool UseRoleATK { get; private set; }
+    /// <summary>
+    /// 攻击范围
+    /// </summary>
+    public GameType.ATKRange AtkRange { get; private set; }
+    /// <summary>
+    /// 攻击类型
+    /// </summary>
+    public System.Collections.Generic.List<GameType.ATKType> AtkType { get; private set; }
     /// <summary>
     /// 装备基础攻击
     /// </summary>
@@ -102,13 +104,17 @@ public sealed partial class EquipData :  Bright.Config.BeanBase
     /// </summary>
     public int DEF { get; private set; }
     /// <summary>
-    /// 装备专属特效
+    /// 一场战斗携带的弹匣数量
     /// </summary>
-    public System.Collections.Generic.List<int> Effect { get; private set; }
+    public int Magazine { get; private set; }
     /// <summary>
-    /// 装备消耗品
+    /// 一个弹匣的容量
     /// </summary>
     public int Ammu { get; private set; }
+    /// <summary>
+    /// 攻击间隔（秒）
+    /// </summary>
+    public float AtkInterval { get; private set; }
 
     public const int __ID__ = 1298629282;
     public override int GetTypeId() => __ID__;
@@ -130,14 +136,15 @@ public sealed partial class EquipData :  Bright.Config.BeanBase
         + "Name:" + Name + ","
         + "Type1:" + Type1 + ","
         + "Type2:" + Type2 + ","
-        + "SpecialFlag:" + SpecialFlag + ","
-        + "EquipSet:" + EquipSet + ","
         + "Quality:" + Quality + ","
-        + "Weight:" + Weight + ","
+        + "UseRoleATK:" + UseRoleATK + ","
+        + "AtkRange:" + AtkRange + ","
+        + "AtkType:" + Bright.Common.StringUtil.CollectionToString(AtkType) + ","
         + "ATK:" + ATK + ","
         + "DEF:" + DEF + ","
-        + "Effect:" + Bright.Common.StringUtil.CollectionToString(Effect) + ","
+        + "Magazine:" + Magazine + ","
         + "Ammu:" + Ammu + ","
+        + "AtkInterval:" + AtkInterval + ","
         + "}";
     }
     

@@ -48,7 +48,8 @@
 | **Battle** 战斗 | 一维战场、实时 ATB 行动条、指令队列与结算（Model 层完成） | 2.8k 行 |
 | **Skill** 技能 | CD 触发、目标选择、条件判定、效果解析与效果实例（Model 层完成） | 2.2k 行 |
 | **TalentAcquisition** 人才招募 | 合同抽取、候选人展示与选择、入职结算 | 1.2k 行 |
-| **Warehouse** 仓库 | 道具权威数据、增删改事件、JSON 存档 | 1.0k 行 |
+| **Inventory** 仓库 | 道具权威数据（inventory.json）、道具/装备页签界面、容量与增减事件 | 1.4k 行 |
+| **Armory** 军械库 | 蓝图 + 材料合成装备（armory.json） | 0.6k 行 |
 | **Explore** 探索 | 节点式地图生成（Model 层完成） | 0.9k 行 |
 | **CommandRoom** 指挥室 | 主界面，各功能入口与货币展示 | 0.4k 行 |
 | **ComponentUI** 公共组件 | 通用背景框、角色卡、职称徽章、技能图标、Spine 动画组件 | 0.4k 行 |
@@ -94,7 +95,7 @@ Game/<System>/
 
 - 生命周期：`OnInit` → `OnStart`（读档）→ `OnDestroy`
 - 注册：`DataManager.LoadGameData()` 注册 `SystemDataBase`，`ModelManager` 注册 `ModelBase`
-- 数据变更一律走事件（例如仓库的 `WarehouseEventDefine.OnItemUpdate` 是全系统唯一写库入口），Data 层监听并回填结果后再广播
+- 数据变更由 Model 统一执行并广播事件（例如 `InventorySystem.AddItem` 写 `InventoryData` 后发 `InventoryEvent.OnInventoryChanged`），Data 只保存内存数据与序列化
 
 ### UI 分层
 

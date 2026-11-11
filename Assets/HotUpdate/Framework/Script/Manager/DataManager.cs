@@ -4,13 +4,14 @@ using Framework.Script.Constant;
 using Framework.Script.Data;
 using GameMain.Script.Battle;
 using GameMain.Script.BattleSetting;
+using GameMain.Script.Armory;
 using GameMain.Script.Class;
 using GameMain.Script.Data;
 using GameMain.Script.Explore;
+using GameMain.Script.Inventory;
 using GameMain.Script.Role;
 using GameMain.Script.Skill;
 using GameMain.Script.UI;
-using GameMain.Script.Warehouse;
 using Nino.Serialization;
 using SimpleJSON;
 using System;
@@ -114,12 +115,15 @@ namespace Framework.Script.Manager
             RegisterData<RoleViewData>();
             RegisterData<RoleData>();
             RegisterData<TalentAcquisitionData>();
-            RegisterData<WarehouseData>();
+            RegisterData<InventoryViewData>();
+            RegisterData<InventoryData>();
+            RegisterData<ArmoryData>();
             RegisterData<BattleData>();
             RegisterData<ExploreData>();
             RegisterData<SkillData>();
             RegisterData<BattleSettingViewData>();
             RegisterData<BattleSettingData>();
+            RegisterData<ExploreViewData>();
             // 各业务系统的读档由 ModelManager 在全部 GameData 注册完成后调用 Model.OnStart() 触发
         }
 

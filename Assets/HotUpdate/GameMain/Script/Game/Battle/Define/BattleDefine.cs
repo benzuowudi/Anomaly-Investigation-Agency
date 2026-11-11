@@ -120,6 +120,11 @@ namespace GameMain.Script.Battle
     /// </summary>
     public static class BattleConst
     {
+        /// <summary>
+        /// 我方参战人数上限。必须与战前整备的槽位数（BattleSettingDefine.c_MaxTeamCount = 5）一致，
+        /// 否则编队里选的人会在开战那一刻被悄悄截掉。
+        /// </summary>
+        public const int MaxAllyCount = 5;
         /// <summary>重伤倒计时（秒），只在战斗中走</summary>
         public const float DownedCountdown = 60f;
         /// <summary>基础移速（米/秒）</summary>

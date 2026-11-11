@@ -34,6 +34,12 @@
     <image id="gfwq6k" name="ui_talent_20008.png" path="/Texture/talent/" exported="true"/>
     <image id="gfwq6l" name="ui_talent_20009.png" path="/Texture/talent/" exported="true"/>
     <image id="gfwq6m" name="ui_talent_20010.png" path="/Texture/talent/" exported="true"/>
+    <image id="oz3x6n" name="ui_equip_eye.png" path="/Texture/equip/" exported="true"/>
+    <image id="oz3x6o" name="ui_equip_flail.png" path="/Texture/equip/" exported="true"/>
+    <image id="oz3x6p" name="ui_equip_gun.png" path="/Texture/equip/" exported="true"/>
+    <image id="oz3x6q" name="ui_equip_knife.png" path="/Texture/equip/" exported="true"/>
+    <image id="oz3x6r" name="ui_equip_shield.png" path="/Texture/equip/" exported="true"/>
+    <image id="oz3x6s" name="ui_equip_fist.png" path="/Texture/equip/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

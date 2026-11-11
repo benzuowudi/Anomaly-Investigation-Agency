@@ -17,6 +17,7 @@ namespace GameMain.Script.Data
             UIObjectFactory.SetPackageItemExtension("ui://Base/RoleAnimCom", typeof(RoleAnimCom));
             UIObjectFactory.SetPackageItemExtension("ui://Base/CommonItemCom", typeof(CommonItemCom));
             UIObjectFactory.SetPackageItemExtension("ui://Base/CommonAttrCom", typeof(CommonAttrCom));
+            UIObjectFactory.SetPackageItemExtension("ui://Base/RoleBattleCom", typeof(RoleBattleCom));
         }
     }
 }

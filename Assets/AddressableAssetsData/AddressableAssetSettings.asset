@@ -53,6 +53,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7d91b0ee878c48a498ab881a99c6e615, type: 2}
   - {fileID: 11400000, guid: 42d06cbfa1c101144837a9ee2748761f, type: 2}
   - {fileID: 11400000, guid: 54ec264d17d086d408ae01926a4b70c0, type: 2}
+  - {fileID: 11400000, guid: cc33dd44ee55ff667788990011002200, type: 2}
+  - {fileID: 11400000, guid: cc33dd44ee55ff667788990011002300, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -101,6 +103,8 @@ MonoBehaviour:
     - BattleSetting
     - CommonUI
     - TalentAcquisition
+    - World
+    - Battle
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 5a337de723d264b46a02acd183d99508, type: 2}

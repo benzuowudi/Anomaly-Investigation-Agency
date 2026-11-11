@@ -12,6 +12,8 @@ namespace GameMain.Script.Battle
     {
         private readonly Dictionary<string, float> m_Values = new Dictionary<string, float>();
         private bool m_Loaded;
+        /// <summary>空表提示只打一次，避免每场战斗刷警告</summary>
+        private bool m_WarnedEmpty;
 
         public bool IsLoaded()
         {
@@ -48,8 +50,9 @@ namespace GameMain.Script.Battle
                 m_Values[kRow.Key] = kRow.Value;
             }
 
-            if (m_Values.Count == 0)
+            if (m_Values.Count == 0 && !m_WarnedEmpty)
             {
+                m_WarnedEmpty = true;
                 Game.Log.LogWarning("[战斗] combatConst 表里没有数据，全部使用代码默认值");
             }
         }

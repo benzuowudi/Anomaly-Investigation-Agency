@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <component id="n0_oz3x" name="com_bg" src="gfwq2f" fileName="BackGroundVIew/CommonBgCom.xml" pkg="5wifhyqa" xy="45,40"/>
+    <image id="n2_oz3x" name="n2" src="vccf3" fileName="Texture/ui_bg_common_1.png" pkg="5wifhyqa" xy="106,260" size="851,678"/>
+    <image id="n8_oz3x" name="n8" src="l0611q" fileName="Texture/ui_bg_line.png" pkg="5wifhyqa" xy="992,754" size="857,5"/>
+    <text id="n1_oz3x" name="txt_title" xy="98,183" size="64,42" fontSize="30" color="#636168" text="材料"/>
+    <component id="n6_oz3x" name="com_item" src="l0611r" fileName="Component/CommonItemCom.xml" pkg="5wifhyqa" xy="1384,429"/>
+    <list id="n5_oz3x" name="list_composite" xy="124,280" size="814,637" layout="flow_hz" overflow="scroll" lineGap="20" colGap="20" defaultItem="ui://5wifhyqal0611r" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <list id="n7_oz3x" name="list_item" xy="1020,640" size="811,83" layout="row" overflow="scroll" scroll="horizontal" colGap="34" defaultItem="ui://5wifhyqal0611r" autoItemSize="false" align="center" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n9_oz3x" name="btn_confirm" src="qvtgb" fileName="Button/CommonBtn2.xml" pkg="5wifhyqa" xy="992,789" size="855,140"/>
+  </displayList>
+</component>

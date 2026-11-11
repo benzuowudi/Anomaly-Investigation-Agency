@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <component id="n1_qd3i" name="com_nodexView" src="xgq71" fileName="View/NodeView.xml" xy="0,0"/>
+    <component id="n0_qd3i" name="btn_back" src="l0617" fileName="Button/CommonBackBtn.xml" pkg="5wifhyqa" xy="45,40"/>
+  </displayList>
+</component>

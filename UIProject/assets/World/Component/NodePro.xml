@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="724,28" extention="ProgressBar">
+  <displayList>
+    <text id="n2_qd3i" name="title" xy="7,-1" size="41,30" font="ui://5wifhyqavccf4" fontSize="21" color="#636168" align="center" vAlign="middle" text="100%">
+      <relation target="" sidePair="middle-middle,left-left"/>
+    </text>
+    <image id="n0_qd3i" name="n0" src="qd3id" fileName="Texture/ui_node_proBg.png" xy="56,0" size="668,28" pkg="5wifhyqa">
+      <relation target="" sidePair="width-width,height-height,center-center,middle-middle"/>
+    </image>
+    <image id="n1_qd3i" name="bar" src="qd3ic" fileName="Texture/ui_node_pro.png" xy="59,3" size="662,22" pkg="5wifhyqa"/>
+  </displayList>
+  <ProgressBar/>
+</component>

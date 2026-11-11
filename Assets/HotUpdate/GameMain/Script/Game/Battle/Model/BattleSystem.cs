@@ -122,7 +122,8 @@ namespace GameMain.Script.Battle
         #region 战斗控制
 
         /// <summary>
-        /// 按遭遇开始一场战斗。roleIds 为空时自动取当前角色列表（最多 4 人）。
+        /// 按遭遇开始一场战斗。roleIds 为空时自动取当前角色列表；
+        /// 人数上限见 BattleConst.MaxAllyCount（与战前整备的 5 个槽位一致）。
         /// encounter / 敌人编成为空时返回 false，由调用方决定是否走调试路径。
         /// </summary>
         public bool StartBattle(int _encounterId, IReadOnlyList<int> _roleIds = null)
@@ -133,7 +134,7 @@ namespace GameMain.Script.Battle
             }
 
             m_Config.Load(Game.Data.GetData);
-            List<RoleSnapshot> kAllies = CollectAllySnapshots(_roleIds, 4);
+            List<RoleSnapshot> kAllies = CollectAllySnapshots(_roleIds, BattleConst.MaxAllyCount);
 
             List<BattleUnit> kUnits = BattleFactory.BuildFromEncounter(
                 Game.Data.GetData, _encounterId, kAllies, ref m_NextUnitId);
@@ -150,8 +151,10 @@ namespace GameMain.Script.Battle
 
         /// <summary>
         /// 调试用：不依赖遭遇表，凑 allyCount + enemyCount 个单位开打。
+        /// _roleIds 传队伍角色 ID 时优先用真实角色（否则按全部角色取前 N 个），
+        /// 这样布阵界面保存的站位（按角色 ID）才能应用上。
         /// </summary>
-        public bool StartDebugBattle(int _allyCount = 4, int _enemyCount = 4)
+        public bool StartDebugBattle(int _allyCount = 4, int _enemyCount = 4, IReadOnlyList<int> _roleIds = null)
         {
             if (!CanStart())
             {
@@ -159,7 +162,7 @@ namespace GameMain.Script.Battle
             }
 
             m_Config.Load(Game.Data.GetData);
-            List<RoleSnapshot> kAllies = CollectAllySnapshots(null, _allyCount);
+            List<RoleSnapshot> kAllies = CollectAllySnapshots(_roleIds, _allyCount);
 
             List<BattleUnit> kUnits = BattleFactory.BuildDebug(
                 Game.Data.GetData, kAllies, _allyCount, _enemyCount, ref m_NextUnitId);
@@ -583,7 +586,7 @@ namespace GameMain.Script.Battle
             _unit.m_TargetUnitId = 0;
             SetUnitState(_unit, UnitBrainState.Downed);
 
-            Game.Log.LogWarning("[战斗] 重伤：" + _unit.m_UnitId
+            Game.Log.LogInfo("[战斗] 重伤：" + _unit.m_UnitId
                 + " 倒计时 " + _unit.m_DownedRemain.ToString("F0") + " 秒");
         }
 
@@ -597,7 +600,7 @@ namespace GameMain.Script.Battle
             SetUnitState(_unit, UnitBrainState.Dead);
             Game.Event.SendMessage(BattleEvent.OnUnitDied,
                 new BattleUnitDiedMsg(_unit.m_UnitId, _unit.m_SourceId));
-            Game.Log.LogWarning("[战斗] 死亡：" + _unit.m_UnitId);
+            Game.Log.LogInfo("[战斗] 死亡：" + _unit.m_UnitId);
         }
 
         private void SetUnitState(BattleUnit _unit, UnitBrainState _state)

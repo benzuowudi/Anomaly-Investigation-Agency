@@ -1,47 +1,302 @@
 [
   {
+    "ID": 1000,
+    "icon": "",
+    "name": "角色经验",
+    "type_show": 2,
+    "quality": 3,
+    "isSell": false,
+    "sellPrice": "",
+    "use_type": []
+  },
+  {
     "ID": 1001,
     "icon": "",
     "name": "欧元",
     "type_show": 2,
-    "type_group": 100,
-    "specialFlag": 0,
-    "weight": 0,
-    "quality": 0,
-    "effect": "",
-    "isSell": 0,
-    "sellPrice": 0,
-    "use_type": 0,
-    "use_value": ""
+    "quality": 4,
+    "isSell": false,
+    "sellPrice": "",
+    "use_type": []
   },
   {
     "ID": 1002,
     "icon": "",
-    "name": "10克金条",
+    "name": "黄金",
     "type_show": 2,
-    "type_group": 100,
-    "specialFlag": 0,
-    "weight": 0,
-    "quality": 0,
-    "effect": "",
-    "isSell": 0,
-    "sellPrice": 0,
-    "use_type": 0,
-    "use_value": ""
+    "quality": 5,
+    "isSell": true,
+    "sellPrice": "1001,100",
+    "use_type": []
   },
   {
     "ID": 1003,
     "icon": "",
-    "name": "50克金条",
+    "name": "彩金",
     "type_show": 2,
-    "type_group": 100,
-    "specialFlag": 0,
-    "weight": 0,
-    "quality": 0,
-    "effect": "",
-    "isSell": 0,
-    "sellPrice": 0,
-    "use_type": 0,
-    "use_value": ""
+    "quality": 6,
+    "isSell": true,
+    "sellPrice": "1001,400",
+    "use_type": []
+  },
+  {
+    "ID": 1004,
+    "icon": "",
+    "name": "欧泊",
+    "type_show": 2,
+    "quality": 7,
+    "isSell": true,
+    "sellPrice": "1001,1000",
+    "use_type": []
+  },
+  {
+    "ID": 1005,
+    "icon": "",
+    "name": "合成油",
+    "type_show": 3,
+    "quality": 3,
+    "isSell": true,
+    "sellPrice": "1001,80",
+    "use_type": []
+  },
+  {
+    "ID": 1006,
+    "icon": "",
+    "name": "坍缩液",
+    "type_show": 3,
+    "quality": 3,
+    "isSell": true,
+    "sellPrice": "1001,80",
+    "use_type": []
+  },
+  {
+    "ID": 1007,
+    "icon": "",
+    "name": "钢",
+    "type_show": 3,
+    "quality": 5,
+    "isSell": true,
+    "sellPrice": "1001,20",
+    "use_type": []
+  },
+  {
+    "ID": 1008,
+    "icon": "",
+    "name": "彩钢",
+    "type_show": 3,
+    "quality": 6,
+    "isSell": true,
+    "sellPrice": "1001,50",
+    "use_type": []
+  },
+  {
+    "ID": 1009,
+    "icon": "",
+    "name": "聚合物",
+    "type_show": 3,
+    "quality": 5,
+    "isSell": true,
+    "sellPrice": "1001,20",
+    "use_type": []
+  },
+  {
+    "ID": 1010,
+    "icon": "",
+    "name": "高密度聚合物",
+    "type_show": 3,
+    "quality": 6,
+    "isSell": true,
+    "sellPrice": "1001,50",
+    "use_type": []
+  },
+  {
+    "ID": 1011,
+    "icon": "",
+    "name": "拟刚体聚合物",
+    "type_show": 3,
+    "quality": 7,
+    "isSell": true,
+    "sellPrice": "1001,100",
+    "use_type": []
+  },
+  {
+    "ID": 1012,
+    "icon": "",
+    "name": "树脂",
+    "type_show": 3,
+    "quality": 5,
+    "isSell": true,
+    "sellPrice": "1001,20",
+    "use_type": []
+  },
+  {
+    "ID": 1013,
+    "icon": "",
+    "name": "高可塑树脂",
+    "type_show": 3,
+    "quality": 6,
+    "isSell": true,
+    "sellPrice": "1001,50",
+    "use_type": []
+  },
+  {
+    "ID": 1014,
+    "icon": "",
+    "name": "相变树脂",
+    "type_show": 3,
+    "quality": 7,
+    "isSell": true,
+    "sellPrice": "1001,100",
+    "use_type": []
+  },
+  {
+    "ID": 1015,
+    "icon": "",
+    "name": "异构薄膜",
+    "type_show": 3,
+    "quality": 5,
+    "isSell": true,
+    "sellPrice": "1001,20",
+    "use_type": []
+  },
+  {
+    "ID": 1016,
+    "icon": "",
+    "name": "偏异构薄膜",
+    "type_show": 3,
+    "quality": 6,
+    "isSell": true,
+    "sellPrice": "1001,50",
+    "use_type": []
+  },
+  {
+    "ID": 1017,
+    "icon": "",
+    "name": "坍缩态薄膜",
+    "type_show": 3,
+    "quality": 7,
+    "isSell": true,
+    "sellPrice": "1001,100",
+    "use_type": []
+  },
+  {
+    "ID": 1018,
+    "icon": "",
+    "name": "高位投影金属锭",
+    "type_show": 3,
+    "quality": 5,
+    "isSell": true,
+    "sellPrice": "1001,20",
+    "use_type": []
+  },
+  {
+    "ID": 1019,
+    "icon": "",
+    "name": "高位实体金属锭",
+    "type_show": 3,
+    "quality": 6,
+    "isSell": true,
+    "sellPrice": "1001,50",
+    "use_type": []
+  },
+  {
+    "ID": 1020,
+    "icon": "",
+    "name": "跨维度金属锭",
+    "type_show": 3,
+    "quality": 7,
+    "isSell": true,
+    "sellPrice": "1001,100",
+    "use_type": []
+  },
+  {
+    "ID": 1021,
+    "icon": "",
+    "name": "异常气泡",
+    "type_show": 3,
+    "quality": 5,
+    "isSell": true,
+    "sellPrice": "1001,200",
+    "use_type": []
+  },
+  {
+    "ID": 1022,
+    "icon": "",
+    "name": "异常晶髓",
+    "type_show": 3,
+    "quality": 6,
+    "isSell": true,
+    "sellPrice": "1001,500",
+    "use_type": []
+  },
+  {
+    "ID": 1023,
+    "icon": "",
+    "name": "异常核心",
+    "type_show": 3,
+    "quality": 7,
+    "isSell": true,
+    "sellPrice": "1001,1000",
+    "use_type": []
+  },
+  {
+    "ID": 2000,
+    "icon": "",
+    "name": "匕首蓝图",
+    "type_show": 3,
+    "quality": 4,
+    "isSell": true,
+    "sellPrice": "1001,350",
+    "use_type": []
+  },
+  {
+    "ID": 2001,
+    "icon": "",
+    "name": "日本刀蓝图",
+    "type_show": 3,
+    "quality": 4,
+    "isSell": true,
+    "sellPrice": "1001,350",
+    "use_type": []
+  },
+  {
+    "ID": 2002,
+    "icon": "",
+    "name": "手枪蓝图",
+    "type_show": 3,
+    "quality": 4,
+    "isSell": true,
+    "sellPrice": "1001,350",
+    "use_type": []
+  },
+  {
+    "ID": 2003,
+    "icon": "",
+    "name": "突击步枪蓝图",
+    "type_show": 3,
+    "quality": 4,
+    "isSell": true,
+    "sellPrice": "1001,350",
+    "use_type": []
+  },
+  {
+    "ID": 2004,
+    "icon": "",
+    "name": "火焰喷射器蓝图",
+    "type_show": 3,
+    "quality": 4,
+    "isSell": true,
+    "sellPrice": "1001,350",
+    "use_type": []
+  },
+  {
+    "ID": 2005,
+    "icon": "",
+    "name": "榴弹发射器蓝图",
+    "type_show": 3,
+    "quality": 4,
+    "isSell": true,
+    "sellPrice": "1001,350",
+    "use_type": []
   }
 ]

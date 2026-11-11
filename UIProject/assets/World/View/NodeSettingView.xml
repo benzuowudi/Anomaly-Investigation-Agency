@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <component id="n0_qd3i" name="com_bg" src="gfwq2f" fileName="BackGroundVIew/CommonBgCom.xml" pkg="5wifhyqa" xy="45,40"/>
+    <component id="n3_qd3i" name="pro_node" src="qd3ie" fileName="Component/NodePro.xml" xy="93,188">
+      <ProgressBar value="41" max="100"/>
+    </component>
+    <loader id="n17_qd3i" name="load_com" xy="84,241" size="1761,723" url="ui://luky3lzgqd3if"/>
+  </displayList>
+</component>

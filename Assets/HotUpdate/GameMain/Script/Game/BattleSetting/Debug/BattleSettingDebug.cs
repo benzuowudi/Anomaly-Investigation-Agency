@@ -81,7 +81,8 @@ namespace GameMain.Script.BattleSetting
                 return;
             }
 
-            System.Collections.Generic.List<Warehouse.WarehouseItemStack> kItems = Warehouse.WarehouseSystem.GetAllItems();
+            System.Collections.Generic.List<Inventory.InventoryItemStack> kItems =
+                Game.Model.Get<Inventory.InventorySystem>().GetAllItems();
             if (kItems == null || kItems.Count == 0)
             {
                 Debug.LogWarning("[战前整备] 仓库里没有物品");

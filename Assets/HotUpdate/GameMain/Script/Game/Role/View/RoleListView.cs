@@ -31,7 +31,7 @@ namespace GameMain.Script.UI
         protected internal override void Init(object o)
         {
             com_bg = ui.GetChild("com_bg") as CommonBgCom;
-            list_role = ui.GetChild("list_role").asList;
+            list_role = ui.GetChild("list_role").asCom.GetChild("list_role").asList;
             
             com_bg.Init("角色列表", "ROLE LIST", OnClickBack);
 

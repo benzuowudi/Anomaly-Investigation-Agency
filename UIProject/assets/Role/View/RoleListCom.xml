@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1762,695" mask="n3_qr3q">
+  <displayList>
+    <graph id="n3_qr3q" name="n3" xy="0,0" size="1762,695" type="rect"/>
+    <list id="n2_nye2" name="list_role" xy="0,0" size="1762,695" layout="flow_hz" overflow="scroll" lineGap="15" colGap="10" defaultItem="ui://5wifhyqanye2f" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

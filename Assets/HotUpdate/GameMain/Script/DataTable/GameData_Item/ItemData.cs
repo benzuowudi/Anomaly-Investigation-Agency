@@ -22,33 +22,23 @@ public sealed partial class ItemData :  Bright.Config.BeanBase
         { if(!_json["icon"].IsString) { throw new SerializationException(); }  Icon = _json["icon"]; }
         { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["type_show"].IsNumber) { throw new SerializationException(); }  TypeShow = _json["type_show"]; }
-        { if(!_json["type_group"].IsNumber) { throw new SerializationException(); }  TypeGroup = _json["type_group"]; }
-        { if(!_json["specialFlag"].IsNumber) { throw new SerializationException(); }  SpecialFlag = _json["specialFlag"]; }
-        { if(!_json["weight"].IsNumber) { throw new SerializationException(); }  Weight = _json["weight"]; }
         { if(!_json["quality"].IsNumber) { throw new SerializationException(); }  Quality = _json["quality"]; }
-        { if(!_json["effect"].IsString) { throw new SerializationException(); }  Effect = _json["effect"]; }
-        { if(!_json["isSell"].IsNumber) { throw new SerializationException(); }  IsSell = _json["isSell"]; }
-        { if(!_json["sellPrice"].IsNumber) { throw new SerializationException(); }  SellPrice = _json["sellPrice"]; }
-        { if(!_json["use_type"].IsNumber) { throw new SerializationException(); }  UseType = _json["use_type"]; }
-        { if(!_json["use_value"].IsString) { throw new SerializationException(); }  UseValue = _json["use_value"]; }
+        { if(!_json["isSell"].IsBoolean) { throw new SerializationException(); }  IsSell = _json["isSell"]; }
+        { if(!_json["sellPrice"].IsString) { throw new SerializationException(); }  SellPrice = _json["sellPrice"]; }
+        { var __json0 = _json["use_type"]; if(!__json0.IsArray) { throw new SerializationException(); } UseType = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  UseType.Add(__v0); }   }
         PostInit();
     }
 
-    public ItemData(int ID, string icon, string name, int type_show, int type_group, int specialFlag, int weight, int quality, string effect, int isSell, int sellPrice, int use_type, string use_value ) 
+    public ItemData(int ID, string icon, string name, int type_show, int quality, bool isSell, string sellPrice, System.Collections.Generic.List<int> use_type ) 
     {
         this.ID = ID;
         this.Icon = icon;
         this.Name = name;
         this.TypeShow = type_show;
-        this.TypeGroup = type_group;
-        this.SpecialFlag = specialFlag;
-        this.Weight = weight;
         this.Quality = quality;
-        this.Effect = effect;
         this.IsSell = isSell;
         this.SellPrice = sellPrice;
         this.UseType = use_type;
-        this.UseValue = use_value;
         PostInit();
     }
 
@@ -74,41 +64,21 @@ public sealed partial class ItemData :  Bright.Config.BeanBase
     /// </summary>
     public int TypeShow { get; private set; }
     /// <summary>
-    /// 道具分组类型
-    /// </summary>
-    public int TypeGroup { get; private set; }
-    /// <summary>
-    /// 特殊道具标识
-    /// </summary>
-    public int SpecialFlag { get; private set; }
-    /// <summary>
-    /// 道具重量
-    /// </summary>
-    public int Weight { get; private set; }
-    /// <summary>
     /// 道具品质
     /// </summary>
     public int Quality { get; private set; }
     /// <summary>
-    /// 道具效果类型
-    /// </summary>
-    public string Effect { get; private set; }
-    /// <summary>
     /// 是否可出售
     /// </summary>
-    public int IsSell { get; private set; }
+    public bool IsSell { get; private set; }
     /// <summary>
     /// 出售价格
     /// </summary>
-    public int SellPrice { get; private set; }
+    public string SellPrice { get; private set; }
     /// <summary>
     /// 使用类型
     /// </summary>
-    public int UseType { get; private set; }
-    /// <summary>
-    /// 使用数值
-    /// </summary>
-    public string UseValue { get; private set; }
+    public System.Collections.Generic.List<int> UseType { get; private set; }
 
     public const int __ID__ = -478324299;
     public override int GetTypeId() => __ID__;
@@ -129,15 +99,10 @@ public sealed partial class ItemData :  Bright.Config.BeanBase
         + "Icon:" + Icon + ","
         + "Name:" + Name + ","
         + "TypeShow:" + TypeShow + ","
-        + "TypeGroup:" + TypeGroup + ","
-        + "SpecialFlag:" + SpecialFlag + ","
-        + "Weight:" + Weight + ","
         + "Quality:" + Quality + ","
-        + "Effect:" + Effect + ","
         + "IsSell:" + IsSell + ","
         + "SellPrice:" + SellPrice + ","
-        + "UseType:" + UseType + ","
-        + "UseValue:" + UseValue + ","
+        + "UseType:" + Bright.Common.StringUtil.CollectionToString(UseType) + ","
         + "}";
     }
     

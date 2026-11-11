@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <component id="n1_qd3i" name="com_popup" src="nwkm2o" fileName="PopupWindow/PopupWindow.xml" pkg="5wifhyqa" xy="179,143"/>
+    <text id="n2_qd3i" name="txt_title" xy="620,376" size="680,215" fontSize="169" color="#e1dde9" text="调查失败"/>
+    <text id="n3_qd3i" name="txt_tip" xy="738,636" size="444,59" fontSize="44" color="#e1dde9" text="失败原因【全员失踪】"/>
+    <component id="n4_qd3i" name="btn_back" src="qvtgb" fileName="Button/CommonBtn2.xml" pkg="5wifhyqa" xy="719,776" size="481,97"/>
+  </displayList>
+</component>

@@ -176,7 +176,7 @@ namespace GameMain.Script.UI
                 {
                     cfg.GameData_Item.EquipData kEquip = PickEquip(kRole);
                     kCom.SetCom(kEquip == null ? CommonItemCom.StateEmpty : CommonItemCom.StateEquip,
-                        kEquip == null ? null : CommonSkillIconCom.ResolveIconUrl(kEquip.Icon),
+                        kEquip == null ? null : kEquip.Icon,
                         kEquip == null ? "未装备武器" : kEquip.Name);
                     break;
                 }

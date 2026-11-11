@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Text;
 using Framework.Script.Constant;
 using Framework.Script.Model;
+using GameMain.Script.Battle;
+using GameMain.Script.BattleSetting;
 using UnityEngine;
 
 namespace GameMain.Script.Role
@@ -32,12 +34,23 @@ namespace GameMain.Script.Role
 
         #region 生命周期
 
+        protected internal override void OnInit()
+        {
+            Game.Event.Subscribe(BattleEvent.OnBattleEnded, OnBattleEnded);
+        }
+
         /// <summary>
         /// 全部模型注册完成后读本系统存档；新档/没有存档不算错误。
         /// </summary>
         protected internal override void OnStart()
         {
             Load();
+            EnsureDefaultEquip();
+        }
+
+        protected internal override void OnDestroy()
+        {
+            Game.Event.UnSubscribe(BattleEvent.OnBattleEnded, OnBattleEnded);
         }
 
         #endregion
@@ -91,6 +104,83 @@ namespace GameMain.Script.Role
                 }
             }
             return kSuccess;
+        }
+
+        /// <summary>
+        /// 旧存档里没有默认装备的角色补上"赤手空拳"（只补空装备列表的角色）。
+        /// </summary>
+        private void EnsureDefaultEquip()
+        {
+            RoleData kDB = DB;
+            List<RoleRecord> kRoles = kDB.GetAllRoles();
+            bool kChanged = false;
+            for (int i = 0; i < kRoles.Count; i++)
+            {
+                RoleRecord kRole = kRoles[i];
+                if (kRole != null && kRole.m_EquipIds.Count == 0)
+                {
+                    kRole.m_EquipIds.Add(RoleTitleRule.DefaultEquipId);
+                    kChanged = true;
+                }
+            }
+
+            if (kChanged)
+            {
+                kDB.MarkDirty();
+                Save();
+                Game.Log.LogInfo("[角色] 已为没有装备的角色补上默认装备：" + RoleTitleRule.DefaultEquipId);
+            }
+        }
+
+        /// <summary>
+        /// 战斗结束：永久死亡（m_Dead）的己方角色从名册移除，不再出现在角色列表。
+        /// 重伤倒计时没走完的（m_Downed）仍然保留。
+        /// </summary>
+        private void OnBattleEnded(object _msg)
+        {
+            BattleEndedMsg kMsg = _msg as BattleEndedMsg;
+            if (kMsg == null || kMsg.m_Result == null)
+            {
+                return;
+            }
+
+            List<int> kDeadRoleIds = new List<int>();
+            List<UnitResult> kUnits = kMsg.m_Result.m_Units;
+            for (int i = 0; i < kUnits.Count; i++)
+            {
+                UnitResult kUnit = kUnits[i];
+                if (kUnit != null && kUnit.m_Dead && kUnit.m_SourceId > 0
+                    && !kDeadRoleIds.Contains(kUnit.m_SourceId))
+                {
+                    kDeadRoleIds.Add(kUnit.m_SourceId);
+                }
+            }
+
+            for (int i = 0; i < kDeadRoleIds.Count; i++)
+            {
+                RemoveDeadRole(kDeadRoleIds[i]);
+            }
+        }
+
+        private void RemoveDeadRole(int _roleId)
+        {
+            RoleRecord kRole = DB.GetRole(_roleId);
+            if (kRole == null)
+            {
+                return;
+            }
+
+            Game.Log.LogWarning("[角色] " + kRole.GetDisplayName() + "（" + _roleId
+                + "）在战斗中永久死亡，从名册移除");
+
+            // 先移出出战队伍，避免后续整备界面还引用已删除的角色
+            BattleSettingSystem kSetting = Game.Model.Get<BattleSettingSystem>();
+            if (kSetting != null)
+            {
+                kSetting.RemoveFromTeam(_roleId);
+            }
+
+            RemoveRole(_roleId, RoleAcquireReason.Death);
         }
 
         /// <summary>
@@ -577,12 +667,26 @@ namespace GameMain.Script.Role
             }
 
             bool kArmor = RoleTitleRule.IsArmor(kEquip.Type1);
+
+            // 默认"赤手空拳"不占武器槽：穿真实武器时先把它摘掉
+            bool kRemovedDefault = false;
+            if (!kArmor && _equipId != RoleTitleRule.DefaultEquipId)
+            {
+                kRemovedDefault = kRole.m_EquipIds.Remove(RoleTitleRule.DefaultEquipId);
+            }
+
             int kUsed = CountEquipByGroup(kRole, kArmor, kTables);
             int kSlots = kArmor
                 ? RoleTitleRule.GetArmorSlots(kRole.GetTitleLevel())
                 : RoleTitleRule.GetWeaponSlots();
             if (kUsed >= kSlots)
             {
+                // 校验失败把默认装备放回去，避免只改内存不存档
+                if (kRemovedDefault)
+                {
+                    kRole.m_EquipIds.Add(RoleTitleRule.DefaultEquipId);
+                }
+
                 Game.Log.LogWarning("[角色] 穿装备失败：" + (kArmor ? "护甲" : "武器") + "槽位已满（"
                     + kUsed + "/" + kSlots + "），当前职称 " + kRole.GetTitleName());
                 return false;
@@ -1171,8 +1275,7 @@ namespace GameMain.Script.Role
             int kEquipAtk = 0;
             if (kTables != null)
             {
-                // 装备（含套装效果）
-                Dictionary<int, int> kEquipSetCount = new Dictionary<int, int>();
+                // 装备（新装备表没有套装字段，套装效果暂时不参与计算）
                 for (int i = 0; i < _role.m_EquipIds.Count; i++)
                 {
                     cfg.GameData_Item.EquipData kEquip = kTables.equip == null ? null : kTables.equip.GetOrDefault(_role.m_EquipIds[i]);
@@ -1183,36 +1286,6 @@ namespace GameMain.Script.Role
                     kSnapshot.m_Equips.Add(kEquip);
                     kEquipAtk += kEquip.ATK;
                     kSnapshot.m_Defense += kEquip.DEF;
-                    kSnapshot.m_TotalWeight += kEquip.Weight;
-                    AppendBuffIds(kSnapshot.m_BuffIds, kEquip.Effect);
-
-                    if (kEquip.EquipSet > 0)
-                    {
-                        int kCount;
-                        kEquipSetCount.TryGetValue(kEquip.EquipSet, out kCount);
-                        kEquipSetCount[kEquip.EquipSet] = kCount + 1;
-                    }
-                }
-
-                if (kTables.equip_set != null)
-                {
-                    Dictionary<int, int>.Enumerator kE = kEquipSetCount.GetEnumerator();
-                    while (kE.MoveNext())
-                    {
-                        cfg.GameData_Item.EquipSetData kSet = kTables.equip_set.GetOrDefault(kE.Current.Key);
-                        if (kSet == null)
-                        {
-                            continue;
-                        }
-                        if (kE.Current.Value >= 2)
-                        {
-                            AppendBuffId(kSnapshot.m_BuffIds, kSet.Type1);
-                        }
-                        if (kE.Current.Value >= 3)
-                        {
-                            AppendBuffId(kSnapshot.m_BuffIds, kSet.Type2);
-                        }
-                    }
                 }
 
                 // 勋章（含套装效果）

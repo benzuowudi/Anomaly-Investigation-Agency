@@ -2,24 +2,6 @@
 <component size="1920,1080" designImageLayer="1">
   <displayList>
     <component id="n3_gfwq" name="com_bg" src="gfwq2f" fileName="BackGroundVIew/CommonBgCom.xml" pkg="5wifhyqa" xy="45,40"/>
-    <list id="n2_nye2" name="list_role" xy="84,243" size="1762,695" layout="flow_hz" overflow="scroll" lineGap="15" colGap="10" defaultItem="ui://5wifhyqanye2f" autoClearItems="true">
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-    </list>
+    <component id="n2_nye2" name="list_role" src="qr3qg" fileName="View/RoleListCom.xml" xy="84,243"/>
   </displayList>
 </component>

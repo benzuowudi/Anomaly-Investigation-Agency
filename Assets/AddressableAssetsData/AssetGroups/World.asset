@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: World
+  m_EditorClassIdentifier: 
+  m_GroupName: World
+  m_Data:
+    m_SerializedData: []
+  m_GUID: cc33dd44ee55ff667788990011002200
+  m_SerializeEntries:
+  - m_GUID: bb22cc33dd44ee55ff66778899001100
+    m_Address: ExploreView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb22cc33dd44ee55ff66778899001101
+    m_Address: NodeSettingView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb22cc33dd44ee55ff66778899001105
+    m_Address: ExploreSuccessWindow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb22cc33dd44ee55ff66778899001106
+    m_Address: ExploreFailWindow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4e5f60718293a4b5c6d7e8f9001234a
+    m_Address: World_fui
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - World
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5f60718293a4b5c6d7e8f9001234567
+    m_Address: World_atlas0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - World
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd44ee55ff6677889900aabbccdd0001
+    m_Address: Armory_fui
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb22cc33dd44ee55ff66778899001107
+    m_Address: ArmoryView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3e78d1e36cee5f47924b3ae4f678912
+    m_Address: Inventory_fui
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb22cc33dd44ee55ff66778899001109
+    m_Address: InventoryView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee11bb22cc33dd44ee55ff6677880001
+    m_Address: ui_equip_fist
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee11bb22cc33dd44ee55ff6677880002
+    m_Address: ui_equip_knife
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee11bb22cc33dd44ee55ff6677880003
+    m_Address: ui_equip_gun
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee11bb22cc33dd44ee55ff6677880004
+    m_Address: ui_equip_shield
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee11bb22cc33dd44ee55ff6677880005
+    m_Address: ui_equip_eye
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee11bb22cc33dd44ee55ff6677880006
+    m_Address: ui_equip_flail
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f03275243783f84459f17ea14ec4b776, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: cc33dd44ee55ff667788990011002201, type: 2}
+    - {fileID: 11400000, guid: cc33dd44ee55ff667788990011002202, type: 2}

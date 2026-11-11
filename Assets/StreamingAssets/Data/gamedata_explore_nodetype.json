@@ -1,1 +1,90 @@
-[]
+[
+  {
+    "ID": 1,
+    "name": "战斗",
+    "icon": "ui_node_fight",
+    "desc": "进入自动战斗",
+    "canRest": false,
+    "canUseMule": false,
+    "canEvacuate": false,
+    "sanCost": 5,
+    "autoResolve": false
+  },
+  {
+    "ID": 2,
+    "name": "救援",
+    "icon": "ui_node_rescue",
+    "desc": "救援被困人员/队友",
+    "canRest": false,
+    "canUseMule": false,
+    "canEvacuate": false,
+    "sanCost": 2,
+    "autoResolve": true
+  },
+  {
+    "ID": 3,
+    "name": "物资搜索",
+    "icon": "ui_node_ruins",
+    "desc": "搜刮物资",
+    "canRest": false,
+    "canUseMule": false,
+    "canEvacuate": false,
+    "sanCost": 1,
+    "autoResolve": true
+  },
+  {
+    "ID": 4,
+    "name": "异常现象考察",
+    "icon": "ui_node_abnormal",
+    "desc": "调查异常，影响 SAN",
+    "canRest": false,
+    "canUseMule": false,
+    "canEvacuate": false,
+    "sanCost": 3,
+    "autoResolve": true
+  },
+  {
+    "ID": 5,
+    "name": "异常物品回收",
+    "icon": "ui_node_recycle",
+    "desc": "回收异常物品",
+    "canRest": false,
+    "canUseMule": false,
+    "canEvacuate": false,
+    "sanCost": 3,
+    "autoResolve": true
+  },
+  {
+    "ID": 6,
+    "name": "场景事件",
+    "icon": "ui_node_event",
+    "desc": "选项式事件",
+    "canRest": false,
+    "canUseMule": false,
+    "canEvacuate": false,
+    "sanCost": 1,
+    "autoResolve": true
+  },
+  {
+    "ID": 7,
+    "name": "露营地",
+    "icon": "ui_node_camp",
+    "desc": "恢复/换人/使用机械骡/撤离",
+    "canRest": true,
+    "canUseMule": true,
+    "canEvacuate": true,
+    "sanCost": 0,
+    "autoResolve": true
+  },
+  {
+    "ID": 8,
+    "name": "强敌",
+    "icon": "ui_node_boss",
+    "desc": "更为强力的敌人",
+    "canRest": false,
+    "canUseMule": false,
+    "canEvacuate": false,
+    "sanCost": 8,
+    "autoResolve": false
+  }
+]

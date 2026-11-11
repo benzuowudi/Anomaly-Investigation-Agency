@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1761,723">
+  <displayList>
+    <image id="n4_qd3i" name="n4" src="vccf3" fileName="Texture/ui_bg_common_1.png" pkg="5wifhyqa" xy="0,0" size="1761,723"/>
+    <image id="n5_qd3i" name="n5" src="vccf1" fileName="Texture/ui_bg_common_2.png" pkg="5wifhyqa" xy="11,90" size="1734,362"/>
+    <image id="n8_qd3i" name="n8" src="l0611q" fileName="Texture/ui_bg_line.png" pkg="5wifhyqa" xy="11,79" size="1727,5"/>
+    <image id="n15_qd3i" name="n15" src="l0611q" fileName="Texture/ui_bg_line.png" pkg="5wifhyqa" xy="11,530" size="1727,5"/>
+    <text id="n6_qd3i" name="txt_name_chinese" xy="17,11" size="106,68" fontSize="51" color="#636168" text="战场"/>
+    <text id="n7_qd3i" name="txt_name_english" xy="125,33" size="143,49" font="ui://5wifhyqavccf4" fontSize="36" color="#636168" text="BATTLEFIELD"/>
+    <list id="n12_qd3i" name="list_battleField" xy="29,113" size="1690,313" layout="row" colGap="36" defaultItem="ui://5wifhyqaqd3i2q" autoItemSize="false" vAlign="middle" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <text id="n13_qd3i" name="txt_infoname_chinese" xy="17,462" size="106,68" fontSize="51" color="#636168" text="战场"/>
+    <text id="n14_qd3i" name="txt_infoname_engilsh" xy="125,484" size="143,49" font="ui://5wifhyqavccf4" fontSize="36" color="#636168" text="BATTLEFIELD">
+      <relation target="n13_qd3i" sidePair="left-right"/>
+    </text>
+    <text id="n16_qd3i" name="txt_infoDasc" xy="17,546" size="148,49" restrictSize="0,1496,0,0" fontSize="36" color="#636168" text="说明文本"/>
+    <component id="n17_qd3i" name="btn_battle" src="qvtgb" fileName="Button/CommonBtn2.xml" pkg="5wifhyqa" xy="1529,625" size="212,78"/>
+  </displayList>
+</component>

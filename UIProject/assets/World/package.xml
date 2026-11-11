@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="luky3lzg">
   <resources>
-    <component id="xgq70" name="WorldView.xml" path="/View/"/>
-    <component id="xgq71" name="NodeView.xml" path="/View/"/>
+    <component id="xgq70" name="ExploreView.xml" path="/View/" exported="true"/>
+    <component id="xgq71" name="NodeView.xml" path="/View/" exported="true"/>
+    <image id="qd3i2" name="ui_bg_node.png" path="/Texture/"/>
+    <component id="qd3i3" name="ExploreNodeCom.xml" path="/Component/" exported="true"/>
+    <image id="qd3i4" name="ui_node_fight.png" path="/Texture/" exported="true"/>
+    <image id="qd3i5" name="ui_node_boss.png" path="/Texture/" exported="true"/>
+    <image id="qd3i6" name="ui_node_evacuate.png" path="/Texture/" exported="true"/>
+    <image id="qd3i7" name="ui_node_ruins.png" path="/Texture/" exported="true"/>
+    <image id="qd3i8" name="ui_node_abnormal.png" path="/Texture/" exported="true"/>
+    <image id="qd3i9" name="ui_bg_light.png" path="/Texture/"/>
+    <component id="qd3ia" name="NodeSettingView.xml" path="/View/" exported="true"/>
+    <image id="qd3ib" name="ui_node_camp.png" path="/Texture/" exported="true"/>
+    <component id="qd3ie" name="NodePro.xml" path="/Component/"/>
+    <component id="qd3if" name="NodeBattleCom.xml" path="/View/" exported="true"/>
+    <component id="qd3ig" name="ExploreFailWindow.xml" path="/View/" exported="true"/>
+    <component id="qd3ih" name="ExploreSuccessWindow.xml" path="/View/" exported="true"/>
+    <component id="qd3ii" name="NodeInvestigationCom.xml" path="/View/" exported="true"/>
+    <image id="qd3ij" name="ui_node_rescue.png" path="/Texture/" exported="true"/>
+    <component id="qd3ik" name="InvestigationCom.xml" path="/View/" exported="true"/>
+    <image id="qd3il" name="ui_node_recycle.png" path="/Texture/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

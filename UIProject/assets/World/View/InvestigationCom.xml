@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="381,684">
+  <displayList>
+    <image id="n18_qd3i" name="n18" src="nye21y" fileName="Texture/ui_bg_box.png" pkg="5wifhyqa" xy="0,0" size="381,684"/>
+    <image id="n20_qd3i" name="n20" src="l0611q" fileName="Texture/ui_bg_line.png" pkg="5wifhyqa" xy="5,58" size="371,5"/>
+    <image id="n22_qd3i" name="n22" src="l0611q" fileName="Texture/ui_bg_line.png" pkg="5wifhyqa" xy="5,445" size="371,5"/>
+    <text id="n19_qd3i" name="txt_title" xy="10,5" size="226,50" fontSize="37" color="#636168" text="调查地点名称"/>
+    <text id="n21_qd3i" name="txt_desc" xy="10,68" size="124,29" fontSize="20" color="#636168" text="调查地点说明"/>
+    <text id="n23_qd3i" name="txt_title1" xy="10,452" size="144,29" fontSize="20" color="#636168" text="可能获得的物资"/>
+    <list id="n24_qd3i" name="list_item" xy="9,486" size="362,83" layout="row" overflow="scroll" scroll="horizontal" colGap="10" defaultItem="ui://5wifhyqal0611r" autoItemSize="false" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n25_qd3i" name="btn_confirm" src="qvtgb" fileName="Button/CommonBtn2.xml" pkg="5wifhyqa" xy="11,579" size="359,97">
+      <Button title="开始调查 成功率85%"/>
+    </component>
+  </displayList>
+</component>

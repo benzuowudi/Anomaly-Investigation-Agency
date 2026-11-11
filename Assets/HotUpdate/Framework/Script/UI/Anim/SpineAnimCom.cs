@@ -63,6 +63,8 @@ namespace Framework.Script.UI.Anim
         protected float m_FitHeight;
         private bool m_NeedApplyLayout;
         private int m_LayoutRetry;
+        /// <summary>同一套 Fit 参数是否已经成功应用过（动画姿态变化后不再重算，避免来回缩放）</summary>
+        private bool m_FitApplied;
 
         /// <summary>动画播完回调（参数：动画名）</summary>
         public event Action<string> onComplete;
@@ -89,6 +91,28 @@ namespace Framework.Script.UI.Anim
             base.ConstructFromXML(_xml);
 
             m_Mount = GetChild(c_MountNodeName).asGraph;
+            if (m_Mount == null)
+            {
+                // 兼容 FGUI 里把挂点节点改名的情况：退而取第一个 graph 子节点
+                for (int i = 0; i < numChildren; i++)
+                {
+                    m_Mount = GetChildAt(i) as GGraph;
+                    if (m_Mount != null)
+                    {
+                        break;
+                    }
+                }
+
+                if (m_Mount != null)
+                {
+                    Debug.LogWarning("[SpineAnimCom] 挂点 " + c_MountNodeName +
+                        " 不存在，改用第一个 graph 节点：" + m_Mount.name);
+                }
+                else
+                {
+                    Debug.LogError("[SpineAnimCom] 找不到挂点 graph：" + name);
+                }
+            }
 
             m_Holder = new GameObject("UIAnimHolder");
             m_Wrapper = new GoWrapper();
@@ -98,7 +122,10 @@ namespace Framework.Script.UI.Anim
             // cloneMaterial = true：GoWrapper 会把材质 renderQueue 改成 3000，
             // 用共享材质会污染同资源的其它界面，这里让它自己复制一份。
             m_Wrapper.SetWrapTarget(m_Holder, true);
-            m_Mount.SetNativeObject(m_Wrapper);
+            if (m_Mount != null)
+            {
+                m_Mount.SetNativeObject(m_Wrapper);
+            }
         }
 
         public override void Dispose()
@@ -182,6 +209,7 @@ namespace Framework.Script.UI.Anim
             m_Player = null;
             m_Address = null;
             m_NeedApplyLayout = false;
+            m_FitApplied = false;
         }
 
         /// <summary>把播放器挂到 UI 挂点下面，并把渲染器交给 GoWrapper 管理</summary>
@@ -206,6 +234,7 @@ namespace Framework.Script.UI.Anim
 
             m_NeedApplyLayout = true;
             m_LayoutRetry = 0;
+            m_FitApplied = false;
             ApplyLayout();
         }
 
@@ -346,10 +375,23 @@ namespace Framework.Script.UI.Anim
         public void SetFit(UIAnimFit _fit, float _width = 0f, float _height = 0f,
             UIAnimAnchor _anchor = UIAnimAnchor.BottomCenter)
         {
+            bool kSame = m_FitApplied
+                && m_Fit == _fit
+                && Mathf.Approximately(m_FitWidth, _width)
+                && Mathf.Approximately(m_FitHeight, _height)
+                && m_Anchor == _anchor;
+
             m_Fit = _fit;
             m_FitWidth = _width;
             m_FitHeight = _height;
             m_Anchor = _anchor;
+
+            // 参数没变、且已经按这套参数摆好，就不要再按当前动画姿态重新算一次缩放
+            if (kSame)
+            {
+                return;
+            }
+
             m_NeedApplyLayout = true;
             m_LayoutRetry = 0;
             ApplyLayout();
@@ -444,6 +486,7 @@ namespace Framework.Script.UI.Anim
 
             m_NeedApplyLayout = false;
             m_LayoutRetry = 0;
+            m_FitApplied = true;
         }
 
         private Vector2 GetFitTarget()

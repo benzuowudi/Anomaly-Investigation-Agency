@@ -1,49 +1,53 @@
 using FairyGUI;
 using FairyGUI.Utils;
+using Framework.Script.UI.Anim;
 using GameMain.Script.Role;
-using UnityEngine;
 using cfg.GameData_Skill;
 
 namespace GameMain.Script.UI
 {
     /// <summary>
-    /// 角色列表 / 招募结果里的单张角色卡（FairyGUI 包 Base / RoleCardCom）。
+    /// 角色列表 / 招募结果里的单张角色卡（FairyGUI 包 Base / RoleCardCom，209×323）。
     ///
-    /// 展示：NO、竖排姓名、角色立绘、职称徽章、主动技能 / 被动天赋图标。
-    /// 两个技能位的图标都来自配置（skill.icon / talent.icon），资源发在 CommonUI 包；
-    /// 技能 / 天赋为空时用 Base 包的 ui_icon_cross 占位。
+    /// 新结构（2026-11-11）：
+    ///   n15         遮罩
+    ///   n0/n14      卡面与底部色块
+    ///   com_anim    RoleAnimCom（Spine，底边中心对齐）
+    ///   com_pos     职称徽章
+    ///   txt_name / txt_NO
+    ///   com_equip   装备格（CommonItemCom，54×54）
+    ///   com_skill_1 主动技能格（CommonItemCom）
+    ///   com_skill_2 被动天赋格（CommonItemCom）
+    ///
+    /// 骨架暂时统一用 role1，皮肤按角色 ID 在 01~03 之间轮换。
     /// </summary>
     public class RoleCardCom : GComponent
     {
-        /// <summary>角色卡立绘，按角色 ID 轮换（角色配置接入立绘字段后可替换）</summary>
-        private static readonly string[] c_CardImages =
-        {
-            "ui://Role/img_longnai_card",
-            "ui://Role/img_hutao_card",
-            "ui://Role/img_qianshu_card",
-            "ui://Role/img_ruixi_card",
-        };
+        /// <summary>角色骨架地址（现有资源只有 role1）</summary>
+        private const string c_SpineAddress = "role1";
 
-        private GLoader load_role;
+        /// <summary>动画在卡面里的目标区域（宽、高，等比缩放）</summary>
+        private const float c_AnimWidth = 190f;
+        private const float c_AnimHeight = 300f;
+
+        private RoleAnimCom com_anim;
         private CommonPosCom com_pos;
         private GTextField txt_name, txt_NO;
-        private CommonSkillIconCom com_skill_1, com_skill_2;
+        private CommonItemCom com_equip, com_skill_1, com_skill_2;
         private Controller controller_state;
 
-        public override void ConstructFromXML(XML xml)
+        public override void ConstructFromXML(XML _xml)
         {
-            base.ConstructFromXML(xml);
+            base.ConstructFromXML(_xml);
 
             controller_state = GetController("state");
-            load_role = GetChild("load_role").asLoader;
-            load_role.fill = FillType.Scale;
-            // 构造时 Role 包可能还没加载，先清空默认 URL，等 SetCom 时再设置
-            load_role.url = null;
+            com_anim = GetChild("com_anim") as RoleAnimCom;
             com_pos = GetChild("com_pos") as CommonPosCom;
             txt_name = GetChild("txt_name").asTextField;
             txt_NO = GetChild("txt_NO").asTextField;
-            com_skill_1 = GetChild("com_skill_1") as CommonSkillIconCom;
-            com_skill_2 = GetChild("com_skill_2") as CommonSkillIconCom;
+            com_equip = GetChild("com_equip") as CommonItemCom;
+            com_skill_1 = GetChild("com_skill_1") as CommonItemCom;
+            com_skill_2 = GetChild("com_skill_2") as CommonItemCom;
         }
 
         /// <summary>page 0 选中，page 1 未选中（带黑色半透明遮罩）</summary>
@@ -59,25 +63,77 @@ namespace GameMain.Script.UI
 
         public void SetCom(RoleRecord _role)
         {
+            if (_role == null)
+            {
+                txt_NO.text = string.Empty;
+                txt_name.text = string.Empty;
+                com_equip.SetCom(CommonItemCom.StateEmpty);
+                com_skill_1.SetCom(CommonItemCom.StateEmpty);
+                com_skill_2.SetCom(CommonItemCom.StateEmpty);
+                return;
+            }
+
             txt_NO.text = "NO." + _role.m_Id.ToString("D4");
             txt_name.text = _role.GetDisplayName();
-            load_role.url = GetCardImage(_role.m_Id);
+
+            // 角色动画：role1 骨架，皮肤按 ID 在 01~03 轮换，等比缩放到卡面区域
+            string kSkin = ((_role.m_Id % 3) + 1).ToString("D2");
+            com_anim.SetRole(c_SpineAddress, null, kSkin);
+            com_anim.SetFit(UIAnimFit.Contain, c_AnimWidth, c_AnimHeight, UIAnimAnchor.BottomCenter);
 
             com_pos.SetCom(_role.GetTitleName(), (int)_role.GetTitleLevel());
 
-            // 两个技能位：左 = 主动技能（skill 表），右 = 被动天赋（talent 表，策划文档里的“被动技能”）
-            // 没有技能/天赋时用 Base 包的 ui_icon_cross 占位
+            // 装备格：优先显示非护甲武器，没有就显示第一件
+            cfg.GameData_Item.EquipData kEquip = PickEquip(_role);
+            if (kEquip == null)
+            {
+                com_equip.SetCom(CommonItemCom.StateEmpty);
+            }
+            else
+            {
+                com_equip.SetEquip(kEquip.ID);
+            }
+
+            // 主动技能 / 被动天赋
             SkillData kActive = RoleSystem.GetSkill(_role.m_ActiveSkillId);
-            com_skill_1.SetIconOrPlaceholder(kActive != null ? kActive.Icon : null);
+            if (kActive == null)
+            {
+                com_skill_1.SetCom(CommonItemCom.StateEmpty);
+            }
+            else
+            {
+                com_skill_1.SetCom(CommonItemCom.StateItem, kActive.Icon, 1, kActive.Name);
+            }
 
             TalentData kTalent = RoleSystem.GetTalent(_role.m_TalentId);
-            com_skill_2.SetIconOrPlaceholder(kTalent != null ? kTalent.Icon : null);
+            if (kTalent == null)
+            {
+                com_skill_2.SetCom(CommonItemCom.StateEmpty);
+            }
+            else
+            {
+                com_skill_2.SetCom(CommonItemCom.StateItem, kTalent.Icon, 1, kTalent.Name);
+            }
         }
 
-        private static string GetCardImage(int _roleId)
+        private static cfg.GameData_Item.EquipData PickEquip(RoleRecord _role)
         {
-            int kIndex = Mathf.Abs(_roleId - 1) % c_CardImages.Length;
-            return c_CardImages[kIndex];
+            System.Collections.Generic.List<cfg.GameData_Item.EquipData> kEquips =
+                RoleSystem.GetEquips(_role);
+            if (kEquips == null || kEquips.Count == 0)
+            {
+                return null;
+            }
+
+            for (int i = 0; i < kEquips.Count; i++)
+            {
+                if (!RoleTitleRule.IsArmor(kEquips[i].Type1))
+                {
+                    return kEquips[i];
+                }
+            }
+
+            return kEquips[0];
         }
     }
 }

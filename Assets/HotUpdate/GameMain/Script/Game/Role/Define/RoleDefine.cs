@@ -18,6 +18,8 @@ namespace GameMain.Script.Role
         Debug = 4,
         /// <summary>读档时的批量还原</summary>
         Load = 5,
+        /// <summary>战斗中永久死亡，从名册移除</summary>
+        Death = 6,
     }
 
     /// <summary>
@@ -83,6 +85,9 @@ namespace GameMain.Script.Role
 
         /// <summary>护甲类型（equip.type_1 = 4，头盔/躯干/鞋子三件套）</summary>
         public const int ArmorType1 = 4;
+
+        /// <summary>所有角色获得时默认穿戴的装备（"赤手空拳"）</summary>
+        public const int DefaultEquipId = 5000;
 
         /// <summary>根据评分算职称等级</summary>
         public static RoleTitleLevel GetLevel(int _score)
