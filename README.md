@@ -60,18 +60,17 @@
 
 ### 启动流程
 
-```mermaid
-flowchart TD
-    A[GameAwake 启动] --> B[Game.WarmUp 预热]
-    B --> C[ManagerManager<br/>层节点 / 相机 / 对象池]
-    B --> D[ResManager<br/>Addressables]
-    B --> E[DataManager<br/>Luban 配置表 + 存档]
-    B --> F[ModelManager<br/>业务系统注册 + 读档]
-    B --> G[SoundManager<br/>BGM / SFX]
-    B --> H[UIManager<br/>FairyGUI Stage + 窗口层级]
-    E --> F
-    C --> H
-    G --> H
+```text
+GameAwake 启动
+└─ Game.WarmUp 预热（顺序固定，串行 await）
+   ├─ 1. ManagerManager    层节点 / 相机 / 对象池
+   ├─ 2. ResManager        Addressables
+   ├─ 3. DataManager       Luban 配置表 + 存档
+   ├─ 4. ModelManager      业务系统注册 + 读档（依赖 Data）
+   ├─ 5. LogicManager      逻辑层
+   ├─ 6. OperateManager    操作层
+   ├─ 7. SoundManager      BGM / SFX
+   └─ 8. UIManager         FairyGUI Stage + 窗口层级（依赖 Manager / Sound）
 ```
 
 预热顺序固定为 `Manager → Res → Data → Model → Logic → Operate → Sound → UI`，后面的模块可以直接依赖前面的模块。
